@@ -1,0 +1,21 @@
+<!--
+CUCM List
+-->
+<xml>
+	<servers>
+		<cucm>
+			<name>CUCMLab</name>
+			<version>105</version><!--85, 105, etc.--><!--version of the CUCM-->
+			<ip>10.0.1.172</ip><!--IP of the CUCM server-->
+			<!--AXL parameters-->
+			<axlport>8443</axlport><!--Port to contact the CUCM server using AXL-->
+			<axlusername>PERCELER</axlusername><!--AXL user name to contact the CUCM server-->
+			<axlpassword>CCMCisco92</axlpassword><!--Password of the AXL user in clear !!!!Warning : keep it secret!!!!-->
+			<!--RISPORT parameters-->
+			<risport>8443</risport><!--Port to contact the CUCM server using RISPORT-->
+			<risusername>PERCELER</risusername><!--RISPORT user name to contact the CUCM server-->
+			<rispassword>CCMCisco92</rispassword><!--Password of the RISPORT user in clear !!!!Warning : keep it secret!!!!-->
+			<rismaxphonerequest>500</rismaxphonerequest><!--Max Phone response per request-->
+		</cucm>
+	</servers>
+</xml>

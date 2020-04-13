@@ -1,0 +1,39 @@
+﻿<!--
+Rule to follow to define a parameter :
+<matcher>Name of the parameter:sheet:column:row</matcher>
+if the row is "X+*" it means that the row is X plus as much as necessary to reach the end of the file 
+Example : <matcher>firstname:4:4:4+*</matcher> means that the parameter "firstname" will be found sheet number 4 column 4 and row 4 and plus.
+sheet, row and column start from 0.
+-->
+<xml>
+	<matchers>
+		<!--Gateway-->
+		<matcher>file.gwtype:1:1:1-*</matcher>
+		<matcher>file.gwhostname:1:1:1-*</matcher>
+		<matcher>file.gwcliprofile:1:1:1-*</matcher>
+		<matcher>file.gwoffice:1:1:1-*</matcher>
+		<matcher>file.gwip:1:2:1-*</matcher>
+		<matcher>file.gwmask:1:3:1-*</matcher>
+		<matcher>file.gwgateway:1:4:1-*</matcher>
+		<matcher>file.gwinterface:1:5:1-*</matcher>
+		<matcher>file.gwdomain:1:6:1-*</matcher>
+		<matcher>file.gwprotocol:1:6:1-*</matcher>
+		<matcher>file.gwuser:1:7:1-*</matcher>
+		<matcher>file.gwpassword:1:8:1-*</matcher>
+		<matcher>file.gwntpserver:1:9:1-*</matcher>
+		<matcher>file.gwios:1:10:1-*</matcher>
+		<matcher>file.gwccm1:1:11:1-*</matcher>
+		<matcher>file.gwccm2:1:12:1-*</matcher>
+		<matcher>file.gwccm3:1:13:1-*</matcher>
+		<matcher>file.gwmoh:1:14:1-*</matcher>
+		<matcher>file.gwmaxconf:1:15:1-*</matcher>
+		<matcher>file.gwcardtype1:1:16:1-*</matcher>
+		<matcher>file.gwcardtype2:1:17:1-*</matcher>
+		<matcher>file.gwcardtype3:1:18:1-*</matcher>
+		<matcher>file.gwcardtype4:1:19:1-*</matcher>
+		<matcher>file.gwframing:1:20:1-*</matcher>
+		<matcher>file.gwmac:1:21:1-*</matcher>
+		<matcher>file.gwit:1:22:1-*</matcher>
+		<!--End Gateway-->
+	</matchers>
+</xml>

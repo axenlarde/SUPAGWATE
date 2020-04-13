@@ -1,0 +1,1045 @@
+13/04/2020 - 11:31:46 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 11:31:46 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 11:31:46 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 11:31:46 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.UsefulMethod:112) - Detected JRE version : 1.8.0_31
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.UsefulMethod:321) - Initializing the Device Type list from collection file
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:31:47 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - 0 device type found
+13/04/2020 - 11:31:47 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:393) - Device Type list initialization done
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.UsefulMethod:698) - Initializing the CliProfile list from collection file
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:31:47 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - 0 cliProfiles found in the database
+13/04/2020 - 11:31:47 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:765) - CliProfiles list initialization done
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.UsefulMethod:407) - Initializing the CUCM list from collection file
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:31:47 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - 1 cucm found
+13/04/2020 - 11:31:47 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:451) - CUCM list initialization done
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.UsefulMethod:466) - Initializing the Country list from collection file
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:31:47 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:955) - Item not found : cucm
+13/04/2020 - 11:31:47 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:955) - Item not found : lang
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.UsefulMethod:527) - Failed to load a new Country : No enum constant com.alex.supagwate.utils.Variables.language.
+java.lang.IllegalArgumentException: No enum constant com.alex.supagwate.utils.Variables.language.
+	at java.lang.Enum.valueOf(Unknown Source)
+	at com.alex.supagwate.utils.Variables$language.valueOf(Variables.java:1)
+	at com.alex.supagwate.utils.UsefulMethod.initCountryList(UsefulMethod.java:521)
+	at com.alex.supagwate.utils.UsefulMethod.initDatabase(UsefulMethod.java:306)
+	at com.alex.supagwate.main.Main.<init>(Main.java:60)
+	at com.alex.supagwate.main.Main.main(Main.java:118)
+13/04/2020 - 11:31:47 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - 0 country found
+13/04/2020 - 11:31:47 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:532) - Country list initialization done
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.UsefulMethod:552) - Initializing the office list from collection file
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.UsefulMethod:675) - ERROR while initializing a new office : country could not be empty
+java.lang.Exception: country could not be empty
+	at com.alex.supagwate.office.Office.<init>(Office.java:62)
+	at com.alex.supagwate.utils.UsefulMethod.initOfficeList(UsefulMethod.java:671)
+	at com.alex.supagwate.utils.UsefulMethod.initDatabase(UsefulMethod.java:307)
+	at com.alex.supagwate.main.Main.<init>(Main.java:60)
+	at com.alex.supagwate.main.Main.main(Main.java:118)
+13/04/2020 - 11:31:47 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - 0 office found
+13/04/2020 - 11:31:47 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:680) - Office list initialization done
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.utils.UsefulMethod:890) - Log level found in the configuration file : DEBUG
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : mainmenutitle
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : gatewaymngt
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : sendcmd
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : sendcmdfromprofile
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : compliance
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : upgrade
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : miscmngt
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : profilemngt
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : officemngt
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : cucmmngt
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : exit
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : tools
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : option
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : genprofilefile
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : help
+13/04/2020 - 11:31:47 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : about
+13/04/2020 - 11:31:47 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.UsefulMethod:112) - Detected JRE version : 1.8.0_31
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.UsefulMethod:321) - Initializing the Device Type list from collection file
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:32:37 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - 0 device type found
+13/04/2020 - 11:32:37 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:393) - Device Type list initialization done
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.UsefulMethod:698) - Initializing the CliProfile list from collection file
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:32:37 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - 0 cliProfiles found in the database
+13/04/2020 - 11:32:37 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:765) - CliProfiles list initialization done
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.UsefulMethod:407) - Initializing the CUCM list from collection file
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:32:37 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - 1 cucm found
+13/04/2020 - 11:32:37 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:451) - CUCM list initialization done
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.UsefulMethod:466) - Initializing the Country list from collection file
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:32:37 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:955) - Item not found : cucm
+13/04/2020 - 11:32:37 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:955) - Item not found : lang
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.UsefulMethod:527) - Failed to load a new Country : No enum constant com.alex.supagwate.utils.Variables.language.
+java.lang.IllegalArgumentException: No enum constant com.alex.supagwate.utils.Variables.language.
+	at java.lang.Enum.valueOf(Unknown Source)
+	at com.alex.supagwate.utils.Variables$language.valueOf(Variables.java:1)
+	at com.alex.supagwate.utils.UsefulMethod.initCountryList(UsefulMethod.java:521)
+	at com.alex.supagwate.utils.UsefulMethod.initDatabase(UsefulMethod.java:306)
+	at com.alex.supagwate.main.Main.<init>(Main.java:60)
+	at com.alex.supagwate.main.Main.main(Main.java:118)
+13/04/2020 - 11:32:37 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - 0 country found
+13/04/2020 - 11:32:37 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:532) - Country list initialization done
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.UsefulMethod:552) - Initializing the office list from collection file
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.UsefulMethod:675) - ERROR while initializing a new office : country could not be empty
+java.lang.Exception: country could not be empty
+	at com.alex.supagwate.office.Office.<init>(Office.java:62)
+	at com.alex.supagwate.utils.UsefulMethod.initOfficeList(UsefulMethod.java:671)
+	at com.alex.supagwate.utils.UsefulMethod.initDatabase(UsefulMethod.java:307)
+	at com.alex.supagwate.main.Main.<init>(Main.java:60)
+	at com.alex.supagwate.main.Main.main(Main.java:118)
+13/04/2020 - 11:32:37 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - 0 office found
+13/04/2020 - 11:32:37 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:680) - Office list initialization done
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.utils.UsefulMethod:890) - Log level found in the configuration file : DEBUG
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : mainmenutitle
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : gatewaymngt
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : sendcmd
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : sendcmdfromprofile
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : compliance
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : upgrade
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : miscmngt
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : profilemngt
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : officemngt
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : cucmmngt
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : exit
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : tools
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : option
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : genprofilefile
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : help
+13/04/2020 - 11:32:37 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : about
+13/04/2020 - 11:32:37 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 11:32:41 - [INFO] (com.alex.supagwate.gui.MainWindow:220) - The user exit the application willfully
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.UsefulMethod:112) - Detected JRE version : 1.8.0_31
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.UsefulMethod:321) - Initializing the Device Type list from collection file
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:33:07 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - 0 device type found
+13/04/2020 - 11:33:07 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:393) - Device Type list initialization done
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.UsefulMethod:698) - Initializing the CliProfile list from collection file
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:33:07 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - 0 cliProfiles found in the database
+13/04/2020 - 11:33:07 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:765) - CliProfiles list initialization done
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.UsefulMethod:407) - Initializing the CUCM list from collection file
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:33:07 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - 1 cucm found
+13/04/2020 - 11:33:07 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:451) - CUCM list initialization done
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.UsefulMethod:466) - Initializing the Country list from collection file
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:33:07 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:955) - Item not found : cucm
+13/04/2020 - 11:33:07 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:955) - Item not found : lang
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.UsefulMethod:527) - Failed to load a new Country : No enum constant com.alex.supagwate.utils.Variables.language.
+java.lang.IllegalArgumentException: No enum constant com.alex.supagwate.utils.Variables.language.
+	at java.lang.Enum.valueOf(Unknown Source)
+	at com.alex.supagwate.utils.Variables$language.valueOf(Variables.java:1)
+	at com.alex.supagwate.utils.UsefulMethod.initCountryList(UsefulMethod.java:521)
+	at com.alex.supagwate.utils.UsefulMethod.initDatabase(UsefulMethod.java:306)
+	at com.alex.supagwate.main.Main.<init>(Main.java:60)
+	at com.alex.supagwate.main.Main.main(Main.java:118)
+13/04/2020 - 11:33:07 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - 0 country found
+13/04/2020 - 11:33:07 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:532) - Country list initialization done
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.UsefulMethod:552) - Initializing the office list from collection file
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.UsefulMethod:675) - ERROR while initializing a new office : country could not be empty
+java.lang.Exception: country could not be empty
+	at com.alex.supagwate.office.Office.<init>(Office.java:62)
+	at com.alex.supagwate.utils.UsefulMethod.initOfficeList(UsefulMethod.java:671)
+	at com.alex.supagwate.utils.UsefulMethod.initDatabase(UsefulMethod.java:307)
+	at com.alex.supagwate.main.Main.<init>(Main.java:60)
+	at com.alex.supagwate.main.Main.main(Main.java:118)
+13/04/2020 - 11:33:07 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - 0 office found
+13/04/2020 - 11:33:07 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:680) - Office list initialization done
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.utils.UsefulMethod:890) - Log level found in the configuration file : DEBUG
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : mainmenutitle
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : gatewaymngt
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : sendcmd
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : sendcmdfromprofile
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : compliance
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : upgrade
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : miscmngt
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : profilemngt
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : officemngt
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : cucmmngt
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : exit
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : tools
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : option
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : genprofilefile
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : help
+13/04/2020 - 11:33:07 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : about
+13/04/2020 - 11:33:07 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 11:33:10 - [INFO] (com.alex.supagwate.gui.MainWindow:220) - The user exit the application willfully
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.UsefulMethod:112) - Detected JRE version : 1.8.0_31
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.UsefulMethod:321) - Initializing the Device Type list from collection file
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:35 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - 0 device type found
+13/04/2020 - 11:38:35 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:393) - Device Type list initialization done
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.UsefulMethod:698) - Initializing the CliProfile list from collection file
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:35 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - 0 cliProfiles found in the database
+13/04/2020 - 11:38:35 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:765) - CliProfiles list initialization done
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.UsefulMethod:407) - Initializing the CUCM list from collection file
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:35 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - 1 cucm found
+13/04/2020 - 11:38:35 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:451) - CUCM list initialization done
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.UsefulMethod:466) - Initializing the Country list from collection file
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:35 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:955) - Item not found : cucm
+13/04/2020 - 11:38:35 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:955) - Item not found : lang
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.UsefulMethod:527) - Failed to load a new Country : No enum constant com.alex.supagwate.utils.Variables.language.
+java.lang.IllegalArgumentException: No enum constant com.alex.supagwate.utils.Variables.language.
+	at java.lang.Enum.valueOf(Unknown Source)
+	at com.alex.supagwate.utils.Variables$language.valueOf(Variables.java:1)
+	at com.alex.supagwate.utils.UsefulMethod.initCountryList(UsefulMethod.java:521)
+	at com.alex.supagwate.utils.UsefulMethod.initDatabase(UsefulMethod.java:306)
+	at com.alex.supagwate.main.Main.<init>(Main.java:60)
+	at com.alex.supagwate.main.Main.main(Main.java:118)
+13/04/2020 - 11:38:35 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - 0 country found
+13/04/2020 - 11:38:35 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:532) - Country list initialization done
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.UsefulMethod:552) - Initializing the office list from collection file
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.UsefulMethod:675) - ERROR while initializing a new office : country could not be empty
+java.lang.Exception: country could not be empty
+	at com.alex.supagwate.office.Office.<init>(Office.java:62)
+	at com.alex.supagwate.utils.UsefulMethod.initOfficeList(UsefulMethod.java:671)
+	at com.alex.supagwate.utils.UsefulMethod.initDatabase(UsefulMethod.java:307)
+	at com.alex.supagwate.main.Main.<init>(Main.java:60)
+	at com.alex.supagwate.main.Main.main(Main.java:118)
+13/04/2020 - 11:38:35 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - 0 office found
+13/04/2020 - 11:38:35 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:680) - Office list initialization done
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.utils.UsefulMethod:890) - Log level found in the configuration file : DEBUG
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : mainmenutitle
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : gatewaymngt
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : sendcmd
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : sendcmdfromprofile
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : compliance
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : upgrade
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : miscmngt
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : profilemngt
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : officemngt
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : cucmmngt
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : exit
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : tools
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : option
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : genprofilefile
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : help
+13/04/2020 - 11:38:35 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : about
+13/04/2020 - 11:38:35 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 11:38:37 - [INFO] (com.alex.supagwate.gui.MainWindow:220) - The user exit the application willfully
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.UsefulMethod:111) - Detected JRE version : 1.8.0_31
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.UsefulMethod:320) - Initializing the Device Type list from collection file
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:55 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:391) - 0 device type found
+13/04/2020 - 11:38:55 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - Device Type list initialization done
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.UsefulMethod:697) - Initializing the CliProfile list from collection file
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:55 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:763) - 0 cliProfiles found in the database
+13/04/2020 - 11:38:55 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - CliProfiles list initialization done
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.UsefulMethod:406) - Initializing the CUCM list from collection file
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:55 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:449) - 1 cucm found
+13/04/2020 - 11:38:55 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - CUCM list initialization done
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.UsefulMethod:465) - Initializing the Country list from collection file
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:55 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : cucm
+13/04/2020 - 11:38:55 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : lang
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.UsefulMethod:526) - Failed to load a new Country : No enum constant com.alex.supagwate.utils.Variables.language.
+java.lang.IllegalArgumentException: No enum constant com.alex.supagwate.utils.Variables.language.
+	at java.lang.Enum.valueOf(Unknown Source)
+	at com.alex.supagwate.utils.Variables$language.valueOf(Variables.java:1)
+	at com.alex.supagwate.utils.UsefulMethod.initCountryList(UsefulMethod.java:520)
+	at com.alex.supagwate.utils.UsefulMethod.initDatabase(UsefulMethod.java:305)
+	at com.alex.supagwate.main.Main.<init>(Main.java:60)
+	at com.alex.supagwate.main.Main.main(Main.java:118)
+13/04/2020 - 11:38:55 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:530) - 0 country found
+13/04/2020 - 11:38:55 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - Country list initialization done
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.UsefulMethod:551) - Initializing the office list from collection file
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.UsefulMethod:674) - ERROR while initializing a new office : country could not be empty
+java.lang.Exception: country could not be empty
+	at com.alex.supagwate.office.Office.<init>(Office.java:62)
+	at com.alex.supagwate.utils.UsefulMethod.initOfficeList(UsefulMethod.java:670)
+	at com.alex.supagwate.utils.UsefulMethod.initDatabase(UsefulMethod.java:306)
+	at com.alex.supagwate.main.Main.<init>(Main.java:60)
+	at com.alex.supagwate.main.Main.main(Main.java:118)
+13/04/2020 - 11:38:55 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:678) - 0 office found
+13/04/2020 - 11:38:55 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - Office list initialization done
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.utils.UsefulMethod:889) - Log level found in the configuration file : DEBUG
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : mainmenutitle
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : gatewaymngt
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : sendcmd
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : sendcmdfromprofile
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : compliance
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : upgrade
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : miscmngt
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : profilemngt
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : officemngt
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : cucmmngt
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : exit
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : tools
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : option
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : genprofilefile
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : help
+13/04/2020 - 11:38:55 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : about
+13/04/2020 - 11:38:55 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 11:38:58 - [INFO] (com.alex.supagwate.gui.MainWindow:220) - The user exit the application willfully
+13/04/2020 - 11:40:55 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 11:40:55 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 11:40:55 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 11:40:55 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 11:40:55 - [INFO] (com.alex.supagwate.utils.UsefulMethod:111) - Detected JRE version : 1.8.0_31
+13/04/2020 - 11:40:55 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 11:40:55 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.UsefulMethod:320) - Initializing the Device Type list from collection file
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:40:56 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:391) - 0 device type found
+13/04/2020 - 11:40:56 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - Device Type list initialization done
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.UsefulMethod:697) - Initializing the CliProfile list from collection file
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:40:56 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:763) - 0 cliProfiles found in the database
+13/04/2020 - 11:40:56 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - CliProfiles list initialization done
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.UsefulMethod:406) - Initializing the CUCM list from collection file
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:40:56 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:449) - 1 cucm found
+13/04/2020 - 11:40:56 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - CUCM list initialization done
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.UsefulMethod:465) - Initializing the Country list from collection file
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:40:56 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : cucm
+13/04/2020 - 11:40:56 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:530) - 1 country found
+13/04/2020 - 11:40:56 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - Country list initialization done
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.UsefulMethod:551) - Initializing the office list from collection file
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:40:56 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:678) - 1 office found
+13/04/2020 - 11:40:56 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - Office list initialization done
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.utils.UsefulMethod:889) - Log level found in the configuration file : DEBUG
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : mainmenutitle
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : gatewaymngt
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : sendcmd
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : sendcmdfromprofile
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : compliance
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : upgrade
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : miscmngt
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : profilemngt
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : officemngt
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : cucmmngt
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : exit
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : tools
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : option
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : genprofilefile
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : help
+13/04/2020 - 11:40:56 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : about
+13/04/2020 - 11:40:56 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 11:40:58 - [INFO] (com.alex.supagwate.gui.MainWindow:220) - The user exit the application willfully
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.UsefulMethod:111) - Detected JRE version : 1.8.0_31
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.UsefulMethod:320) - Initializing the Device Type list from collection file
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:42:57 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:391) - 0 device type found
+13/04/2020 - 11:42:57 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - Device Type list initialization done
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.UsefulMethod:697) - Initializing the CliProfile list from collection file
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:42:57 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:763) - 0 cliProfiles found in the database
+13/04/2020 - 11:42:57 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - CliProfiles list initialization done
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.UsefulMethod:406) - Initializing the CUCM list from collection file
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:42:57 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:449) - 1 cucm found
+13/04/2020 - 11:42:57 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - CUCM list initialization done
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.UsefulMethod:465) - Initializing the Country list from collection file
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:42:57 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : cucm
+13/04/2020 - 11:42:57 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:530) - 1 country found
+13/04/2020 - 11:42:57 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - Country list initialization done
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.UsefulMethod:551) - Initializing the office list from collection file
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:42:57 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:678) - 1 office found
+13/04/2020 - 11:42:57 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - Office list initialization done
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.UsefulMethod:889) - Log level found in the configuration file : DEBUG
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 11:42:57 - [DEBUG] (com.alex.supagwate.utils.Variables:363) - Initialisation of languageContentList
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.UsefulMethod:267) - Reading of the file : languages.xml
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./languages.xml
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:42:57 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 11:42:57 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 11:43:29 - [INFO] (com.alex.supagwate.gui.MainWindow:195) - About button pressed
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:111) - Detected JRE version : 1.8.0_31
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:320) - Initializing the Device Type list from collection file
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:43:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:391) - 0 device type found
+13/04/2020 - 11:43:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - Device Type list initialization done
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:697) - Initializing the CliProfile list from collection file
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:43:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:763) - 0 cliProfiles found in the database
+13/04/2020 - 11:43:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - CliProfiles list initialization done
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:406) - Initializing the CUCM list from collection file
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:43:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:449) - 1 cucm found
+13/04/2020 - 11:43:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - CUCM list initialization done
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:465) - Initializing the Country list from collection file
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:43:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : cucm
+13/04/2020 - 11:43:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:530) - 1 country found
+13/04/2020 - 11:43:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - Country list initialization done
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:551) - Initializing the office list from collection file
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:43:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:678) - 1 office found
+13/04/2020 - 11:43:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - Office list initialization done
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:889) - Log level found in the configuration file : DEBUG
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 11:43:50 - [DEBUG] (com.alex.supagwate.utils.Variables:363) - Initialisation of languageContentList
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:267) - Reading of the file : languages.xml
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./languages.xml
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 11:43:50 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 11:43:50 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 11:43:51 - [INFO] (com.alex.supagwate.gui.MainWindow:195) - About button pressed
+13/04/2020 - 11:44:07 - [INFO] (com.alex.supagwate.gui.MainWindow:220) - The user exit the application willfully
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.UsefulMethod:111) - Detected JRE version : 1.8.0_31
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.UsefulMethod:320) - Initializing the Device Type list from collection file
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:00:29 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:391) - 0 device type found
+13/04/2020 - 12:00:29 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - Device Type list initialization done
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.UsefulMethod:697) - Initializing the CliProfile list from collection file
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:00:29 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:763) - 0 cliProfiles found in the database
+13/04/2020 - 12:00:29 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - CliProfiles list initialization done
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.UsefulMethod:406) - Initializing the CUCM list from collection file
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:00:29 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:449) - 1 cucm found
+13/04/2020 - 12:00:29 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - CUCM list initialization done
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.UsefulMethod:465) - Initializing the Country list from collection file
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:00:29 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : cucm
+13/04/2020 - 12:00:29 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:530) - 1 country found
+13/04/2020 - 12:00:29 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - Country list initialization done
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.UsefulMethod:551) - Initializing the office list from collection file
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:00:29 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:678) - 1 office found
+13/04/2020 - 12:00:29 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - Office list initialization done
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.UsefulMethod:889) - Log level found in the configuration file : DEBUG
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 12:00:29 - [DEBUG] (com.alex.supagwate.utils.Variables:363) - Initialisation of languageContentList
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.UsefulMethod:267) - Reading of the file : languages.xml
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./languages.xml
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:00:29 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 12:00:29 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 12:00:35 - [INFO] (com.alex.supagwate.gui.MainWindow:220) - The user exit the application willfully
+13/04/2020 - 12:01:42 - [INFO] (com.alex.supagwate.gui.MainWindow:220) - The user exit the application willfully
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.UsefulMethod:111) - Detected JRE version : 1.8.0_31
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.UsefulMethod:320) - Initializing the Device Type list from collection file
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:01:44 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:391) - 0 device type found
+13/04/2020 - 12:01:44 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - Device Type list initialization done
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.UsefulMethod:697) - Initializing the CliProfile list from collection file
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:01:44 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:763) - 0 cliProfiles found in the database
+13/04/2020 - 12:01:44 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - CliProfiles list initialization done
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.UsefulMethod:406) - Initializing the CUCM list from collection file
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:01:44 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:449) - 1 cucm found
+13/04/2020 - 12:01:44 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - CUCM list initialization done
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.UsefulMethod:465) - Initializing the Country list from collection file
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:01:44 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : cucm
+13/04/2020 - 12:01:44 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:530) - 1 country found
+13/04/2020 - 12:01:44 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - Country list initialization done
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.UsefulMethod:551) - Initializing the office list from collection file
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:01:44 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:678) - 1 office found
+13/04/2020 - 12:01:44 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - Office list initialization done
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.UsefulMethod:889) - Log level found in the configuration file : DEBUG
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 12:01:44 - [DEBUG] (com.alex.supagwate.utils.Variables:363) - Initialisation of languageContentList
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.UsefulMethod:267) - Reading of the file : languages.xml
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./languages.xml
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:01:44 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 12:01:44 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 12:01:53 - [INFO] (com.alex.supagwate.gui.MainWindow:220) - The user exit the application willfully
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.UsefulMethod:111) - Detected JRE version : 1.8.0_31
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.UsefulMethod:320) - Initializing the Device Type list from collection file
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:02:59 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:391) - 0 device type found
+13/04/2020 - 12:02:59 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - Device Type list initialization done
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.UsefulMethod:697) - Initializing the CliProfile list from collection file
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:02:59 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:763) - 0 cliProfiles found in the database
+13/04/2020 - 12:02:59 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - CliProfiles list initialization done
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.UsefulMethod:406) - Initializing the CUCM list from collection file
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:02:59 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:449) - 1 cucm found
+13/04/2020 - 12:02:59 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - CUCM list initialization done
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.UsefulMethod:465) - Initializing the Country list from collection file
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:02:59 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : cucm
+13/04/2020 - 12:02:59 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:530) - 1 country found
+13/04/2020 - 12:02:59 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - Country list initialization done
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.UsefulMethod:551) - Initializing the office list from collection file
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:02:59 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:678) - 1 office found
+13/04/2020 - 12:02:59 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - Office list initialization done
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.UsefulMethod:889) - Log level found in the configuration file : DEBUG
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 12:02:59 - [DEBUG] (com.alex.supagwate.utils.Variables:363) - Initialisation of languageContentList
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.UsefulMethod:267) - Reading of the file : languages.xml
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./languages.xml
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:02:59 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 12:02:59 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 12:03:02 - [INFO] (com.alex.supagwate.gui.MainWindow:168) - Send command button pressed
+13/04/2020 - 12:03:02 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : userinjectiontitle
+13/04/2020 - 12:03:19 - [INFO] (com.alex.supagwate.gui.MainWindow:220) - The user exit the application willfully
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:111) - Detected JRE version : 1.8.0_31
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:320) - Initializing the Device Type list from collection file
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:05:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:391) - 0 device type found
+13/04/2020 - 12:05:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - Device Type list initialization done
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:697) - Initializing the CliProfile list from collection file
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:05:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:763) - 0 cliProfiles found in the database
+13/04/2020 - 12:05:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - CliProfiles list initialization done
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:406) - Initializing the CUCM list from collection file
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:05:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:449) - 1 cucm found
+13/04/2020 - 12:05:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - CUCM list initialization done
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:465) - Initializing the Country list from collection file
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:05:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : cucm
+13/04/2020 - 12:05:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:530) - 1 country found
+13/04/2020 - 12:05:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - Country list initialization done
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:551) - Initializing the office list from collection file
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:05:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:678) - 1 office found
+13/04/2020 - 12:05:50 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - Office list initialization done
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:889) - Log level found in the configuration file : DEBUG
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 12:05:50 - [DEBUG] (com.alex.supagwate.utils.Variables:363) - Initialisation of languageContentList
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.UsefulMethod:267) - Reading of the file : languages.xml
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./languages.xml
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:05:50 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 12:05:50 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 12:05:52 - [INFO] (com.alex.supagwate.gui.MainWindow:168) - Send command button pressed
+13/04/2020 - 12:05:52 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : userinjectiontitle
+13/04/2020 - 12:06:16 - [INFO] (com.alex.supagwate.gui.MainWindow:220) - The user exit the application willfully
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.UsefulMethod:111) - Detected JRE version : 1.8.0_31
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.UsefulMethod:320) - Initializing the Device Type list from collection file
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:02 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:391) - 0 device type found
+13/04/2020 - 12:15:02 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - Device Type list initialization done
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.UsefulMethod:697) - Initializing the CliProfile list from collection file
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:02 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:763) - 0 cliProfiles found in the database
+13/04/2020 - 12:15:02 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - CliProfiles list initialization done
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.UsefulMethod:406) - Initializing the CUCM list from collection file
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:02 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:449) - 1 cucm found
+13/04/2020 - 12:15:02 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - CUCM list initialization done
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.UsefulMethod:465) - Initializing the Country list from collection file
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:02 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : cucm
+13/04/2020 - 12:15:02 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:530) - 1 country found
+13/04/2020 - 12:15:02 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - Country list initialization done
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.UsefulMethod:551) - Initializing the office list from collection file
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:02 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:678) - 1 office found
+13/04/2020 - 12:15:02 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - Office list initialization done
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.utils.UsefulMethod:889) - Log level found in the configuration file : DEBUG
+13/04/2020 - 12:15:02 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 12:15:03 - [DEBUG] (com.alex.supagwate.utils.Variables:363) - Initialisation of languageContentList
+13/04/2020 - 12:15:03 - [INFO] (com.alex.supagwate.utils.UsefulMethod:267) - Reading of the file : languages.xml
+13/04/2020 - 12:15:03 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./languages.xml
+13/04/2020 - 12:15:03 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:03 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 12:15:03 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 12:15:05 - [INFO] (com.alex.supagwate.gui.MainWindow:168) - Send command button pressed
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.UsefulMethod:111) - Detected JRE version : 1.8.0_31
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.UsefulMethod:320) - Initializing the Device Type list from collection file
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:42 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:391) - 0 device type found
+13/04/2020 - 12:15:42 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - Device Type list initialization done
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.UsefulMethod:697) - Initializing the CliProfile list from collection file
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:42 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:763) - 0 cliProfiles found in the database
+13/04/2020 - 12:15:42 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - CliProfiles list initialization done
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.UsefulMethod:406) - Initializing the CUCM list from collection file
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:42 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:449) - 1 cucm found
+13/04/2020 - 12:15:42 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - CUCM list initialization done
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.UsefulMethod:465) - Initializing the Country list from collection file
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:42 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : cucm
+13/04/2020 - 12:15:42 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:530) - 1 country found
+13/04/2020 - 12:15:42 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - Country list initialization done
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.UsefulMethod:551) - Initializing the office list from collection file
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:42 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:678) - 1 office found
+13/04/2020 - 12:15:42 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - Office list initialization done
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.utils.UsefulMethod:889) - Log level found in the configuration file : DEBUG
+13/04/2020 - 12:15:42 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 12:15:43 - [DEBUG] (com.alex.supagwate.utils.Variables:363) - Initialisation of languageContentList
+13/04/2020 - 12:15:43 - [INFO] (com.alex.supagwate.utils.UsefulMethod:267) - Reading of the file : languages.xml
+13/04/2020 - 12:15:43 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./languages.xml
+13/04/2020 - 12:15:43 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:15:43 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 12:15:43 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 12:15:45 - [INFO] (com.alex.supagwate.gui.MainWindow:168) - Send command button pressed
+13/04/2020 - 12:16:34 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 12:16:34 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 12:16:34 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 12:16:34 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 12:16:34 - [INFO] (com.alex.supagwate.utils.UsefulMethod:111) - Detected JRE version : 1.8.0_31
+13/04/2020 - 12:16:34 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 12:16:34 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:16:58 - [INFO] (com.alex.supagwate.utils.UsefulMethod:320) - Initializing the Device Type list from collection file
+13/04/2020 - 12:17:05 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:17:05 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:17:06 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:17:06 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.UsefulMethod:111) - Detected JRE version : 1.8.0_31
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.UsefulMethod:320) - Initializing the Device Type list from collection file
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./deviceTypeList.xml
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./deviceTypeList.xml
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:17:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:391) - 2 device type found
+13/04/2020 - 12:17:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - Device Type list initialization done
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.UsefulMethod:697) - Initializing the CliProfile list from collection file
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:17:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:763) - 0 cliProfiles found in the database
+13/04/2020 - 12:17:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - CliProfiles list initialization done
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.UsefulMethod:406) - Initializing the CUCM list from collection file
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:17:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:449) - 1 cucm found
+13/04/2020 - 12:17:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - CUCM list initialization done
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.UsefulMethod:465) - Initializing the Country list from collection file
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:17:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : cucm
+13/04/2020 - 12:17:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:530) - 1 country found
+13/04/2020 - 12:17:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - Country list initialization done
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.UsefulMethod:551) - Initializing the office list from collection file
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:17:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:678) - 1 office found
+13/04/2020 - 12:17:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - Office list initialization done
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.utils.UsefulMethod:889) - Log level found in the configuration file : DEBUG
+13/04/2020 - 12:17:39 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 12:17:40 - [DEBUG] (com.alex.supagwate.utils.Variables:363) - Initialisation of languageContentList
+13/04/2020 - 12:17:40 - [INFO] (com.alex.supagwate.utils.UsefulMethod:267) - Reading of the file : languages.xml
+13/04/2020 - 12:17:40 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./languages.xml
+13/04/2020 - 12:17:40 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:17:40 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 12:17:40 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 12:17:42 - [INFO] (com.alex.supagwate.gui.MainWindow:168) - Send command button pressed
+13/04/2020 - 12:17:42 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : userinjectiontitle
+13/04/2020 - 12:17:46 - [INFO] (com.alex.supagwate.gui.MainWindow:220) - The user exit the application willfully
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.UsefulMethod:111) - Detected JRE version : 1.8.0_31
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.UsefulMethod:320) - Initializing the Device Type list from collection file
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./deviceTypeList.xml
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./deviceTypeList.xml
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:18:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:391) - 2 device type found
+13/04/2020 - 12:18:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - Device Type list initialization done
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.UsefulMethod:697) - Initializing the CliProfile list from collection file
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:18:39 - [ERROR] (com.alex.supagwate.utils.UsefulMethod:759) - ERROR while initializing a new cliProfile : No enum constant com.alex.supagwate.cli.OneLine.cliType.save
+java.lang.IllegalArgumentException: No enum constant com.alex.supagwate.cli.OneLine.cliType.save
+	at java.lang.Enum.valueOf(Unknown Source)
+	at com.alex.supagwate.cli.OneLine$cliType.valueOf(OneLine.java:1)
+	at com.alex.supagwate.utils.UsefulMethod.initCliProfileList(UsefulMethod.java:745)
+	at com.alex.supagwate.utils.UsefulMethod.initDatabase(UsefulMethod.java:303)
+	at com.alex.supagwate.main.Main.<init>(Main.java:60)
+	at com.alex.supagwate.main.Main.main(Main.java:118)
+13/04/2020 - 12:18:39 - [ERROR] (com.alex.supagwate.utils.UsefulMethod:759) - ERROR while initializing a new cliProfile : No enum constant com.alex.supagwate.cli.OneLine.cliType.save
+java.lang.IllegalArgumentException: No enum constant com.alex.supagwate.cli.OneLine.cliType.save
+	at java.lang.Enum.valueOf(Unknown Source)
+	at com.alex.supagwate.cli.OneLine$cliType.valueOf(OneLine.java:1)
+	at com.alex.supagwate.utils.UsefulMethod.initCliProfileList(UsefulMethod.java:745)
+	at com.alex.supagwate.utils.UsefulMethod.initDatabase(UsefulMethod.java:303)
+	at com.alex.supagwate.main.Main.<init>(Main.java:60)
+	at com.alex.supagwate.main.Main.main(Main.java:118)
+13/04/2020 - 12:18:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:763) - 0 cliProfiles found in the database
+13/04/2020 - 12:18:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - CliProfiles list initialization done
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.UsefulMethod:406) - Initializing the CUCM list from collection file
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:18:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:449) - 1 cucm found
+13/04/2020 - 12:18:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - CUCM list initialization done
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.UsefulMethod:465) - Initializing the Country list from collection file
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:18:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : cucm
+13/04/2020 - 12:18:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:530) - 1 country found
+13/04/2020 - 12:18:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - Country list initialization done
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.UsefulMethod:551) - Initializing the office list from collection file
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:18:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:678) - 1 office found
+13/04/2020 - 12:18:39 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - Office list initialization done
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.utils.UsefulMethod:889) - Log level found in the configuration file : DEBUG
+13/04/2020 - 12:18:39 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 12:18:40 - [DEBUG] (com.alex.supagwate.utils.Variables:363) - Initialisation of languageContentList
+13/04/2020 - 12:18:40 - [INFO] (com.alex.supagwate.utils.UsefulMethod:267) - Reading of the file : languages.xml
+13/04/2020 - 12:18:40 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./languages.xml
+13/04/2020 - 12:18:40 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 12:18:40 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 12:18:40 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 12:18:42 - [INFO] (com.alex.supagwate.gui.MainWindow:168) - Send command button pressed
+13/04/2020 - 12:18:42 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : userinjectiontitle
+13/04/2020 - 12:18:45 - [DEBUG] (com.alex.supagwate.gui.OptionPanel:48) - Button launch pressed
+13/04/2020 - 12:18:45 - [DEBUG] (com.alex.supagwate.gui.BaseLaunchPanel:168) - The user choosed to process the following items : 
+13/04/2020 - 12:18:45 - [DEBUG] (com.alex.supagwate.gui.BaseLaunchPanel:171) - - ISR
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.main.Main:29) - 
+
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.main.Main:30) - #### Entering application
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.main.Main:31) - ## Welcome to : SUPAGWATE version 1.0
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.main.Main:32) - ## Author : RATEL Alexandre : 2020
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.utils.UsefulMethod:111) - Detected JRE version : 1.8.0_31
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./configFile.xml
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.utils.UsefulMethod:320) - Initializing the Device Type list from collection file
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./deviceTypeList.xml
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./deviceTypeList.xml
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 23:01:47 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:391) - 2 device type found
+13/04/2020 - 23:01:47 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:392) - Device Type list initialization done
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.utils.UsefulMethod:697) - Initializing the CliProfile list from collection file
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cliProfileList.xml
+13/04/2020 - 23:01:47 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 23:01:48 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : defaultInterCommandTimer
+13/04/2020 - 23:01:48 - [ERROR] (com.alex.supagwate.utils.UsefulMethod:759) - ERROR while initializing a new cliProfile : For input string: ""
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Integer.parseInt(Unknown Source)
+	at java.lang.Integer.parseInt(Unknown Source)
+	at com.alex.supagwate.utils.UsefulMethod.initCliProfileList(UsefulMethod.java:753)
+	at com.alex.supagwate.utils.UsefulMethod.initDatabase(UsefulMethod.java:303)
+	at com.alex.supagwate.main.Main.<init>(Main.java:60)
+	at com.alex.supagwate.main.Main.main(Main.java:118)
+13/04/2020 - 23:01:48 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : defaultInterCommandTimer
+13/04/2020 - 23:01:48 - [ERROR] (com.alex.supagwate.utils.UsefulMethod:759) - ERROR while initializing a new cliProfile : For input string: ""
+java.lang.NumberFormatException: For input string: ""
+	at java.lang.NumberFormatException.forInputString(Unknown Source)
+	at java.lang.Integer.parseInt(Unknown Source)
+	at java.lang.Integer.parseInt(Unknown Source)
+	at com.alex.supagwate.utils.UsefulMethod.initCliProfileList(UsefulMethod.java:753)
+	at com.alex.supagwate.utils.UsefulMethod.initDatabase(UsefulMethod.java:303)
+	at com.alex.supagwate.main.Main.<init>(Main.java:60)
+	at com.alex.supagwate.main.Main.main(Main.java:118)
+13/04/2020 - 23:01:48 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:763) - 0 cliProfiles found in the database
+13/04/2020 - 23:01:48 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:764) - CliProfiles list initialization done
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.UsefulMethod:406) - Initializing the CUCM list from collection file
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./cucmList.xml
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 23:01:48 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:449) - 1 cucm found
+13/04/2020 - 23:01:48 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:450) - CUCM list initialization done
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.UsefulMethod:465) - Initializing the Country list from collection file
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./countryList.xml
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 23:01:48 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:954) - Item not found : cucm
+13/04/2020 - 23:01:48 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:530) - 1 country found
+13/04/2020 - 23:01:48 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:531) - Country list initialization done
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.UsefulMethod:551) - Initializing the office list from collection file
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./officeList.xml
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 23:01:48 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:678) - 1 office found
+13/04/2020 - 23:01:48 - [DEBUG] (com.alex.supagwate.utils.UsefulMethod:679) - Office list initialization done
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.UsefulMethod:889) - Log level found in the configuration file : DEBUG
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.main.Main:101) - Launching Main Window
+13/04/2020 - 23:01:48 - [DEBUG] (com.alex.supagwate.utils.Variables:390) - Initialisation of languageContentList
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.UsefulMethod:267) - Reading of the file : languages.xml
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.xMLReader:31) - File name = ./languages.xml
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.utils.xMLReader:58) - Finished reading
+13/04/2020 - 23:01:48 - [ERROR] (com.alex.supagwate.utils.LanguageManagement:61) - No value found for : getInfo
+13/04/2020 - 23:01:48 - [INFO] (com.alex.supagwate.gui.MainWindow:161) - Main window started
+13/04/2020 - 23:02:03 - [INFO] (com.alex.supagwate.gui.MainWindow:220) - The user exit the application willfully

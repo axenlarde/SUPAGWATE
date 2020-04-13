@@ -1,0 +1,31 @@
+<!--
+office list
+-->
+<xml>
+	<offices>
+		<office>
+			<name>001</name>
+			<templatename>template1</templatename>
+			<fullname>Ivry-sur-seine</fullname>
+			<country>France</country>
+			<internalprefix>331</internalprefix>
+			<receptionnumber>3317500</receptionnumber>
+			<country>France</country>
+			<cucm>CUCMLab</cucm>
+			<voiceipranges>
+				<range>20.79.16.0/21</range>
+			</voiceipranges>
+			<dataipranges>
+				<range>60.79.16.0/21</range>
+			</dataipranges>
+			<didranges>
+				<range>1495914XX</range>
+				<range>1495922XX</range>
+			</didranges>
+			<customsettings>
+				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
+				<incomingcallprefix>1001</incomingcallprefix>
+			</customsettings>
+		</office>
+	</offices>
+</xml>

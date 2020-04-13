@@ -1,0 +1,17 @@
+<!--
+Country list
+-->
+<xml>
+	<countries>
+		<country>
+			<name>France</name>
+			<language>french</language>
+			<e164>33</e164>
+			<time></time>
+			<customsettings>
+				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
+				<incomingcallprefix>1001</incomingcallprefix>
+			</customsettings>
+		</country>
+	</countries>
+</xml>

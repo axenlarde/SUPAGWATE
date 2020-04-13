@@ -1,0 +1,41 @@
+﻿<!--
+Overal configuration file
+-->
+
+<xml>
+	<config>
+		<!--Misc-->
+		<log4j>DEBUG</log4j><!--Logging level : ERROR,INFO,DEBUG-->
+		<language>english</language><!--french,english-->
+		<splitter>+</splitter>
+		<csvsplitter>,</csvsplitter>
+		<pingtimeout>5000</pingtimeout><!--used when trying to reach a device--><!--In millisecond-->
+		<maxpingthread>50</maxpingthread>
+		<maxtaskthread>1</maxtaskthread>
+		<devicepoolprefix>DP_</devicepoolprefix>
+		<maxinfochar>60</maxinfochar>
+		<!--Cli parameters-->
+		<maxclithread>10</maxclithread>
+		<cliconnectiontimeout>10000</cliconnectiontimeout>
+		<logexchange>true</logexchange>
+		<!--Smtp parameters-->
+		<smtpemailenable>true</smtpemailenable>
+		<smtpemailport>25</smtpemailport>
+		<smtpemailprotocol>smtp</smtpemailprotocol>
+		<smtpemailserver>smtp.certiam.cnaf</smtpemailserver>
+		<smtpemail>perceler_noreply@certiam.cnaf</smtpemail>
+		<smtpemailpassword></smtpemailpassword>
+		<smtpemailreceiver>alexandre.ratel@spie.com</smtpemailreceiver><!--One or more destinations separated by a ;-->
+		<!--Web server parameters-->
+		<webserverport>8092</webserverport>
+		<!--Mandatory variables template-->
+		<officename>file.gwoffice</officename>
+		<gwtype>file.gwtype</gwtype>
+		<hostname>file.gwhostname</hostname>
+		<cliprofile>file.gwcliprofile</cliprofile>
+		<gwip>file.gwip</gwip>
+		<protocol>file.gwprotocol</protocol>
+		<user>file.gwuser</user>
+		<password>file.gwpassword</password>
+	</config>
+</xml>

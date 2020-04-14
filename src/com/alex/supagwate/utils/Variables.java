@@ -347,7 +347,7 @@ public class Variables
 			collectionFileName = UsefulMethod.getFilePath(
 					allowedExtensionList,
 					LanguageManagement.getString("collectionfilefetch"),
-					LanguageManagement.getString("selectButton"));
+					LanguageManagement.getString("selectbutton"));
 			}
 		
 		return collectionFileName;

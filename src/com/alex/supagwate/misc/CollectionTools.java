@@ -146,74 +146,58 @@ public class CollectionTools
 		
 		for(int i = 0; i<param.length; i++)
 			{
-			boolean match = false;
-			for(String s : Variables.getMatcherList())
+			String value = null;
+			String pattern = null;
+			
+			if(param[i].contains("*"))
 				{
-				String[] tab = s.split(":");//Example : cucm.firstname:4:4:4+*
-				//tab[0]=cucm.firstname, tab[1]=sheet, tab[2]=column and tab[3]=row
-				
-				if(Pattern.matches(".*"+tab[0]+".*", param[i]))
+				String[] rornot = param[i].split("\\*");
+				pattern = rornot[rornot.length-1];//To remove the regex and keep the pattern
+				}
+			else
+				{
+				pattern = param[i];
+				}
+			
+			if(Pattern.matches(".*office\\..*", pattern))
+				{
+				String officeName = dodoRegex(UsefulMethod.getTargetOption("officename"), currentRow, false);
+				value = UsefulMethod.getOffice(officeName).getString(pattern);
+				}
+			else if(Pattern.matches(".*config\\..*", pattern))
+				{
+				String[] tab = pattern.split("\\.");
+				value = UsefulMethod.getTargetOption(tab[1]);
+				}
+			else if(Pattern.matches(".*file\\..*", pattern))
+				{
+				for(String s : Variables.getMatcherList())
 					{
-					if(param[i].contains("*"))
+					String[] tab = s.split(":");
+					/**
+					 * Example :	cucm.firstname:4:4:4+*
+					 * 				tab[0]=cucm.firstname, tab[1]=sheet, tab[2]=column and tab[3]=row
+					 */
+					if(Pattern.matches(".*"+tab[0]+".*", pattern))
 						{
-						regex.append(getValueWithRegex(param[i], tab[1], tab[2], tab[3], currentRow, emptyException));
+						value = getValue(param[i], tab[1], tab[2], tab[3], currentRow, emptyException);
+						break;
 						}
-					else
-						{
-						regex.append(getValue(param[i], tab[1], tab[2], tab[3], currentRow, emptyException));
-						}
-					match = true;
-					break;
 					}
 				}
 			
-			/**
-			 * Special regex
-			 */
-			if(Pattern.matches(".*office\\..*", param[i]))
+			if(value != null)
 				{
-				String result = "";
-				
-				String lineOfficeName = dodoRegex(UsefulMethod.getTargetOption("officenametemplate"), currentRow, false);
-				
-				if(!lineOfficeName.equals(""))
+				if(param[i].contains("*"))
 					{
-					for(Office office : Variables.getOfficeList())
-						{
-						if(office.getName().equals(lineOfficeName))
-							{
-							//We found the office in the office list so we get the searched value
-							result = office.getString(param[i]);
-							}
-						}
+					//We apply regex
+					Variables.getLogger().debug("Value before "+param[i]+" regex : "+value);
+					value = applyRegex(value, param[i]);
+					Variables.getLogger().debug("Value after applying "+param[i]+" regex : "+value);
 					}
-				
-				if(result.equals(""))
-					{
-					/************
-					 * We didn't find the office so we just return the value as it is
-					 ************/
-					Variables.getLogger().debug("The office '"+lineOfficeName+"' was not found");
-					//Write something if needed
-					}
-				
-				regex.append(applyRegex(result, param[i]));
-				
-				match = true;
+				regex.append(value);
 				}
-			else if(Pattern.matches(".*config\\..*", param[i]))
-				{
-				String[] tab = param[i].split("\\.");
-				String result = UsefulMethod.getTargetOption(tab[1]);
-				regex.append(result);
-				
-				match = true;
-				}
-			
-			/***********/
-			
-			//Default
-			if(!match)
+			else
 				{
 				regex.append(param[i]);
 				}
@@ -250,51 +234,6 @@ public class CollectionTools
 				return "";
 				}
 			}
-		
-		Variables.getLogger().debug("Value for "+param+" without regex : "+value);
-		return value;
-		}
-	
-	
-	/******************************************
-	 * Method used to get a value from the collection file
-	 * and apply special regex
-	 * @throws Exception 
-	 ******************************************/
-	private static String getValueWithRegex(String param, String sheet, String column, String row, int currentRow, boolean emptyException) throws Exception,EmptyValueException
-		{
-		/**
-		 * First we get the Value from the collection file
-		 */
-		int sheetNumber, columnNumber, rowNumber;
-		sheetNumber = Integer.parseInt(sheet);
-		columnNumber = Integer.parseInt(column);
-		rowNumber = getRowNumber(row, currentRow);
-		
-		
-		//Here we get the value from the collection file
-		String value = getValueFromExcelFile(sheetNumber, columnNumber, rowNumber);
-		
-		if(checkEmptyValue(value))
-			{
-			if(emptyException)
-				{
-				throw new EmptyValueException("The requested parameters ("+param+") is empty row : "+rowNumber);
-				}
-			else
-				{
-				return "";
-				}
-			}
-		/*********************/
-		
-		/**
-		 * Second we apply the regex
-		 */
-		Variables.getLogger().debug("Value before "+param+" regex : "+value);
-		value = applyRegex(value, param);
-		Variables.getLogger().debug("Value after applying "+param+" regex : "+value);
-		/**********/
 		
 		return value;
 		}
@@ -888,60 +827,6 @@ public class CollectionTools
 			}
 		
 		return list;
-		}
-	
-	public static String resolveDeviceValue(Device d, String pattern) throws Exception
-		{
-		StringBuffer regex = new StringBuffer("");
-		String[] param = getSplittedValue(pattern, UsefulMethod.getTargetOption("splitter"));
-		
-		for(int i = 0; i<param.length; i++)
-			{
-			String value = null;
-			String pat = null;
-			
-			if(param[i].contains("*"))
-				{
-				String[] rornot = param[i].split("\\*");
-				pat = rornot[rornot.length-1];//To remove the regex and keep the pattern
-				}
-			else
-				{
-				pat = param[i];
-				}
-			
-			if(Pattern.matches(".*device\\..*", pat))
-				{
-				value = d.getString(pat);
-				}
-			else if(Pattern.matches(".*office\\..*", pat))
-				{
-				value = d.getOffice().getString(pat);
-				}
-			else if(Pattern.matches(".*config\\..*", pat))
-				{
-				String[] tab = pat.split("\\.");
-				value = UsefulMethod.getTargetOption(tab[1]);
-				}
-						
-			if(value != null)
-				{
-				if(param[i].contains("*"))
-					{
-					//We apply regex
-					Variables.getLogger().debug("Value before "+param[i]+" regex : "+value);
-					value = applyRegex(value, param[i]);
-					Variables.getLogger().debug("Value after applying "+param[i]+" regex : "+value);
-					}
-				regex.append(value);
-				}
-			else
-				{
-				regex.append(param[i]);
-				}
-			}
-	
-		return regex.toString();
 		}
 	
 	/*2020*//*RATEL Alexandre 8)*/

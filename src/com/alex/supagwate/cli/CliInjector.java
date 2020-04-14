@@ -43,7 +43,7 @@ public class CliInjector extends Thread
 		for(OneLine ol : cliProfile.getCliList())
 			{
 			OneLine l = new OneLine(ol.getCommand(), ol.getType());
-			l.resolve(device);
+			l.resolve();
 			todo.add(l);
 			}
 		}

@@ -42,8 +42,6 @@ public class GwTools
 		String passwordTemplate = UsefulMethod.getTargetOption("password");
 		
 		int lastIndex = CollectionTools.getTheLastIndexOfAColumn(hostNameTemplate);
-		int[] infos = CollectionTools.getMatcherInfo(hostNameTemplate);//To log where we are working
-		
 		
 		/**
 		 * We process the gateway list
@@ -88,7 +86,8 @@ public class GwTools
 						CollectionTools.getValueFromCollectionFile(i, userTemplate, null, true),
 						CollectionTools.getValueFromCollectionFile(i, passwordTemplate, null, true),
 						myO,
-						cliProtocol.valueOf(CollectionTools.getValueFromCollectionFile(i, protocolTemplate, null, true))));
+						cliProtocol.valueOf(CollectionTools.getValueFromCollectionFile(i, protocolTemplate, null, true).toLowerCase()),
+						UsefulMethod.getCliprofile(CollectionTools.getValueFromCollectionFile(i, cliProfileTemplate, null, true))));
 				
 				if(!foundMI)gwList.add(myIO);
 				}
@@ -117,7 +116,7 @@ public class GwTools
 	 */
 	public static Task prepareGWProcess(ArrayList<MainItem> itemToInjectList, actionType type) throws Exception
 		{
-		Variables.getLogger().info("Office "+type.name()+" preparation process begin");
+		Variables.getLogger().info("Office "+type.name()+" preparation process begins");
 		
 		ArrayList<ItemToProcess> myList = new ArrayList<ItemToProcess>();
 		
@@ -125,12 +124,12 @@ public class GwTools
 			{
 			for(ItemToProcess item : mi.getAssociatedItems())
 				{
-				Variables.getLogger().info("Adding the "+item.getType().getName()+" "+item.getName()+" to the list as an "+item.getAction().name()+" todo");
+				Variables.getLogger().info("Adding the "+item.getType().getName()+" "+item.getName()+" to the list as a "+item.getAction().name()+" todo");
 				myList.add(item);
 				}
 			}
 		
-		Variables.getLogger().info("Office "+type.name()+" preparation process end");
+		Variables.getLogger().info("Office "+type.name()+" preparation process ends");
 		
 		//The injection task is ready
 		return new Task(myList);

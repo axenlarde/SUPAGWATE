@@ -14,6 +14,7 @@ Overal configuration file
 		<maxtaskthread>1</maxtaskthread>
 		<devicepoolprefix>DP_</devicepoolprefix>
 		<maxinfochar>60</maxinfochar>
+		<maxdataprocessed>1000</maxdataprocessed>
 		<!--Cli parameters-->
 		<maxclithread>10</maxclithread>
 		<cliconnectiontimeout>10000</cliconnectiontimeout>

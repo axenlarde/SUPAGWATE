@@ -82,8 +82,7 @@ public class Task extends Thread
 					}
 				else
 					{
-					CliInjector clii = ((Device)myToDo).getCliInjector();
-					if(clii != null)cliManager.getCliIList().add(clii);
+					cliManager.getCliIList().add(((Device)myToDo).getCliInjector());
 					}
 				}
 			
@@ -101,7 +100,7 @@ public class Task extends Thread
 					{
 					this.sleep(500);
 					}
-				Variables.getLogger().debug("Cli tasks end");
+				Variables.getLogger().debug("Cli tasks ends");
 				}
 			end = true;
 			Variables.getLogger().info("Task ends");

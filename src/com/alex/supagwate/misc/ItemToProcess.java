@@ -38,6 +38,7 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 		this.name = name;
 		this.id = DigestUtils.md5Hex(patternID);
 		errorList = new ArrayList<ErrorTemplate>();
+		correctionList = new ArrayList<Correction>();
 		status = statusType.init;
 		}
 	
@@ -52,7 +53,7 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 	@Override
 	public void build() throws Exception
 		{
-		Variables.getLogger().debug("Starting build for "+type+" "+name);
+		Variables.getLogger().debug("Starting build for "+type.getName()+" "+name);
 		
 		doBuild();
 		}
@@ -60,7 +61,7 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 	@Override
 	public String getDetailedStatus()
 		{
-		Variables.getLogger().debug("Displaying informations for "+type+" "+name);
+		Variables.getLogger().debug("Displaying informations for "+type.getName()+" "+name);
 		
 		StringBuffer result = new StringBuffer("");
 		/*

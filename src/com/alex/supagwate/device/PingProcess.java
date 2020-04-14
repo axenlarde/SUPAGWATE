@@ -35,7 +35,9 @@ public class PingProcess extends Thread
 		try
 			{
 			InetAddress inet = InetAddress.getByName(ip);
-			return inet.isReachable(timeout);
+			boolean reachable = inet.isReachable(timeout);
+			Variables.getLogger().debug(device.getInfo()+" reachable status : "+reachable);
+			return reachable;
 			}
 		catch (Exception e)
 			{

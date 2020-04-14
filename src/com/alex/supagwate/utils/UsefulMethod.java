@@ -750,7 +750,7 @@ public class UsefulMethod
 					cliProfileList.add(new CliProfile(UsefulMethod.getItemByName("name", tab),
 							deviceType,
 							cliList,
-							Integer.parseInt(UsefulMethod.getItemByName("defaultInterCommandTimer", tab))));
+							Integer.parseInt(UsefulMethod.getItemByName("defaultintercommandtimer", tab))));
 					
 					
 					}
@@ -1221,26 +1221,6 @@ public class UsefulMethod
 			}
 		
 		throw new Exception("No cliProtocol found for protocol : "+protocol);
-		}
-	
-	/*****
-	 * Return a cli profile looking by the profile name then the type
-	 */
-	public static CliProfile getCliProfile(String s) throws Exception
-		{
-		for(CliProfile clip : Variables.getCliProfileList())
-			{
-			if(s.toLowerCase().replaceAll(" ", "").equals(clip.getName().toLowerCase()))return clip;
-			}
-		
-		//If we didn't find the pofile by name, we look for the profile type
-		for(CliProfile clip : Variables.getCliProfileList())
-			{
-			if(s.toLowerCase().replaceAll(" ", "").equals(clip.getDeviceType().getName().toLowerCase()))return clip;
-			}
-		
-		//throw new Exception("No CliProfile found for value : "+s);
-		return null;
 		}
 	
 	/**

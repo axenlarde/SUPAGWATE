@@ -40,9 +40,9 @@ public class OneLine
 	 * To resolve command content with device values
 	 * @throws Exception 
 	 */
-	public void resolve(Device d) throws Exception
+	public void resolve() throws Exception
 		{
-		command = CollectionTools.resolveDeviceValue(d, command);
+		command = CollectionTools.getRawValue(command, null, false);
 		}
 	
 	public String getInfo()

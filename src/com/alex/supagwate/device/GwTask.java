@@ -55,12 +55,16 @@ public class GwTask extends Thread
 			/***************
 			 * Init
 			 */
-			//Collection file checking
+			/**
+			 * Collection file checking
+			 */
 			CollectionFileChecker.checkForCliSending();
 			
 			myWW.getAvancement().setText(" "+LanguageManagement.getString("itemlistbuilding"));
 			
-			//We build the list of gateway which is a list of main items
+			/**
+			 * We build the list of gateway which is a list of main items
+			 */
 			itemToProcessList = GwTools.setGwList(action, myWW);
 			
 			/**

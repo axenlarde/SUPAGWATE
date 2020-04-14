@@ -26,10 +26,17 @@ Language configuration file
 			<mainmenutitle>Menu</mainmenutitle>
 			<gatewaymngt>Gateway</gatewaymngt>
 			<sendcmd>Send quick cli</sendcmd>
+			<tttsendcmd>Do not use any source file to send cli, just what is given by the user</tttsendcmd>
 			<sendcmdfromprofile>Send cli from a profile</sendcmdfromprofile>
+			<tttsendcmdfromprofile>Advanced cli using cliprofile and source file</tttsendcmdfromprofile>
 			<getinfo>Fetch informations</getinfo>
+			<tttgetinfo>Fetch data from the given gateways and write them back in a file</tttgetinfo>
 			<compliance>Check for compliance</compliance>
+			<tttcompliance>Check that the given gateways have all the same configuration and write down a report</tttcompliance>
 			<upgrade>Upgrade</upgrade>
+			<tttupgrade>Upgrade the given gateways</tttupgrade>
+			<advancedwizard>Advanced Wizard</advancedwizard>
+			<tttadvancedwizard>A complete Wizard to help you to get the job done</tttadvancedwizard>
 			<miscmngt>Misc</miscmngt>
 			<profilemngt>Profile</profilemngt>
 			<officemngt>Office</officemngt>
@@ -55,14 +62,12 @@ Language configuration file
 			<taskbuilding>Almost there : Task building in progress</taskbuilding>
 			<pingingdevices>Pinging devices</pingingdevices>
 			<!--Status-->
-			<injected>Injected</injected>
 			<processing>Processing</processing>
 			<waiting>Waiting</waiting>
 			<disabled>Disabled</disabled>
 			<init>Init</init>
-			<deleted>Deleted</deleted>
-			<updated>Updated</updated>
-			<terminated>Terminated</terminated>
+			<done>Done</done>
+			<terminated>Done</terminated>
 			<errorlist>Error list</errorlist>
 			<noerror>No error to report</noerror>
 			<!--Errors-->

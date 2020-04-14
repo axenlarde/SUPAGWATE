@@ -1,11 +1,12 @@
 package com.alex.supagwate.device;
 
 import java.lang.reflect.Field;
+
 import com.alex.supagwate.cli.CliInjector;
+import com.alex.supagwate.cli.CliProfile;
 import com.alex.supagwate.cli.CliProfile.cliProtocol;
 import com.alex.supagwate.misc.ItemToProcess;
 import com.alex.supagwate.office.Office;
-import com.alex.supagwate.utils.LanguageManagement;
 import com.alex.supagwate.utils.UsefulMethod;
 import com.alex.supagwate.utils.Variables;
 import com.alex.supagwate.utils.Variables.actionType;
@@ -29,10 +30,11 @@ public class Device extends ItemToProcess
 	protected Office office;
 	protected reachableStatus reachable;
 	protected CliInjector cliInjector;
+	protected CliProfile cliProfile;
 	protected cliProtocol connexionProtocol;
 	
 	public Device(DeviceType type, String name, actionType action, String ip, String user, String password,
-			Office office, cliProtocol connexionProtocol)
+			Office office, cliProtocol connexionProtocol, CliProfile cliProfile)
 		{
 		super(type, name, name+ip, action);
 		this.ip = ip;
@@ -40,7 +42,8 @@ public class Device extends ItemToProcess
 		this.password = password;
 		this.office = office;
 		this.connexionProtocol = connexionProtocol;
-		
+		this.cliInjector = new CliInjector(this,
+				cliProfile);
 		this.reachable = reachableStatus.unknown;
 		}
 
@@ -49,7 +52,7 @@ public class Device extends ItemToProcess
 		{
 		StringBuffer s = new StringBuffer("");
 		
-		s.append(LanguageManagement.getString(type.getName())+" ");
+		s.append(type.getName()+" ");
 		s.append(ip+" : ");
 		s.append(name);
 		

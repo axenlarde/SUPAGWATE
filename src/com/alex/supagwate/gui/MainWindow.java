@@ -41,6 +41,7 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 	public JMenuItem getInfo;
 	public JMenuItem compliance;
 	public JMenuItem upgrade;
+	public JMenuItem advancedWizard;
 	public JMenuItem exit;
 	public JMenu miscMngt;
 	public JMenuItem profileMngt;
@@ -67,10 +68,17 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 		menu = new JMenu(LanguageManagement.getString("mainmenutitle"));
 		gatewayMngt = new JMenu(LanguageManagement.getString("gatewaymngt"));
 		sendCMD = new JMenuItem(LanguageManagement.getString("sendcmd"));
+		sendCMD.setToolTipText(LanguageManagement.getString("tttsendcmd"));
 		sendCmdFromProfile = new JMenuItem(LanguageManagement.getString("sendcmdfromprofile"));
-		getInfo = new JMenuItem(LanguageManagement.getString("getInfo"));
+		sendCmdFromProfile.setToolTipText(LanguageManagement.getString("tttsendcmdfromprofile"));
+		getInfo = new JMenuItem(LanguageManagement.getString("getinfo"));
+		getInfo.setToolTipText(LanguageManagement.getString("tttgetinfo"));
 		compliance = new JMenuItem(LanguageManagement.getString("compliance"));
+		compliance.setToolTipText(LanguageManagement.getString("tttcompliance"));
 		upgrade = new JMenuItem(LanguageManagement.getString("upgrade"));
+		upgrade.setToolTipText(LanguageManagement.getString("tttupgrade"));
+		advancedWizard = new JMenuItem(LanguageManagement.getString("advancedwizard"));
+		advancedWizard.setToolTipText(LanguageManagement.getString("tttadvancedwizard"));
 		miscMngt = new JMenu(LanguageManagement.getString("miscmngt"));
 		profileMngt = new JMenuItem(LanguageManagement.getString("profilemngt"));
 		officeMngt = new JMenuItem(LanguageManagement.getString("officemngt"));
@@ -117,6 +125,7 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 		gatewayMngt.add(getInfo);
 		gatewayMngt.add(compliance);
 		gatewayMngt.add(upgrade);
+		gatewayMngt.add(advancedWizard);
 		menu.add(gatewayMngt);
 		miscMngt.add(profileMngt);
 		miscMngt.add(officeMngt);
@@ -167,6 +176,12 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 			{
 			Variables.getLogger().info("Send command button pressed");
 			
+			//To be written
+			}
+		else if(evt.getSource() == this.sendCmdFromProfile)
+			{
+			Variables.getLogger().info("Send command from profile button pressed");
+			
 			Variables.setAllowedItemsToProcess(new ArrayList<String>());
 			ArrayList<OptionLine> myOptionList = new ArrayList<OptionLine>();
 			
@@ -176,15 +191,9 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 				}
 			
 			this.getContentPane().removeAll();
-			this.getContentPane().add(new OptionPanel(this, LanguageManagement.getString("userinjectiontitle"), myOptionList, actionType.set));
+			this.getContentPane().add(new OptionPanel(this, LanguageManagement.getString("sendcmdfromprofile"), myOptionList, actionType.set));
 			this.repaint();
 			this.validate();
-			}
-		else if(evt.getSource() == this.sendCmdFromProfile)
-			{
-			Variables.getLogger().info("Send command from profile button pressed");
-			
-			//To be written
 			}
 		else if(evt.getSource() == this.exit)
 			{

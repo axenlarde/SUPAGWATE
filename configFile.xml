@@ -8,7 +8,8 @@ Overal configuration file
 		<log4j>DEBUG</log4j><!--Logging level : ERROR,INFO,DEBUG-->
 		<language>english</language><!--french,english-->
 		<splitter>+</splitter>
-		<csvsplitter>,</csvsplitter>
+		<csvsplitter>;</csvsplitter>
+		<rangesplitter>,</rangesplitter>
 		<pingtimeout>5000</pingtimeout><!--used when trying to reach a device--><!--In millisecond-->
 		<maxpingthread>50</maxpingthread>
 		<maxtaskthread>1</maxtaskthread>

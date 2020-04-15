@@ -5,22 +5,23 @@ office list
 	<offices>
 		<office>
 			<name>001</name>
-			<templatename>template1</templatename>
-			<fullname>Ivry-sur-seine</fullname>
+			<fullname>Ivry</fullname>
 			<country>France</country>
+			<templatename>Template1</templatename>
 			<internalprefix>331</internalprefix>
-			<receptionnumber>3317500</receptionnumber>
-			<country>France</country>
+			<receptionnumber>123456</receptionnumber>
 			<cucm>CUCMLab</cucm>
 			<voiceipranges>
-				<range>20.79.16.0/21</range>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
 			</voiceipranges>
 			<dataipranges>
-				<range>60.79.16.0/21</range>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
 			</dataipranges>
 			<didranges>
-				<range>1495914XX</range>
-				<range>1495922XX</range>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
 			</didranges>
 			<customsettings>
 				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
@@ -29,22 +30,223 @@ office list
 		</office>
 		<office>
 			<name>002</name>
-			<templatename>template1</templatename>
-			<fullname>Genevillier</fullname>
+			<fullname>Gennevilliers</fullname>
 			<country>France</country>
+			<templatename>Template1</templatename>
 			<internalprefix>332</internalprefix>
-			<receptionnumber>3327500</receptionnumber>
-			<country>France</country>
+			<receptionnumber>123457</receptionnumber>
 			<cucm>CUCMLab</cucm>
 			<voiceipranges>
-				<range>20.79.16.0/21</range>
+				<range>20.79.18.0/24</range>
+				<range>20.79.19.0/24</range>
 			</voiceipranges>
 			<dataipranges>
-				<range>60.79.16.0/21</range>
+				<range>20.79.18.0/24</range>
+				<range>20.79.19.0/24</range>
 			</dataipranges>
 			<didranges>
-				<range>1495914XX</range>
-				<range>1495922XX</range>
+				<range>20.79.18.0/24</range>
+				<range>20.79.19.0/24</range>
+			</didranges>
+			<customsettings>
+				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
+				<incomingcallprefix>1001</incomingcallprefix>
+			</customsettings>
+		</office>
+		<office>
+			<name>003</name>
+			<fullname>Paris</fullname>
+			<country>France</country>
+			<templatename>Template1</templatename>
+			<internalprefix>333</internalprefix>
+			<receptionnumber>123458</receptionnumber>
+			<cucm>CUCMLab</cucm>
+			<voiceipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</voiceipranges>
+			<dataipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</dataipranges>
+			<didranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</didranges>
+			<customsettings>
+				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
+				<incomingcallprefix>1001</incomingcallprefix>
+			</customsettings>
+		</office>
+		<office>
+			<name>004</name>
+			<fullname>Versailles</fullname>
+			<country>France</country>
+			<templatename>Template1</templatename>
+			<internalprefix>334</internalprefix>
+			<receptionnumber>123459</receptionnumber>
+			<cucm>CUCMLab</cucm>
+			<voiceipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</voiceipranges>
+			<dataipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</dataipranges>
+			<didranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</didranges>
+			<customsettings>
+				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
+				<incomingcallprefix>1001</incomingcallprefix>
+			</customsettings>
+		</office>
+		<office>
+			<name>005</name>
+			<fullname>Toiry</fullname>
+			<country>France</country>
+			<templatename>Template1</templatename>
+			<internalprefix>335</internalprefix>
+			<receptionnumber>123460</receptionnumber>
+			<cucm>CUCMLab</cucm>
+			<voiceipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</voiceipranges>
+			<dataipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</dataipranges>
+			<didranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</didranges>
+			<customsettings>
+				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
+				<incomingcallprefix>1001</incomingcallprefix>
+			</customsettings>
+		</office>
+		<office>
+			<name>006</name>
+			<fullname>Rambouillet</fullname>
+			<country>France</country>
+			<templatename>Template1</templatename>
+			<internalprefix>336</internalprefix>
+			<receptionnumber>123461</receptionnumber>
+			<cucm>CUCMLab</cucm>
+			<voiceipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</voiceipranges>
+			<dataipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</dataipranges>
+			<didranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</didranges>
+			<customsettings>
+				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
+				<incomingcallprefix>1001</incomingcallprefix>
+			</customsettings>
+		</office>
+		<office>
+			<name>007</name>
+			<fullname>Plaisir</fullname>
+			<country>France</country>
+			<templatename>Template1</templatename>
+			<internalprefix>337</internalprefix>
+			<receptionnumber>123462</receptionnumber>
+			<cucm>CUCMLab</cucm>
+			<voiceipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</voiceipranges>
+			<dataipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</dataipranges>
+			<didranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</didranges>
+			<customsettings>
+				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
+				<incomingcallprefix>1001</incomingcallprefix>
+			</customsettings>
+		</office>
+		<office>
+			<name>008</name>
+			<fullname>Trappes</fullname>
+			<country>France</country>
+			<templatename>Template1</templatename>
+			<internalprefix>338</internalprefix>
+			<receptionnumber>123463</receptionnumber>
+			<cucm>CUCMLab</cucm>
+			<voiceipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</voiceipranges>
+			<dataipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</dataipranges>
+			<didranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</didranges>
+			<customsettings>
+				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
+				<incomingcallprefix>1001</incomingcallprefix>
+			</customsettings>
+		</office>
+		<office>
+			<name>009</name>
+			<fullname>Malakoff</fullname>
+			<country>France</country>
+			<templatename>Template1</templatename>
+			<internalprefix>339</internalprefix>
+			<receptionnumber>123464</receptionnumber>
+			<cucm>CUCMLab</cucm>
+			<voiceipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</voiceipranges>
+			<dataipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</dataipranges>
+			<didranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</didranges>
+			<customsettings>
+				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
+				<incomingcallprefix>1001</incomingcallprefix>
+			</customsettings>
+		</office>
+		<office>
+			<name>010</name>
+			<fullname>Clamart</fullname>
+			<country>France</country>
+			<templatename>Template1</templatename>
+			<internalprefix>340</internalprefix>
+			<receptionnumber>123465</receptionnumber>
+			<cucm>CUCMLab</cucm>
+			<voiceipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</voiceipranges>
+			<dataipranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
+			</dataipranges>
+			<didranges>
+				<range>20.79.16.0/24</range>
+				<range>20.79.17.0/24</range>
 			</didranges>
 			<customsettings>
 				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>

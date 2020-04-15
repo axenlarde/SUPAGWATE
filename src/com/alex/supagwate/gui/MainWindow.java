@@ -18,6 +18,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import com.alex.supagwate.device.DeviceType;
+import com.alex.supagwate.office.OfficeTools;
 import com.alex.supagwate.utils.LanguageManagement;
 import com.alex.supagwate.utils.Position;
 import com.alex.supagwate.utils.Variables;
@@ -150,6 +151,10 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 		//Events
 		sendCMD.addActionListener(this);
 		sendCmdFromProfile.addActionListener(this);
+		getInfo.addActionListener(this);
+		compliance.addActionListener(this);
+		upgrade.addActionListener(this);
+		advancedWizard.addActionListener(this);
 		profileMngt.addActionListener(this);
 		officeMngt.addActionListener(this);
 		cucmMngt.addActionListener(this);
@@ -194,6 +199,12 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 			this.getContentPane().add(new OptionPanel(this, LanguageManagement.getString("sendcmdfromprofile"), myOptionList, actionType.set));
 			this.repaint();
 			this.validate();
+			}
+		else if(evt.getSource() == this.officeMngt)
+			{
+			Variables.getLogger().info("Office management button pressed");
+			
+			OfficeTools.importOfficeListFromCSVFile(this);
 			}
 		else if(evt.getSource() == this.exit)
 			{

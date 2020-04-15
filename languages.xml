@@ -39,7 +39,7 @@ Language configuration file
 			<tttadvancedwizard>A complete Wizard to help you to get the job done</tttadvancedwizard>
 			<miscmngt>Misc</miscmngt>
 			<profilemngt>Profile</profilemngt>
-			<officemngt>Office</officemngt>
+			<officemngt>Import Office List</officemngt>
 			<cucmmngt>CUCM</cucmmngt>
 			<exit>Exit</exit>
 			<tools>Tools</tools>
@@ -61,6 +61,9 @@ Language configuration file
 			<itemlistbuilding>Item list Building in progress</itemlistbuilding>
 			<taskbuilding>Almost there : Task building in progress</taskbuilding>
 			<pingingdevices>Pinging devices</pingingdevices>
+			<toimportoffice>The import file must comply with the following pattern</toimportoffice>
+			<noticeimportoffice>Everything after that will be considered as custom settings</noticeimportoffice>
+			<newofficeimported>New offices have been imported, you must restart to be able to use them</newofficeimported>
 			<!--Status-->
 			<processing>Processing</processing>
 			<waiting>Waiting</waiting>

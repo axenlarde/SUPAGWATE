@@ -98,7 +98,7 @@ public class GwTask extends Thread
 			 ***************/
 			
 			/********************
-			 * Injection
+			 * Process
 			 */
 			myWW.getAvancement().setText(" "+LanguageManagement.getString("taskbuilding"));
 			Task myTask = GwTools.prepareGWProcess(itemToProcessList, action);		

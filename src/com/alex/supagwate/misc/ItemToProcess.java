@@ -30,7 +30,7 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 	/**
 	 * Constructor
 	 */
-	public ItemToProcess(DeviceType type, String name, String patternID, actionType action)
+	public ItemToProcess(DeviceType type, String name, String patternID, actionType action, int index)
 		{
 		super();
 		this.type = type;
@@ -39,6 +39,7 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 		this.id = DigestUtils.md5Hex(patternID);
 		errorList = new ArrayList<ErrorTemplate>();
 		correctionList = new ArrayList<Correction>();
+		this.index = index;
 		status = statusType.init;
 		}
 	
@@ -48,6 +49,7 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 		//Write something if needed
 		
 		doInit();
+		this.setStatus(statusType.waiting);
 		}
 	
 	@Override
@@ -64,30 +66,7 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 		Variables.getLogger().debug("Displaying informations for "+type.getName()+" "+name);
 		
 		StringBuffer result = new StringBuffer("");
-		/*
-		if(errorList.size() > 0)
-			{
-			result.append("Item error list : \r\n");
-			for(ErrorTemplate e : errorList)
-				{
-				result.append("- "+e.getErrorDesc()+"\r\n");
-				}
-			result.append("\r\n");
-			}
 		
-		if(axlList.size() > 0)
-			{
-			result.append("CUCM items : \r\n");
-			for(ItemToInject iti : axlList)
-				{
-				result.append("- "+iti.getName()+" : "+iti.getType().name()+" : "+iti.getStatus().name()+"\r\n");
-				for(ErrorTemplate e : iti.getErrorList())
-					{
-					result.append("	+ "+e+"\r\n");
-					}
-				}
-			result.append("\r\n");
-			}*/
 		result.append(doGetDetailedStatus());
 		
 		return result.toString();

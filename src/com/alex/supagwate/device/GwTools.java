@@ -52,6 +52,14 @@ public class GwTools
 			try
 				{
 				String officeName = CollectionTools.getValueFromCollectionFile(i, officeNameTemplate, null, false);
+				DeviceType dt = UsefulMethod.getDeviceType((CollectionTools.getValueFromCollectionFile(i, deviceTypeTemplate, null, true)));
+				
+				/**
+				 * We process only selected items
+				 */
+				if(!Variables.getAllowedItemsToProcess().contains(dt.getName()))continue;
+				/***************/
+				
 				Office myO = UsefulMethod.getOffice(officeName);
 				
 				MItemOffice myIO = new MItemOffice(myO.getName(), myO.getFullname());
@@ -76,9 +84,6 @@ public class GwTools
 				
 				Variables.getLogger().debug("Processing office : "+myIO.getDescription());
 				
-				DeviceType dt = UsefulMethod.getDeviceType((CollectionTools.getValueFromCollectionFile(i, deviceTypeTemplate, null, true)));
-				if(dt == null)throw new Exception("The device type cannot be empty");
-				
 				myIO.getAssociatedItems().add(new Device(dt,
 						CollectionTools.getValueFromCollectionFile(i, hostNameTemplate, null, true),
 						action,
@@ -87,7 +92,8 @@ public class GwTools
 						CollectionTools.getValueFromCollectionFile(i, passwordTemplate, null, true),
 						myO,
 						cliProtocol.valueOf(CollectionTools.getValueFromCollectionFile(i, protocolTemplate, null, true).toLowerCase()),
-						UsefulMethod.getCliprofile(CollectionTools.getValueFromCollectionFile(i, cliProfileTemplate, null, true))));
+						UsefulMethod.getCliprofile(CollectionTools.getValueFromCollectionFile(i, cliProfileTemplate, null, true)),
+						i));
 				
 				if(!foundMI)gwList.add(myIO);
 				}

@@ -2,6 +2,7 @@ package com.alex.supagwate.device;
 
 import java.net.InetAddress;
 
+import com.alex.supagwate.misc.ErrorTemplate;
 import com.alex.supagwate.utils.Variables;
 import com.alex.supagwate.utils.Variables.reachableStatus;
 
@@ -37,6 +38,7 @@ public class PingProcess extends Thread
 			InetAddress inet = InetAddress.getByName(ip);
 			boolean reachable = inet.isReachable(timeout);
 			Variables.getLogger().debug(device.getInfo()+" reachable status : "+reachable);
+			if(!reachable)device.addError(new ErrorTemplate("The device could not be reached : Ping failed"));
 			return reachable;
 			}
 		catch (Exception e)

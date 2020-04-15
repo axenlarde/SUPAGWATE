@@ -34,9 +34,9 @@ public class Device extends ItemToProcess
 	protected cliProtocol connexionProtocol;
 	
 	public Device(DeviceType type, String name, actionType action, String ip, String user, String password,
-			Office office, cliProtocol connexionProtocol, CliProfile cliProfile)
+			Office office, cliProtocol connexionProtocol, CliProfile cliProfile, int index)
 		{
-		super(type, name, name+ip, action);
+		super(type, name, name+ip, action, index);
 		this.ip = ip;
 		this.user = user;
 		this.password = password;
@@ -79,13 +79,19 @@ public class Device extends ItemToProcess
 	@Override
 	public void doInit() throws Exception
 		{
-		if(reachable.equals(reachableStatus.unreachable))this.setStatus(statusType.disabled);
+		//Write something if needed
 		}
 	
 	//To init the item
 	@Override
 	public void doBuild() throws Exception
 		{
+		/**
+		 * If the ping failed we disable the device
+		 * No point to send command to an unreachable 
+		 */
+		if(reachable.equals(reachableStatus.unreachable))this.setStatus(statusType.disabled);
+		
 		/**
 		 * Then we initialize the CLI list
 		 */

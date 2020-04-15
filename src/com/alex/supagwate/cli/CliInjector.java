@@ -43,7 +43,7 @@ public class CliInjector extends Thread
 		for(OneLine ol : cliProfile.getCliList())
 			{
 			OneLine l = new OneLine(ol.getCommand(), ol.getType());
-			l.resolve();
+			l.resolve(device);
 			todo.add(l);
 			}
 		}
@@ -58,6 +58,8 @@ public class CliInjector extends Thread
 			CliLinker clil = new CliLinker(this);
 			
 			Variables.getLogger().debug(device.getInfo()+" : CLI : command injection starts");
+			
+			clil.connect();//First we initialize the connection
 			for(OneLine l : todo)
 				{
 				try
@@ -75,7 +77,7 @@ public class CliInjector extends Thread
 					device.addError(new ErrorTemplate(device.getInfo()+" : CLI : ERROR whith command : "+l.getInfo()));
 					}
 				}
-			clil.disconnect();
+			clil.disconnect();//Last we disconnect
 			Variables.getLogger().debug(device.getInfo()+" : CLI : command injection ends");
 			}
 		catch (Exception e)

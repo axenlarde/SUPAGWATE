@@ -7,8 +7,6 @@ package com.alex.supagwate.misc;
  */
 public interface ItemToProcessImpl
 	{
-	public void init() throws Exception;//To init the item
-	public void doInit() throws Exception;//Is called in addition of the main method
 	public void build() throws Exception;//To build the item
 	public void doBuild() throws Exception;//Is called in addition of the main method
 	public String getInfo();//To display item info

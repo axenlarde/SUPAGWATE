@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.alex.supagwate.cli.CliInjector;
 import com.alex.supagwate.cli.CliManager;
+import com.alex.supagwate.cli.CliTools;
 import com.alex.supagwate.device.Device;
 import com.alex.supagwate.misc.ErrorTemplate;
 import com.alex.supagwate.misc.ItemToProcess;
@@ -72,6 +73,9 @@ public class Task extends Thread
 		started = true;
 		try
 			{
+			/**
+			 * We fill the CLI Manager
+			 */
 			Variables.getLogger().info("Task begins");
 			
 			for(ItemToProcess myToDo : todoList)
@@ -86,7 +90,9 @@ public class Task extends Thread
 					}
 				}
 			
-			//Execution
+			/**
+			 * Execution
+			 */
 			while(pause)
 				{
 				this.sleep(200);
@@ -104,6 +110,15 @@ public class Task extends Thread
 				}
 			end = true;
 			Variables.getLogger().info("Task ends");
+			
+			/**
+			 * In case of 'get' instruction, we now write the result in a csv file
+			 */
+			CliTools.writeCliGetOutputToCSV();
+			
+			/**
+			 * End
+			 */
 			Variables.closeWorkbook();
 			}
 		catch (Exception e)

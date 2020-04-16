@@ -54,10 +54,8 @@ public class AnswerReceiver extends Thread
 		    		//We save the error in an arraylist. Finally it will be possible to display it.
 		    		//storeErrorInfo("",1);
 		    		}
-		    	else
-		    		{
-		    		Variables.getLogger().debug(info+" : #CLI# "+row);
-		    		}
+		    	
+		    	Variables.getLogger().debug(info+" : #CLI# "+row);
 		    	}
 			/******
 			 * Deletion of the conversation to

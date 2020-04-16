@@ -2,7 +2,10 @@ package com.alex.supagwate.cli;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
+
+import javax.mail.search.ReceivedDateTerm;
 
 import com.alex.supagwate.cli.CliConnection.connectedTech;
 import com.alex.supagwate.cli.CliProfile.cliProtocol;
@@ -65,25 +68,28 @@ public class CliLinker
 		{
 		try
 			{
-			connection = new CliConnection(device.getUser(),
-					device.getPassword(),
-					ip,
-					device.getInfo(),
-					device.getConnexionProtocol(),
-					timeout);
-			
-			connection.connect();
-			out = connection.getOut();
-			receiver = connection.getReceiver();
-			
-			/**
-			 * Using telnet credentials cannot be sent during the connection process
-			 * Instead, we have to send them once connected when prompted
-			 * So we add an extra step
-			 */
-			if(connection.getcTech().equals(connectedTech.telnet))
+			if((connection == null) || (!connection.isConnected()))
 				{
-				telnetAuth();
+				connection = new CliConnection(device.getUser(),
+						device.getPassword(),
+						ip,
+						device.getInfo(),
+						device.getConnexionProtocol(),
+						timeout);
+				
+				connection.connect();
+				out = connection.getOut();
+				receiver = connection.getReceiver();
+				
+				/**
+				 * Using telnet credentials cannot be sent during the connection process
+				 * Instead, we have to send them once connected when prompted
+				 * So we add an extra step
+				 */
+				if(connection.getcTech().equals(connectedTech.telnet))
+					{
+					telnetAuth();
+					}
 				}
 			}
 		catch (Exception e)
@@ -103,7 +109,7 @@ public class CliLinker
 	
 	public void disconnect()
 		{
-		connection.close();
+		if((connection != null) && (connection.isConnected()))connection.close();
 		}
 	
 	public String waitFor(String s) throws ConnectionException, Exception
@@ -176,8 +182,6 @@ public class CliLinker
 	
 	public void write(String s) throws ConnectionException, Exception
 		{
-		if(!connection.isConnected())connect();
-		
 		receiver.getExchange().clear();
 		out.write(s+carrierReturn);
 		out.flush();
@@ -185,19 +189,19 @@ public class CliLinker
 		}
 	
 	/**
-	 * Will write a command and then analyze the result
+	 * Write a command and then analyze the result
 	 * if the result contains the given string we will write the given command
 	 * otherwise will write the other command instead
 	 * 
-	 * The command patternis the following
+	 * The command pattern is the following :
 	 * command to send:::string to compare:::write if the result contains the string to compare:::write if not
 	 * The last parameters is optional. You can write only a:::b:::c
+	 * @throws Exception 
+	 * @throws ConnectionException 
 	 */
-	public void writeIf(String s) throws ConnectionException, Exception
+	public void writeIf(String s) throws ConnectionException, Exception 
 		{
 		String[] cmdTab = s.split(":::");
-		if(!connection.isConnected())connect();
-		
 		receiver.getExchange().clear();
 		out.write(cmdTab[0]+carrierReturn);
 		out.flush();
@@ -212,11 +216,55 @@ public class CliLinker
 			}
 		}
 	
+	/**
+	 * Write a command and then store the result in an output file
+	 * 
+	 * The command pattern is the following :
+	 * Column name:::Command to send:::How many line to store:::Regex to apply to the collected output
+	 * The last two parameters are optional
+	 * If nothing is mentioned we will just collect the first line returned
+	 * 
+	 * Regex will come in a later release
+	 * @throws IOException 
+	 */
+	public void get(String s) throws IOException, Exception
+		{
+		String[] cmdTab = s.split(":::");
+		int howManyToReturn = 2;
+		
+		clii.sleep(100);//Just to be sure we don't get something from the previous command
+		receiver.getExchange().clear();
+		out.write(cmdTab[1]+carrierReturn);
+		out.flush();
+		
+		if(cmdTab.length>2 && Integer.parseInt(cmdTab[2])>2)howManyToReturn = Integer.parseInt(cmdTab[2])+1;
+		waitForAReturn();
+		clii.sleep(100);//We've seen some latency, so better to wait a bit to get the data
+		
+		//We get just what we need
+		StringBuffer replyWanted = new StringBuffer("");
+		for(int i=1;(i<receiver.getExchange().size()) && (i<howManyToReturn); i++)//We start from 1 because the line 0 is just what we've just sent
+			{
+			replyWanted.append(receiver.getExchange().get(i));
+			}
+		
+		//Once we get a return we add it in a CliGetOutput
+		CliGetOutput cgo = UsefulMethod.getCliGetOutput(device);
+		if(cgo == null)
+			{
+			cgo = new CliGetOutput(device);
+			Variables.getCliGetOutputList().add(cgo);
+			}
+		cgo.add(new CliGetOutputEntry(cmdTab[0], replyWanted.toString()));
+		
+		Variables.getLogger().debug(device.getInfo()+" : Data retreived using a 'get' instruction : "+replyWanted.toString());
+		}
+	
 	
 	/**
 	 * Aims to send telnet credentials once prompted
 	 */
-	public void telnetAuth() throws Exception
+	private void telnetAuth() throws Exception
 		{
 		try
 			{
@@ -274,7 +322,7 @@ public class CliLinker
 				}
 			case get:
 				{
-				//To be written
+				get(l.getCommand());
 				break;
 				}
 			case save:

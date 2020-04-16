@@ -204,7 +204,7 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 			{
 			Variables.getLogger().info("Office management button pressed");
 			
-			OfficeTools.importOfficeListFromCSVFile(this);
+			OfficeTools.importOfficeList();
 			}
 		else if(evt.getSource() == this.exit)
 			{

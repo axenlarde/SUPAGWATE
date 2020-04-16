@@ -29,7 +29,7 @@ public class CollectionTools
 	 * Method used to return the pattern
 	 * @throws Exception 
 	 ****************************************/
-	public static String doRegex(String pat, int currentRow, ItemToProcess itm, boolean emptyException) throws Exception
+	private static String doRegex(String pat, int currentRow, ItemToProcess itm, boolean emptyException) throws Exception
 		{
 		/**********
 		 * Add here a special regex detection for too long value
@@ -242,7 +242,7 @@ public class CollectionTools
 	 * Method used to get a value from the collection file
 	 * @throws Exception 
 	 ******************************************/
-	public static String getDirectValueFromCollectionFile(String param, int sheet, int column, int row, boolean emptyException) throws Exception,EmptyValueException
+	public synchronized static String getDirectValueFromCollectionFile(String param, int sheet, int column, int row, boolean emptyException) throws Exception,EmptyValueException
 		{
 		/**
 		 * We get the Value from the collection file
@@ -615,7 +615,7 @@ public class CollectionTools
 	 * - False : We will just get an empty String
 	 * @throws Exception 
 	 */
-	public static String getValueFromCollectionFile(int row, String pattern, ItemToProcess itm, Boolean emptyBehavior) throws Exception
+	public synchronized static String getValueFromCollectionFile(int row, String pattern, ItemToProcess itm, Boolean emptyBehavior) throws Exception
 		{
 		if((pattern == null) || (pattern .equals("")))
 			{
@@ -639,7 +639,7 @@ public class CollectionTools
 	 * - False : We will just get an empty String
 	 * @throws Exception 
 	 */
-	public static String getRawValue(String pattern, ItemToProcess itm, Boolean emptyBehavior) throws Exception
+	public synchronized static String getRawValue(String pattern, ItemToProcess itm, Boolean emptyBehavior) throws Exception
 		{
 		if((pattern == null) || (pattern .equals("")))
 			{
@@ -661,7 +661,7 @@ public class CollectionTools
 	 * a given column
 	 * @throws Exception 
 	 */
-	public static int getTheLastIndexOfAColumn(String matcher) throws Exception
+	public synchronized static int getTheLastIndexOfAColumn(String matcher) throws Exception
 		{
 		Variables.getLogger().debug("Last reachable index research started for the column "+matcher);
 		int i=0;
@@ -697,7 +697,7 @@ public class CollectionTools
 	 * tab[2] : row number
 	 * @throws Exception 
 	 */
-	public static int[] getMatcherInfo(String matcher) throws Exception
+	public synchronized static int[] getMatcherInfo(String matcher) throws Exception
 		{
 		int[] matcherInfos = new int[3];  
 		
@@ -740,7 +740,7 @@ public class CollectionTools
 	 * Return true if the collection file value is empty
 	 * @throws Exception 
 	 */
-	public static boolean isValueFromCollectionFileEmpty(int index, String pattern) throws Exception 
+	public synchronized static boolean isValueFromCollectionFileEmpty(int index, String pattern) throws Exception 
 		{
 		try
 			{
@@ -819,7 +819,7 @@ public class CollectionTools
 	 * @return
 	 * @throws Exception 
 	 */
-	public static ArrayList<String> resolveStringList(ArrayList<String> list, ItemToProcess itm, boolean emptyValueBehavior) throws Exception
+	public synchronized static ArrayList<String> resolveStringList(ArrayList<String> list, ItemToProcess itm, boolean emptyValueBehavior) throws Exception
 		{
 		for(int i= 0; i<list.size(); i++)
 			{

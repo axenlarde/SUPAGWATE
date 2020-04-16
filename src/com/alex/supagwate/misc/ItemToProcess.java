@@ -44,20 +44,12 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 		}
 	
 	@Override
-	public void init() throws Exception
-		{
-		//Write something if needed
-		
-		doInit();
-		this.setStatus(statusType.waiting);
-		}
-	
-	@Override
 	public void build() throws Exception
 		{
 		Variables.getLogger().debug("Starting build for "+type.getName()+" "+name);
 		
 		doBuild();
+		this.setStatus(statusType.waiting);
 		}
 	
 	@Override

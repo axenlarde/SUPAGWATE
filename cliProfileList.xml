@@ -8,7 +8,6 @@ Gateway config file
 			<type>ISR</type>
 			<defaultintercommandtimer>50</defaultintercommandtimer>
 			<config>
-				<connect>device.ip</connect>
 				<write>enable</write>
 				<save></save>
 				<write>reload in 5</write>
@@ -68,7 +67,6 @@ Gateway config file
 			<type>VG</type>
 			<defaultintercommandtimer>50</defaultintercommandtimer>
 			<config>
-				<connect>device.ip</connect>
 				<write>enable</write>
 				<write>configure terminal</write>
 				<write>end</write>
@@ -104,7 +102,6 @@ Gateway config file
 			<type>ISR</type>
 			<defaultintercommandtimer>50</defaultintercommandtimer>
 			<config>
-				<connect>file.gwip</connect>
 				<write>'show run | i '+file.gwccm1</write>
 				<write>show clock</write>
 				<write>configure terminal</write>
@@ -120,7 +117,6 @@ Gateway config file
 			<type>ISR</type>
 			<defaultintercommandtimer>50</defaultintercommandtimer>
 			<config>
-				<connect>file.gwip</connect>
 				<write>'show run | i '+file.gwip</write>
 			</config>
 		</profile>
@@ -129,10 +125,19 @@ Gateway config file
 			<type>ISR</type>
 			<defaultintercommandtimer>50</defaultintercommandtimer>
 			<config>
-				<connect>file.gwip</connect>
 				<write>whoami</write>
 				<write>cd /</write>
 				<write>ls</write>
+			</config>
+		</profile>
+		<profile>
+			<name>TESTGet</name>
+			<type>ISR</type>
+			<defaultintercommandtimer>50</defaultintercommandtimer>
+			<config>
+				<write>show clock</write>
+				<get>Inventory:::show inventory:::1</get>
+				<get>Interface Status:::'show interface '+file.gwinterface1+:::3</get>
 			</config>
 		</profile>
 	</profiles>

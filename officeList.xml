@@ -5,23 +5,21 @@ office list
 	<offices>
 		<office>
 			<name>001</name>
-			<fullname>Ivry</fullname>
+			<fullname>Ivry-sur-seine</fullname>
 			<country>France</country>
-			<templatename>Template1</templatename>
+			<templatename>template1</templatename>
 			<internalprefix>331</internalprefix>
-			<receptionnumber>123456</receptionnumber>
+			<receptionnumber>8888</receptionnumber>
 			<cucm>CUCMLab</cucm>
 			<voiceipranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>20.79.16.0/21</range>
 			</voiceipranges>
 			<dataipranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>60.79.16.0/21</range>
 			</dataipranges>
 			<didranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>1495914XX</range>
+				<range>1495922XX</range>
 			</didranges>
 			<customsettings>
 				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
@@ -30,23 +28,21 @@ office list
 		</office>
 		<office>
 			<name>002</name>
-			<fullname>Gennevilliers</fullname>
+			<fullname>Genevillier</fullname>
 			<country>France</country>
-			<templatename>Template1</templatename>
+			<templatename>template1</templatename>
 			<internalprefix>332</internalprefix>
-			<receptionnumber>123457</receptionnumber>
+			<receptionnumber>3327500</receptionnumber>
 			<cucm>CUCMLab</cucm>
 			<voiceipranges>
-				<range>20.79.18.0/24</range>
-				<range>20.79.19.0/24</range>
+				<range>20.79.16.0/21</range>
 			</voiceipranges>
 			<dataipranges>
-				<range>20.79.18.0/24</range>
-				<range>20.79.19.0/24</range>
+				<range>60.79.16.0/21</range>
 			</dataipranges>
 			<didranges>
-				<range>20.79.18.0/24</range>
-				<range>20.79.19.0/24</range>
+				<range>1495914XX</range>
+				<range>1495922XX</range>
 			</didranges>
 			<customsettings>
 				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
@@ -66,12 +62,12 @@ office list
 				<range>20.79.17.0/24</range>
 			</voiceipranges>
 			<dataipranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>60.79.18.0/24</range>
+				<range>60.79.19.0/24</range>
 			</dataipranges>
 			<didranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>1495914XX</range>
+				<range>1495922XX</range>
 			</didranges>
 			<customsettings>
 				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
@@ -91,12 +87,12 @@ office list
 				<range>20.79.17.0/24</range>
 			</voiceipranges>
 			<dataipranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>60.79.18.0/24</range>
+				<range>60.79.19.0/24</range>
 			</dataipranges>
 			<didranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>1495914XX</range>
+				<range>1495922XX</range>
 			</didranges>
 			<customsettings>
 				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
@@ -116,12 +112,12 @@ office list
 				<range>20.79.17.0/24</range>
 			</voiceipranges>
 			<dataipranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>60.79.18.0/24</range>
+				<range>60.79.19.0/24</range>
 			</dataipranges>
 			<didranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>1495914XX</range>
+				<range>1495922XX</range>
 			</didranges>
 			<customsettings>
 				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
@@ -141,12 +137,12 @@ office list
 				<range>20.79.17.0/24</range>
 			</voiceipranges>
 			<dataipranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>60.79.18.0/24</range>
+				<range>60.79.19.0/24</range>
 			</dataipranges>
 			<didranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>1495914XX</range>
+				<range>1495922XX</range>
 			</didranges>
 			<customsettings>
 				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
@@ -166,12 +162,12 @@ office list
 				<range>20.79.17.0/24</range>
 			</voiceipranges>
 			<dataipranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>60.79.18.0/24</range>
+				<range>60.79.19.0/24</range>
 			</dataipranges>
 			<didranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>1495914XX</range>
+				<range>1495922XX</range>
 			</didranges>
 			<customsettings>
 				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
@@ -191,12 +187,12 @@ office list
 				<range>20.79.17.0/24</range>
 			</voiceipranges>
 			<dataipranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>60.79.18.0/24</range>
+				<range>60.79.19.0/24</range>
 			</dataipranges>
 			<didranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>1495914XX</range>
+				<range>1495922XX</range>
 			</didranges>
 			<customsettings>
 				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
@@ -216,12 +212,12 @@ office list
 				<range>20.79.17.0/24</range>
 			</voiceipranges>
 			<dataipranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>60.79.18.0/24</range>
+				<range>60.79.19.0/24</range>
 			</dataipranges>
 			<didranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>1495914XX</range>
+				<range>1495922XX</range>
 			</didranges>
 			<customsettings>
 				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>
@@ -241,12 +237,12 @@ office list
 				<range>20.79.17.0/24</range>
 			</voiceipranges>
 			<dataipranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>60.79.18.0/24</range>
+				<range>60.79.19.0/24</range>
 			</dataipranges>
 			<didranges>
-				<range>20.79.16.0/24</range>
-				<range>20.79.17.0/24</range>
+				<range>1495914XX</range>
+				<range>1495922XX</range>
 			</didranges>
 			<customsettings>
 				<defaultcallingnumbermask>149597500</defaultcallingnumbermask>

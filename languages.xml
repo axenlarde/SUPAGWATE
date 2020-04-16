@@ -63,7 +63,10 @@ Language configuration file
 			<pingingdevices>Pinging devices</pingingdevices>
 			<toimportoffice>The import file must comply with the following pattern</toimportoffice>
 			<noticeimportoffice>Everything after that will be considered as custom settings</noticeimportoffice>
-			<newofficeimported>New offices have been imported, you must restart to be able to use them</newofficeimported>
+			<appendorreplaceoffice>Would you like to append or replace the new content ?</appendorreplaceoffice>
+			<append>Append</append>
+			<replace>Replace</replace>
+			<newofficeimported>New offices have been imported with success</newofficeimported>
 			<!--Status-->
 			<processing>Processing</processing>
 			<waiting>Waiting</waiting>

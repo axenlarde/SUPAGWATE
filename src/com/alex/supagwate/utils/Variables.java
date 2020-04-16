@@ -12,6 +12,7 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 
+import com.alex.supagwate.cli.CliGetOutput;
 import com.alex.supagwate.cli.CliProfile;
 import com.alex.supagwate.device.DeviceType;
 import com.alex.supagwate.gui.MainWindow;
@@ -118,6 +119,8 @@ public class Variables
     
     //CLI
     private static ArrayList<CliProfile> cliProfileList;
+    private static String cliGetOutputFileName;
+    private static ArrayList<CliGetOutput> cliGetOutputList;
     
     /**************
      * Constructor
@@ -133,6 +136,7 @@ public class Variables
 		deviceTypeListFileName = "deviceTypeList.xml";
 		cliProfileListFileName = "cliProfileList.xml";
 		languageFileName = "languages.xml";
+		cliGetOutputFileName = "CliGetOutput";
 		}
 
 	/**
@@ -169,7 +173,7 @@ public class Variables
 		Variables.softwareVersion = softwareVersion;
 		}
 
-	public static Logger getLogger()
+	public synchronized static Logger getLogger()
 		{
 		return logger;
 		}
@@ -189,7 +193,7 @@ public class Variables
 		Variables.tabConfig = tabConfig;
 		}
 
-	public static ArrayList<Office> getOfficeList()
+	public synchronized static ArrayList<Office> getOfficeList()
 		{
 		return officeList;
 		}
@@ -199,7 +203,7 @@ public class Variables
 		Variables.officeList = officeList;
 		}
 
-	public static ArrayList<CUCM> getCucmList()
+	public synchronized static ArrayList<CUCM> getCucmList()
 		{
 		return cucmList;
 		}
@@ -209,7 +213,7 @@ public class Variables
 		Variables.cucmList = cucmList;
 		}
 
-	public static ArrayList<Country> getCountryList()
+	public synchronized static ArrayList<Country> getCountryList()
 		{
 		return countryList;
 		}
@@ -219,7 +223,7 @@ public class Variables
 		Variables.countryList = countryList;
 		}
 
-	public static ArrayList<DeviceType> getDeviceTypeList()
+	public synchronized static ArrayList<DeviceType> getDeviceTypeList()
 		{
 		return deviceTypeList;
 		}
@@ -319,7 +323,7 @@ public class Variables
 		Variables.cliProfileListFileName = cliProfileListFileName;
 		}
 
-	public static ArrayList<String> getMatcherList() throws Exception
+	public synchronized static ArrayList<String> getMatcherList() throws Exception
 		{
 		if(matcherList == null)
 			{
@@ -358,7 +362,7 @@ public class Variables
 		Variables.collectionFileName = collectionFileName;
 		}
 
-	public static Workbook getMyWorkbook() throws Exception
+	public synchronized static Workbook getMyWorkbook() throws Exception
 		{
 		if(myWorkbook == null)
 			{
@@ -399,7 +403,7 @@ public class Variables
 		Variables.languageContentList = languageContentList;
 		}
 
-	public static ArrayList<CliProfile> getCliProfileList()
+	public synchronized static ArrayList<CliProfile> getCliProfileList()
 		{
 		return cliProfileList;
 		}
@@ -437,6 +441,30 @@ public class Variables
 	public static void setAllowedItemsToProcess(ArrayList<String> allowedItemsToProcess)
 		{
 		Variables.allowedItemsToProcess = allowedItemsToProcess;
+		}
+
+	public static String getCliGetOutputFileName()
+		{
+		return cliGetOutputFileName;
+		}
+
+	public static void setCliGetOutputFileName(String cliGetOutputFileName)
+		{
+		Variables.cliGetOutputFileName = cliGetOutputFileName;
+		}
+
+	public static ArrayList<CliGetOutput> getCliGetOutputList()
+		{
+		if(cliGetOutputList == null)
+			{
+			cliGetOutputList = new ArrayList<CliGetOutput>();
+			}
+		return cliGetOutputList;
+		}
+
+	public static void setCliGetOutputList(ArrayList<CliGetOutput> cliGetOutputList)
+		{
+		Variables.cliGetOutputList = cliGetOutputList;
 		}
 
 	

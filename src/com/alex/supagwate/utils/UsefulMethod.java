@@ -21,10 +21,12 @@ import org.apache.commons.net.util.SubnetUtils.SubnetInfo;
 import org.apache.commons.validator.routines.InetAddressValidator;
 import org.apache.log4j.Level;
 
+import com.alex.supagwate.cli.CliGetOutput;
 import com.alex.supagwate.cli.CliProfile;
 import com.alex.supagwate.cli.CliProfile.cliProtocol;
 import com.alex.supagwate.cli.OneLine.cliType;
 import com.alex.supagwate.cli.OneLine;
+import com.alex.supagwate.device.Device;
 import com.alex.supagwate.device.DeviceType;
 import com.alex.supagwate.misc.SimpleRequest;
 import com.alex.supagwate.office.DidRange;
@@ -590,25 +592,11 @@ public class UsefulMethod
 						{
 						if(tab[j][0].equals("cucm"))
 							{
-							for(CUCM c : Variables.getCucmList())
-								{
-								if(c.getName().equals(tab[j][1]))
-									{
-									cucm = c;
-									break;
-									}
-								}
+							cucm = getCUCM(tab[j][1]);
 							}
 						else if(tab[j][0].equals("country"))
 							{
-							for(Country c : Variables.getCountryList())
-								{
-								if(c.getName().equals(tab[j][1]))
-									{
-									country = c;
-									break;
-									}
-								}
+							country = getCountry(tab[j][1]);
 							}
 						else if(tab[j][0].equals("voiceipranges"))
 							{
@@ -1316,6 +1304,27 @@ public class UsefulMethod
 		}
 	
 	/**
+	 * Used to get an office from the list
+	 * @throws Exception 
+	 */
+	public static Office getOffice(String officeName, boolean throwExceptionIfNotFound) throws Exception
+		{
+		for(Office o : Variables.getOfficeList())
+			{
+			if(o.getName().equals(officeName))return o;
+			}
+		
+		if(throwExceptionIfNotFound)
+			{
+			throw new Exception("The given office was not found : "+officeName);
+			}
+		else
+			{
+			return null;
+			}
+		}
+	
+	/**
 	 * Used to get a deviceType from the list
 	 */
 	public static DeviceType getDeviceType(String deviceTypeName) throws Exception
@@ -1339,6 +1348,47 @@ public class UsefulMethod
 			}
 		
 		throw new Exception("The given cliprofile was not found : "+cliProfileName);
+		}
+	
+	/**
+	 * Used to get a CUCM from the list
+	 * @throws Exception 
+	 */
+	public static CUCM getCUCM(String CUCMName) throws Exception
+		{
+		for(CUCM cucm : Variables.getCucmList())
+			{
+			if(cucm.getName().equals(CUCMName))return cucm;
+			}
+		
+		throw new Exception("The given CUCM was not found : "+CUCMName);
+		}
+	
+	/**
+	 * Used to get a Country from the list
+	 * @throws Exception 
+	 */
+	public static Country getCountry(String CountryName) throws Exception
+		{
+		for(Country c : Variables.getCountryList())
+			{
+			if(c.getName().equals(CountryName))return c;
+			}
+		
+		throw new Exception("The given Country was not found : "+CountryName);
+		}
+	
+	/**
+	 * To get a cligetOutput from the associated device name
+	 */
+	public static CliGetOutput getCliGetOutput(Device d)
+		{
+		for(CliGetOutput cgo : Variables.getCliGetOutputList())
+			{
+			if(cgo.getDevice().getInfo().equals(d.getInfo()))return cgo;
+			}
+		
+		return null;
 		}
 	
 	/*2020*//*RATEL Alexandre 8)*/

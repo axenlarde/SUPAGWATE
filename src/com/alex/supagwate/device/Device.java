@@ -76,12 +76,6 @@ public class Device extends ItemToProcess
 		else return s.toString();
 		}
 	
-	@Override
-	public void doInit() throws Exception
-		{
-		//Write something if needed
-		}
-	
 	//To init the item
 	@Override
 	public void doBuild() throws Exception

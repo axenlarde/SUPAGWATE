@@ -408,7 +408,7 @@ public class CollectionTools
 	 * Method used to apply a regex to a value	
 	 * @throws Exception 
 	 */
-	private static String applyRegex(String newValue, String param) throws Exception
+	public synchronized static String applyRegex(String newValue, String param) throws Exception
 		{
 		try
 			{

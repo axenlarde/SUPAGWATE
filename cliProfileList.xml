@@ -137,7 +137,7 @@ Gateway config file
 			<config>
 				<write>show clock</write>
 				<get>Inventory:::show inventory:::1</get>
-				<get>Interface Status:::'show interface '+file.gwinterface1+:::3</get>
+				<get>Interface Status:::'show interface '+file.gwinterface1+' | i Internet address':::1:::*1S/*</get>
 			</config>
 		</profile>
 	</profiles>

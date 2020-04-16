@@ -10,6 +10,7 @@ import javax.mail.search.ReceivedDateTerm;
 import com.alex.supagwate.cli.CliConnection.connectedTech;
 import com.alex.supagwate.cli.CliProfile.cliProtocol;
 import com.alex.supagwate.device.Device;
+import com.alex.supagwate.misc.CollectionTools;
 import com.alex.supagwate.utils.UsefulMethod;
 import com.alex.supagwate.utils.Variables;
 
@@ -231,6 +232,7 @@ public class CliLinker
 		{
 		String[] cmdTab = s.split(":::");
 		int howManyToReturn = 2;
+		String regex = null;
 		
 		clii.sleep(100);//Just to be sure we don't get something from the previous command
 		receiver.getExchange().clear();
@@ -238,6 +240,7 @@ public class CliLinker
 		out.flush();
 		
 		if(cmdTab.length>2 && Integer.parseInt(cmdTab[2])>2)howManyToReturn = Integer.parseInt(cmdTab[2])+1;
+		if(cmdTab.length>3)regex = cmdTab[3];
 		waitForAReturn();
 		clii.sleep(100);//We've seen some latency, so better to wait a bit to get the data
 		
@@ -255,9 +258,13 @@ public class CliLinker
 			cgo = new CliGetOutput(device);
 			Variables.getCliGetOutputList().add(cgo);
 			}
-		cgo.add(new CliGetOutputEntry(cmdTab[0], replyWanted.toString()));
 		
-		Variables.getLogger().debug(device.getInfo()+" : Data retreived using a 'get' instruction : "+replyWanted.toString());
+		String result = replyWanted.toString();
+		if(regex != null)result = CollectionTools.applyRegex(result, regex);
+		
+		cgo.add(new CliGetOutputEntry(cmdTab[0], result));
+		
+		Variables.getLogger().debug(device.getInfo()+" : Data retreived using a 'get' instruction : "+result);
 		}
 	
 	

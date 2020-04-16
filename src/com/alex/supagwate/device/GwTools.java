@@ -51,7 +51,6 @@ public class GwTools
 			{
 			try
 				{
-				String officeName = CollectionTools.getValueFromCollectionFile(i, officeNameTemplate, null, false);
 				DeviceType dt = UsefulMethod.getDeviceType((CollectionTools.getValueFromCollectionFile(i, deviceTypeTemplate, null, true)));
 				
 				/**
@@ -60,6 +59,30 @@ public class GwTools
 				if(!Variables.getAllowedItemsToProcess().contains(dt.getName()))continue;
 				/***************/
 				
+				/**
+				 * We check for duplicates
+				 */
+				String deviceName = CollectionTools.getValueFromCollectionFile(i, hostNameTemplate, null, true);
+				String IP = CollectionTools.getValueFromCollectionFile(i, gwIPTemplate, null, true);
+				boolean found = false;
+				for(MainItem mi : gwList)
+					{
+					for(ItemToProcess itp : mi.getAssociatedItems())
+						{
+						Device d = (Device)itp;
+						if((d.getName()+d.getIp()).equals(deviceName+IP))
+							{
+							Variables.getLogger().debug("line : "+(i+1)+" : Duplicate found, do not adding the device : "+d.getInfo());
+							found = true;
+							break;
+							}
+						
+						}
+					}
+				if(found)continue;
+				/****************/
+				
+				String officeName = CollectionTools.getValueFromCollectionFile(i, officeNameTemplate, null, false);
 				Office myO = UsefulMethod.getOffice(officeName);
 				
 				MItemOffice myIO = new MItemOffice(myO.getName(), myO.getFullname());
@@ -85,9 +108,9 @@ public class GwTools
 				Variables.getLogger().debug("Processing office : "+myIO.getDescription());
 				
 				myIO.getAssociatedItems().add(new Device(dt,
-						CollectionTools.getValueFromCollectionFile(i, hostNameTemplate, null, true),
+						deviceName,
 						action,
-						CollectionTools.getValueFromCollectionFile(i, gwIPTemplate, null, true),
+						IP,
 						CollectionTools.getValueFromCollectionFile(i, userTemplate, null, true),
 						CollectionTools.getValueFromCollectionFile(i, passwordTemplate, null, true),
 						myO,

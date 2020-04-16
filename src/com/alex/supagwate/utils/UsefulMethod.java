@@ -396,7 +396,7 @@ public class UsefulMethod
 		}
 	
 	/************
-	 * Method used to initialize the office list from
+	 * Method used to initialize the CUCM list from
 	 * the xml file
 	 */
 	public static ArrayList<CUCM> initCUCMList() throws Exception
@@ -454,7 +454,7 @@ public class UsefulMethod
 		}
 	
 	/************
-	 * Method used to initialize the office list from
+	 * Method used to initialize the country list from
 	 * the xml file
 	 */
 	public static ArrayList<Country> initCountryList() throws Exception
@@ -573,7 +573,7 @@ public class UsefulMethod
 					ArrayList<CustomSettings> settings = new ArrayList<CustomSettings>();
 					
 					/**
-					 * First we check for duplicates
+					 * We check for duplicates
 					 */
 					String officeName = UsefulMethod.getItemByName("name", tab);
 					boolean found = false;

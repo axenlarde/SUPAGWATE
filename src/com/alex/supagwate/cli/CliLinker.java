@@ -260,7 +260,7 @@ public class CliLinker
 			}
 		
 		String result = replyWanted.toString();
-		if(regex != null)result = CollectionTools.applyRegex(result, regex);
+		if(regex != null)result = CollectionTools.resolveRegex(result, regex);
 		
 		cgo.add(new CliGetOutputEntry(cmdTab[0], result));
 		

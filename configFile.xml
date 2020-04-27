@@ -39,5 +39,10 @@ Overal configuration file
 		<protocol>file.gwprotocol</protocol>
 		<user>file.gwuser</user>
 		<password>file.gwpassword</password>
+		<!--FTP server-->
+		<ftpport>21</ftpport>
+		<ftpuser>ftpuser</ftpuser>
+		<ftppassword>ftppassword</ftppassword>
+		<ftpdirectory>./FTP</ftpdirectory>
 	</config>
 </xml>

@@ -15,6 +15,7 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 import com.alex.supagwate.cli.CliGetOutput;
 import com.alex.supagwate.cli.CliProfile;
 import com.alex.supagwate.device.DeviceType;
+import com.alex.supagwate.ftp.FTPTransfer;
 import com.alex.supagwate.gui.MainWindow;
 import com.alex.supagwate.office.CUCM;
 import com.alex.supagwate.office.Country;
@@ -121,6 +122,9 @@ public class Variables
     private static ArrayList<CliProfile> cliProfileList;
     private static String cliGetOutputFileName;
     private static ArrayList<CliGetOutput> cliGetOutputList;
+    
+    //FTP
+    private static ArrayList<FTPTransfer> ftpTransferList;
     
     /**************
      * Constructor
@@ -465,6 +469,20 @@ public class Variables
 	public static void setCliGetOutputList(ArrayList<CliGetOutput> cliGetOutputList)
 		{
 		Variables.cliGetOutputList = cliGetOutputList;
+		}
+
+	public synchronized static ArrayList<FTPTransfer> getFtpTransferList()
+		{
+		if(ftpTransferList == null)
+			{
+			ftpTransferList = new ArrayList<FTPTransfer>();
+			}
+		return ftpTransferList;
+		}
+
+	public static void setFtpTransferList(ArrayList<FTPTransfer> ftpTransferList)
+		{
+		Variables.ftpTransferList = ftpTransferList;
 		}
 
 	

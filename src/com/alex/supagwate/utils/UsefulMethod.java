@@ -28,6 +28,7 @@ import com.alex.supagwate.cli.OneLine.cliType;
 import com.alex.supagwate.cli.OneLine;
 import com.alex.supagwate.device.Device;
 import com.alex.supagwate.device.DeviceType;
+import com.alex.supagwate.ftp.FTPTransfer;
 import com.alex.supagwate.misc.SimpleRequest;
 import com.alex.supagwate.office.DidRange;
 import com.alex.supagwate.office.IPRange;
@@ -1389,6 +1390,20 @@ public class UsefulMethod
 			}
 		
 		return null;
+		}
+	
+	/**
+	 * To get a FTPTransfer searching by IP address
+	 * @throws Exception 
+	 */
+	public static FTPTransfer getFTPTransfer(String deviceIP) throws Exception
+		{
+		for(FTPTransfer t : Variables.getFtpTransferList())
+			{
+			if(t.getDevice().getIp().equals(deviceIP))return t;
+			}
+		
+		throw new Exception("The given FTPTransfer was not found : "+deviceIP);
 		}
 	
 	/*2020*//*RATEL Alexandre 8)*/

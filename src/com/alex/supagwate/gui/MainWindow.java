@@ -18,6 +18,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 
 import com.alex.supagwate.device.DeviceType;
+import com.alex.supagwate.ftp.FtpTools;
 import com.alex.supagwate.office.OfficeTools;
 import com.alex.supagwate.utils.LanguageManagement;
 import com.alex.supagwate.utils.Position;
@@ -121,12 +122,12 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 		myMenuBar.add(menu);
 		myMenuBar.add(tools);
 		myMenuBar.add(help);
-		gatewayMngt.add(sendCMD);
+		//gatewayMngt.add(sendCMD);
 		gatewayMngt.add(sendCmdFromProfile);
-		gatewayMngt.add(getInfo);
-		gatewayMngt.add(compliance);
+		//gatewayMngt.add(getInfo);
+		//gatewayMngt.add(compliance);
 		gatewayMngt.add(upgrade);
-		gatewayMngt.add(advancedWizard);
+		//gatewayMngt.add(advancedWizard);
 		menu.add(gatewayMngt);
 		miscMngt.add(profileMngt);
 		miscMngt.add(officeMngt);
@@ -199,6 +200,12 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 			this.getContentPane().add(new OptionPanel(this, LanguageManagement.getString("sendcmdfromprofile"), myOptionList, actionType.set));
 			this.repaint();
 			this.validate();
+			}
+		else if(evt.getSource() == this.upgrade)
+			{
+			Variables.getLogger().info("Upgrade button pressed");
+			
+			FtpTools.startFTPServer();
 			}
 		else if(evt.getSource() == this.officeMngt)
 			{

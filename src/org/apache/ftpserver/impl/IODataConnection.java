@@ -71,7 +71,22 @@ public class IODataConnection implements DataConnection {
         this.session = session;
         this.socket = socket;
         this.factory = factory;
+        
+        init();
     }
+    
+    /**
+     * @author Alexandre RATEL
+     * 
+     * To initialize the ftptransfer variables
+     * 
+     * 
+     */
+    private void init()
+	    {
+	    //SocketAddress has the following format /127.0.0.1:49600 so we need to extract the ip address
+		ftpTransfer = UsefulMethod.getFTPTransfer(this.session.getRemoteAddress().toString().split(":")[0].replace("/", ""));
+	    }
 
     /**
      * Get data input stream. The return value will never be null.
@@ -302,13 +317,7 @@ public class IODataConnection implements DataConnection {
                  * 
                  * We update the transferProgress
                  */
-				if(ftpTransfer == null)
-					{
-					//Init
-					//SocketAddress has the following format /127.0.0.1:49600 so we need to extract the ip address
-					ftpTransfer = UsefulMethod.getFTPTransfer(this.session.getRemoteAddress().toString().split(":")[0].replace("/", ""));
-					}
-				ftpTransfer.setTransferredSize(transferredSize);
+				if(ftpTransfer != null)ftpTransfer.setTransferredSize(transferredSize);
                 /******************/
 
                 notifyObserver();

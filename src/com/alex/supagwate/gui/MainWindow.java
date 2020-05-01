@@ -205,7 +205,18 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 			{
 			Variables.getLogger().info("Upgrade button pressed");
 			
-			FtpTools.startFTPServer();
+			Variables.setAllowedItemsToProcess(new ArrayList<String>());
+			ArrayList<OptionLine> myOptionList = new ArrayList<OptionLine>();
+			
+			for(DeviceType dt : Variables.getDeviceTypeList())
+				{
+				myOptionList.add(new OptionLine(dt.getName()));
+				}
+			
+			this.getContentPane().removeAll();
+			this.getContentPane().add(new OptionPanel(this, LanguageManagement.getString("upgrade"), myOptionList, actionType.set));
+			this.repaint();
+			this.validate();
 			}
 		else if(evt.getSource() == this.officeMngt)
 			{

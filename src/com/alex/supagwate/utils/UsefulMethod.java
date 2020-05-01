@@ -2,8 +2,12 @@ package com.alex.supagwate.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Enumeration;
 import java.util.LinkedList;
 
 import javax.net.ssl.HostnameVerifier;
@@ -1396,14 +1400,27 @@ public class UsefulMethod
 	 * To get a FTPTransfer searching by IP address
 	 * @throws Exception 
 	 */
-	public static FTPTransfer getFTPTransfer(String deviceIP) throws Exception
+	public static FTPTransfer getFTPTransfer(String deviceIP)
 		{
 		for(FTPTransfer t : Variables.getFtpTransferList())
 			{
 			if(t.getDevice().getIp().equals(deviceIP))return t;
 			}
 		
-		throw new Exception("The given FTPTransfer was not found : "+deviceIP);
+		return null;
+		}
+	
+	public static String getMyIP(int interfaceID)
+		{
+		try
+			{
+			return Collections.list(Collections.list(NetworkInterface.getNetworkInterfaces()).get(interfaceID).getInetAddresses()).get(0).getHostAddress();
+			}
+		catch (Exception e)
+			{
+			Variables.getLogger().error("ERROR while looking for my IP : "+e.getMessage(),e);
+			}
+		return "";//Not found
 		}
 	
 	/*2020*//*RATEL Alexandre 8)*/

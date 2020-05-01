@@ -108,7 +108,7 @@ public class GwTask extends Thread
 			Variables.getLogger().info("User task of type "+action.name()+" starts");
 			
 			//We launch the user interface panel
-			StatusWindow sw = new StatusWindow(itemToProcessList, myTask);
+			StatusWindow sw = new StatusWindow(itemToProcessList, myTask, action);
 			Variables.getMyWindow().getContentPane().removeAll();
 			Variables.getMyWindow().getContentPane().add(sw);
 			Variables.getMyWindow().repaint();

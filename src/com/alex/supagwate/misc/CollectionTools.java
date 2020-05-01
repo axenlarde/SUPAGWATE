@@ -169,6 +169,14 @@ public class CollectionTools
 				String[] tab = pattern.split("\\.");
 				value = UsefulMethod.getTargetOption(tab[1]);
 				}
+			else if(Pattern.matches(".*system\\..*", pattern))
+				{
+				String[] tab = pattern.split("\\.");
+				if(tab[1].equals("network"))
+					{
+					if(tab[3].equals("ip"))value = UsefulMethod.getMyIP(Integer.parseInt(tab[2]));
+					}
+				}
 			else if(Pattern.matches(".*file\\..*", pattern))
 				{
 				for(String s : Variables.getMatcherList())

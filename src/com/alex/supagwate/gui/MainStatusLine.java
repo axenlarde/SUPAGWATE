@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import com.alex.supagwate.device.MainItem;
 import com.alex.supagwate.misc.ItemToProcess;
 import com.alex.supagwate.utils.LanguageManagement;
+import com.alex.supagwate.utils.Variables.actionType;
 import com.alex.supagwate.utils.Variables.statusType;
 
 /*************************************
@@ -32,6 +33,7 @@ public class MainStatusLine extends JPanel implements ActionListener, MouseListe
 	private int step;
 	private ArrayList<StatusLine> slList;
 	private MainItem myItem;
+	private actionType action;
 	
 	//Disposition
 	private JPanel top;
@@ -46,11 +48,12 @@ public class MainStatusLine extends JPanel implements ActionListener, MouseListe
 	private JLabel progress;
 	
 	/***************
-	 * Constructeur
+	 * Constructor
 	 ***************/
-	public MainStatusLine(MainItem myItem) throws Exception
+	public MainStatusLine(MainItem myItem, actionType action) throws Exception
 		{
 		this.myItem = myItem;
+		this.action = action;
 		step = 0;
 		slList = new ArrayList<StatusLine>();
 		select = new JCheckBox("",true);
@@ -69,8 +72,7 @@ public class MainStatusLine extends JPanel implements ActionListener, MouseListe
 		right = new JPanel();
 		right.setLayout(new BoxLayout(right,BoxLayout.Y_AXIS));
 		
-		//Param�tres
-		remplissage();
+		filling();
 		
 		//Assignation
 		top.add(select);
@@ -99,11 +101,18 @@ public class MainStatusLine extends JPanel implements ActionListener, MouseListe
 		expandAll.addMouseListener(this);
 		}
 	
-	private void remplissage() throws Exception
+	private void filling() throws Exception
 		{
 		for(ItemToProcess item : this.myItem.getAssociatedItems())
 			{
-			slList.add(new StatusLine(item));
+			if(action.equals(actionType.upgrade))
+				{
+				slList.add(new UpgradeStatusLine(item));
+				}
+			else
+				{
+				slList.add(new DefaultStatusLine(item));
+				}
 			}
 		}
 	
@@ -262,6 +271,11 @@ public class MainStatusLine extends JPanel implements ActionListener, MouseListe
 	public void setExpandAll(JLabel expandAll)
 		{
 		this.expandAll = expandAll;
+		}
+
+	public actionType getAction()
+		{
+		return action;
 		}
 
 	/* (non-Javadoc)

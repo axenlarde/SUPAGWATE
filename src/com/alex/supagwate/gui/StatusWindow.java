@@ -37,8 +37,9 @@ public class StatusWindow extends JPanel implements ActionListener, AncestorList
 	private int step;
 	private int totalItem;
 	private Task myTask;
+	private actionType action;
 	
-	//Contr�les
+	//Controles
 	private JLabel taskType;
 	private JLabel Info;
 	private JProgressBar progress;
@@ -60,13 +61,14 @@ public class StatusWindow extends JPanel implements ActionListener, AncestorList
 	 * Constructor
 	 * @throws Exception 
 	 ***************/
-	public StatusWindow(ArrayList<MainItem> itemList, Task myTask) throws Exception
+	public StatusWindow(ArrayList<MainItem> itemList, Task myTask, actionType action) throws Exception
 		{
 		/****
 		 * Variables
 		 */
 		this.itemList = itemList;
 		this.myTask = myTask;
+		this.action = action;
 		step = 0;
 		lineList = new ArrayList<MainStatusLine>();
 		totalItem = myTask.getTodoList().size();
@@ -133,7 +135,7 @@ public class StatusWindow extends JPanel implements ActionListener, AncestorList
 		this.add(controlProgress);
 		this.add(Principale);
 		
-		remplissage();
+		filling();
 		
 		//Events
 		pause.addActionListener(this);
@@ -148,12 +150,12 @@ public class StatusWindow extends JPanel implements ActionListener, AncestorList
 	 * @throws Exception 
 	 ***********************************************/
 	
-	private void remplissage() throws Exception
+	private void filling() throws Exception
 		{
 		listRequest.removeAll();
 		for(int i=0; i<itemList.size(); i++)
 			{
-			MainStatusLine msl = new MainStatusLine(itemList.get(i));
+			MainStatusLine msl = new MainStatusLine(itemList.get(i), action);
 			msl.setFond((i%2==0)?Color.WHITE:Color.LIGHT_GRAY);
 			lineList.add(msl);
 			listRequest.add(msl);

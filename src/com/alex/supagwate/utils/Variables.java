@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
+import org.apache.ftpserver.FtpServer;
 import org.apache.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -58,6 +59,7 @@ public class Variables
 		{
 		set,
 		get,
+		upgrade,
 		reset
 		};
 		
@@ -124,6 +126,7 @@ public class Variables
     private static ArrayList<CliGetOutput> cliGetOutputList;
     
     //FTP
+    private static FtpServer ftpServer;
     private static ArrayList<FTPTransfer> ftpTransferList;
     
     /**************
@@ -483,6 +486,16 @@ public class Variables
 	public static void setFtpTransferList(ArrayList<FTPTransfer> ftpTransferList)
 		{
 		Variables.ftpTransferList = ftpTransferList;
+		}
+
+	public static FtpServer getFtpServer()
+		{
+		return ftpServer;
+		}
+
+	public static void setFtpServer(FtpServer ftpServer)
+		{
+		Variables.ftpServer = ftpServer;
 		}
 
 	

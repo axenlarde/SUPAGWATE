@@ -25,23 +25,22 @@ import com.alex.supagwate.utils.Variables.statusType;
  * Class used to display one line in
  * the AXL status window
  *************************************/
-public class StatusLine extends JPanel implements ActionListener, MouseListener, ItemListener
+public abstract class StatusLine extends JPanel implements StatusLineImpl, MouseListener, ItemListener
 	{
 	/************
 	 * variables
 	 ************/
-	private ItemToProcess myItem;
-	private StringBuffer errorBuffer;
-	private ArrayList<String> errorList;
+	protected ItemToProcess myItem;
+	protected StringBuffer errorBuffer;
+	protected ArrayList<String> errorList;
 	
-	//Controle
-	private JCheckBox select;
-	private JLabel name;
-	private JLabel desc;
-	private JLabel info;
-	private JLabel displayResult;
-	private JLabel displayError;
-	private JLabel descError;
+	protected JPanel left;
+	protected JPanel right;
+	protected JCheckBox select;
+	protected JLabel name;
+	protected JLabel desc;
+	protected JLabel info;
+	protected JLabel displayResult;
 	
 	/***************
 	 * Constructeur
@@ -52,6 +51,8 @@ public class StatusLine extends JPanel implements ActionListener, MouseListener,
 		updateErrorBuffer();
 		
 		select = new JCheckBox();
+		left = new JPanel();
+		right = new JPanel();
 		
 		if((myItem.getStatus().equals(statusType.disabled)) ||
 				(myItem.getStatus().equals(statusType.error)))
@@ -63,31 +64,28 @@ public class StatusLine extends JPanel implements ActionListener, MouseListener,
 			select.setSelected(true);
 			}
 		
-		this.name = new JLabel(myItem.getName()+" "+myItem.getType().getName()+" : "+myItem.getAction().name());
-		//this.desc = new JLabel(myItem.getInfo());
-		this.desc = new JLabel("");
+		name = new JLabel(myItem.getName()+" "+myItem.getType().getName()+" : "+myItem.getAction().name());
+		desc = new JLabel("");
 		info = new JLabel(" [..] ");
 		displayResult = new JLabel("waiting");
-		displayError = new JLabel("| < |");
-		descError = new JLabel("");
 		
 		//Disposition
-		setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
+		this.setLayout(new BoxLayout(this,BoxLayout.X_AXIS));
+		left.setLayout(new BoxLayout(left,BoxLayout.X_AXIS));
+		right.setLayout(new BoxLayout(right,BoxLayout.X_AXIS));
+		
 		
 		//Assignation
-		this.add(select);
-		this.add(this.name);
-		this.add(info);
-		this.add(this.desc);
+		left.add(select);
+		left.add(name);
+		left.add(info);
+		left.add(desc);
+		this.add(left);
 		this.add(Box.createHorizontalGlue());
-		this.add(displayError);
-		this.add(displayResult);
-		this.add(new JLabel(" "));
-		this.add(descError);
-		this.descError.setVisible(false);
+		right.add(displayResult);
+		this.add(right);
 		
 		//Events
-		displayError.addMouseListener(this);
 		select.addItemListener(this);
 		info.addMouseListener(this);
 		}
@@ -96,7 +94,8 @@ public class StatusLine extends JPanel implements ActionListener, MouseListener,
 		{
 		setBackground(couleur);
 		select.setBackground(couleur);
-		displayError.setBackground(couleur);
+		
+		doSetFond(couleur);
 		}
 	
 	public JCheckBox getSelect()
@@ -124,21 +123,11 @@ public class StatusLine extends JPanel implements ActionListener, MouseListener,
 		displayResult.setText(result);
 		}
 
-	public JLabel getDescError()
-		{
-		return descError;
-		}
-
-	public void setDescError(String descError)
-		{
-		this.descError.setText(descError);
-		}
-
 	public void setName(String name)
 		{
 		this.name.setText(name+" | ");
 		}
-
+	
 	public void setDesc(String desc)
 		{
 		this.desc.setText(desc);
@@ -178,7 +167,8 @@ public class StatusLine extends JPanel implements ActionListener, MouseListener,
 		{
 		displayResult.setText(LanguageManagement.getString(myItem.getStatus().name()));
 		updateErrorBuffer();
-		descError.setText(errorBuffer.toString());
+		
+		doUpdateStatus();
 		}
 	
 	public void updateErrorBuffer()
@@ -230,23 +220,8 @@ public class StatusLine extends JPanel implements ActionListener, MouseListener,
 				exc.printStackTrace();
 				}
 			}
-		else if(evt.getSource() == this.displayError)
-			{
-			if(displayError.getText().compareTo("| < |")==0)
-				{
-				this.desc.setVisible(false);
-				this.displayResult.setVisible(false);
-				this.descError.setVisible(true);
-				this.displayError.setText("| > |");
-				}
-			else
-				{
-				this.desc.setVisible(true);
-				this.displayResult.setVisible(true);
-				this.descError.setVisible(false);
-				this.displayError.setText("| < |");
-				}
-			}
+		
+		doMouseClicked(evt);
 		}
 
 	/* (non-Javadoc)
@@ -299,6 +274,8 @@ public class StatusLine extends JPanel implements ActionListener, MouseListener,
 			{
 			manageSelection();
 			}
+		
+		doItemStateChanged(evt);
 		}
 	
 	/*2012*//*RATEL Alexandre 8)*/

@@ -8,6 +8,14 @@ such as the way to authenticate
 		<device>
 			<name>ISR</name>
 			<vendor>Cisco</vendor>
+			<upgrade>
+				<destination>flash:</destination>
+				<startupgrade>'copy ftp://'+system.network.1.ip+'/'+file.gwios+'@'+config.ftpuser+':'+ftppassword+' flash:'+file.gwios</startupgrade>
+				<boot>
+					<write>no boot system</write>
+					<write>'boot system flash:'+file.gwios</write>
+				</boot>
+			</upgrade>
 			<howtoconnect><!--Used only with telnet connection-->
 				<waitfor>Username:</waitfor>
 				<write>device.user</write>

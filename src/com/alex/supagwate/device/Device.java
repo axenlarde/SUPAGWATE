@@ -29,7 +29,6 @@ public class Device extends ItemToProcess
 	
 	protected Office office;
 	protected reachableStatus reachable;
-	protected CliInjector cliInjector;
 	protected CliProfile cliProfile;
 	protected cliProtocol connexionProtocol;
 	
@@ -42,8 +41,6 @@ public class Device extends ItemToProcess
 		this.password = password;
 		this.office = office;
 		this.connexionProtocol = connexionProtocol;
-		this.cliInjector = new CliInjector(this,
-				cliProfile);
 		this.reachable = reachableStatus.unknown;
 		}
 
@@ -82,14 +79,9 @@ public class Device extends ItemToProcess
 		{
 		/**
 		 * If the ping failed we disable the device
-		 * No point to send command to an unreachable 
+		 * No point to send command to an unreachable device
 		 */
 		if(reachable.equals(reachableStatus.unreachable))this.setStatus(statusType.disabled);
-		
-		/**
-		 * Then we initialize the CLI list
-		 */
-		if(cliInjector != null)cliInjector.build();
 		}
 
 	/**
@@ -131,9 +123,7 @@ public class Device extends ItemToProcess
 				}
 			}*/
 		
-		if((cliInjector != null) && (cliInjector.getErrorList().size() > 0))s.append(", Error found");
-		else if((errorList != null) && (errorList.size() > 0))s.append(", Error found");
-		
+		if((errorList != null) && (errorList.size() > 0))s.append(", Error found");
 		return s.toString();
 		}
 	
@@ -217,16 +207,6 @@ public class Device extends ItemToProcess
 		this.reachable = reachable;
 		}
 
-	public CliInjector getCliInjector()
-		{
-		return cliInjector;
-		}
-
-	public void setCliInjector(CliInjector cliInjector)
-		{
-		this.cliInjector = cliInjector;
-		}
-
 	public cliProtocol getConnexionProtocol()
 		{
 		return connexionProtocol;
@@ -236,6 +216,17 @@ public class Device extends ItemToProcess
 		{
 		this.connexionProtocol = connexionProtocol;
 		}
+
+	public CliProfile getCliProfile()
+		{
+		return cliProfile;
+		}
+
+	public void setCliProfile(CliProfile cliProfile)
+		{
+		this.cliProfile = cliProfile;
+		}
+	
 		
 	/*2020*//*RATEL Alexandre 8)*/
 	}

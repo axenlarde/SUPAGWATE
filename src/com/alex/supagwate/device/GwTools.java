@@ -3,12 +3,15 @@ package com.alex.supagwate.device;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import com.alex.supagwate.action.Injector;
 import com.alex.supagwate.action.Task;
+import com.alex.supagwate.cli.CliInjector;
 import com.alex.supagwate.cli.CliProfile.cliProtocol;
 import com.alex.supagwate.gui.WaitingWindow;
 import com.alex.supagwate.misc.CollectionTools;
 import com.alex.supagwate.misc.ItemToProcess;
 import com.alex.supagwate.office.Office;
+import com.alex.supagwate.upgrade.UpgradeInjector;
 import com.alex.supagwate.utils.LanguageManagement;
 import com.alex.supagwate.utils.UsefulMethod;
 import com.alex.supagwate.utils.Variables;
@@ -143,9 +146,9 @@ public class GwTools
 	/************
 	 * Method used to prepare a user injection
 	 */
-	public static Task prepareGWProcess(ArrayList<MainItem> itemToInjectList, actionType type) throws Exception
+	public static Task prepareGWProcess(ArrayList<MainItem> itemToInjectList, actionType action) throws Exception
 		{
-		Variables.getLogger().info("Office "+type.name()+" preparation process begins");
+		Variables.getLogger().info("Office "+action.name()+" preparation process begins");
 		
 		ArrayList<ItemToProcess> myList = new ArrayList<ItemToProcess>();
 		
@@ -154,6 +157,10 @@ public class GwTools
 			for(ItemToProcess item : mi.getAssociatedItems())
 				{
 				Variables.getLogger().info("Adding the "+item.getType().getName()+" "+item.getName()+" to the list as a "+item.getAction().name()+" todo");
+				
+				if(action.equals(actionType.upgrade))item.setInjector(new UpgradeInjector((Device)item));
+				else item.setInjector(new CliInjector((Device)item));
+				
 				myList.add(item);
 				}
 			}
@@ -161,7 +168,7 @@ public class GwTools
 		Variables.getLogger().info("Office "+type.name()+" preparation process ends");
 		
 		//The injection task is ready
-		return new Task(myList);
+		return new Task(myList, type);
 		}
 	
 	

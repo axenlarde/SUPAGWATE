@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
+import com.alex.supagwate.action.Injector;
 import com.alex.supagwate.device.DeviceType;
 import com.alex.supagwate.utils.Variables;
 import com.alex.supagwate.utils.Variables.actionType;
@@ -23,6 +24,7 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 	protected statusType status;
 	protected String id,name;
 	protected DeviceType type;
+	protected Injector injector;
 	protected int index;
 	protected ArrayList<ErrorTemplate> errorList;
 	protected ArrayList<Correction> correctionList;
@@ -47,6 +49,8 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 	public void build() throws Exception
 		{
 		Variables.getLogger().debug("Starting build for "+type.getName()+" "+name);
+		
+		injector.build();
 		
 		doBuild();
 		this.setStatus(statusType.waiting);
@@ -158,6 +162,16 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 	public ArrayList<Correction> getCorrectionList()
 		{
 		return correctionList;
+		}
+
+	public Injector getInjector()
+		{
+		return injector;
+		}
+
+	public void setInjector(Injector injector)
+		{
+		this.injector = injector;
 		}
 
 	

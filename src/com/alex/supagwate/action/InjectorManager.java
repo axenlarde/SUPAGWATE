@@ -1,4 +1,4 @@
-package com.alex.supagwate.cli;
+package com.alex.supagwate.action;
 
 import java.util.ArrayList;
 
@@ -11,20 +11,20 @@ import com.alex.supagwate.utils.Variables;
  *
  * @author Alexandre RATEL
  */
-public class CliManager extends Thread
+public class InjectorManager extends Thread
 	{
 	/**
 	 * Variables
 	 */
-	private ArrayList<CliInjector> cliIList;
+	private ArrayList<Injector> injectorList;
 	private boolean stop, pause;
 	private int maxThread;
 	
-	public CliManager()
+	public InjectorManager()
 		{
 		stop = false;
 		pause = false;
-		cliIList = new ArrayList<CliInjector>();
+		injectorList = new ArrayList<Injector>();
 		
 		try
 			{
@@ -46,13 +46,13 @@ public class CliManager extends Thread
 		try
 			{
 			int index = 0;
-			while((index < cliIList.size()) && (!stop))
+			while((index < injectorList.size()) && (!stop))
 				{
-				for(int i=index; i<cliIList.size(); i++)
+				for(int i=index; i<injectorList.size(); i++)
 					{
 					if(startNewThread()&&(!pause))
 						{
-						cliIList.get(i).start();
+						injectorList.get(i).start();
 						index++;
 						}
 					else
@@ -74,7 +74,7 @@ public class CliManager extends Thread
 			while(alive)
 				{
 				alive = false;
-				for(CliInjector clii : cliIList)
+				for(Injector clii : injectorList)
 					{
 					if(clii.isAlive())
 						{
@@ -94,7 +94,7 @@ public class CliManager extends Thread
 	private boolean startNewThread()
 		{
 		int totalInProgress = 0;
-		for(CliInjector clii : cliIList)
+		for(Injector clii : injectorList)
 			{
 			if(clii.isAlive())totalInProgress++;
 			}
@@ -103,14 +103,14 @@ public class CliManager extends Thread
 		return false;
 		}
 	
-	public ArrayList<CliInjector> getCliIList()
+	public ArrayList<Injector> getInjectorList()
 		{
-		return cliIList;
+		return injectorList;
 		}
 
-	public void setCliIList(ArrayList<CliInjector> cliIList)
+	public void setInjectorList(ArrayList<Injector> cliIList)
 		{
-		this.cliIList = cliIList;
+		this.injectorList = cliIList;
 		}
 
 	public boolean isPause()

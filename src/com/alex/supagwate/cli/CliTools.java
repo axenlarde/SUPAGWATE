@@ -37,9 +37,9 @@ public class CliTools
 			
 			for(CliGetOutput cgo : Variables.getCliGetOutputList())
 				{
-				if(!cpList.contains(cgo.getDevice().getCliInjector().getCliProfile()))
+				if(!cpList.contains(cgo.getDevice().getCliProfile()))
 					{
-					cpList.add(cgo.getDevice().getCliInjector().getCliProfile());
+					cpList.add(cgo.getDevice().getCliProfile());
 					}
 				}
 			Variables.getLogger().debug(cpList.size()+" Cli profile found");
@@ -60,7 +60,7 @@ public class CliTools
 				//we start by filling the first line
 				for(CliGetOutput cgo : Variables.getCliGetOutputList())
 					{
-					if(cgo.getDevice().getCliInjector().getCliProfile().getName().equals(cp.getName()))
+					if(cgo.getDevice().getCliProfile().getName().equals(cp.getName()))
 						{
 						for(CliGetOutputEntry cgoe : cgo.getEntryList())
 							{
@@ -74,7 +74,7 @@ public class CliTools
 				//Now we write the lines
 				for(CliGetOutput cgo : Variables.getCliGetOutputList())
 					{
-					if(cgo.getDevice().getCliInjector().getCliProfile().getName().equals(cp.getName()))
+					if(cgo.getDevice().getCliProfile().getName().equals(cp.getName()))
 						{
 						StringBuffer line = new StringBuffer("");
 						line.append(cgo.getDevice().getName()+splitter+cgo.getDevice().getIp()+splitter);

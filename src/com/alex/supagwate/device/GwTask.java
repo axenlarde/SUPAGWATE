@@ -58,7 +58,7 @@ public class GwTask extends Thread
 			/**
 			 * Collection file checking
 			 */
-			CollectionFileChecker.checkForCliSending();
+			CollectionFileChecker.checkForCliSending(action);
 			
 			myWW.getAvancement().setText(" "+LanguageManagement.getString("itemlistbuilding"));
 			
@@ -102,7 +102,7 @@ public class GwTask extends Thread
 			 */
 			myWW.getAvancement().setText(" "+LanguageManagement.getString("taskbuilding"));
 			Task myTask = GwTools.prepareGWProcess(itemToProcessList, action);		
-			myTask.startBuildProcess();
+			myTask.build();
 			myTask.start();
 			
 			Variables.getLogger().info("User task of type "+action.name()+" starts");

@@ -39,10 +39,13 @@ Overal configuration file
 		<protocol>file.gwprotocol</protocol>
 		<user>file.gwuser</user>
 		<password>file.gwpassword</password>
+		<ios>file.gwios</ios>
 		<!--FTP server-->
 		<ftpport>21</ftpport>
 		<ftpuser>ftpuser</ftpuser>
 		<ftppassword>ftppassword</ftppassword>
-		<ftpdirectory>./FTP</ftpdirectory>
+		<ftpdirectory>/FTP</ftpdirectory>
+		<!--Upgrade-->
+		<maxupgradethread>10</maxupgradethread>
 	</config>
 </xml>

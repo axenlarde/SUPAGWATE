@@ -2,11 +2,9 @@ package com.alex.supagwate.cli;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.regex.Pattern;
 
-import javax.mail.search.ReceivedDateTerm;
-
+import com.alex.supagwate.action.Injector;
 import com.alex.supagwate.cli.CliConnection.connectedTech;
 import com.alex.supagwate.cli.CliProfile.cliProtocol;
 import com.alex.supagwate.device.Device;
@@ -28,13 +26,13 @@ public class CliLinker
 	private Device device;
 	private cliProtocol protocol;
 	private CliConnection connection;
-	private CliInjector clii;
+	private Injector clii;
 	private BufferedWriter out;
 	private AnswerReceiver receiver;
 	private int timeout;
 	private String carrierReturn;
 	
-	public CliLinker(CliInjector clii)
+	public CliLinker(Injector clii)
 		{
 		super();
 		this.clii = clii;
@@ -355,6 +353,13 @@ public class CliLinker
 				}
 			}
 		}
+
+	public AnswerReceiver getReceiver()
+		{
+		return receiver;
+		}
+	
+	
 	
 	/*2020*//*RATEL Alexandre 8)*/
 	}

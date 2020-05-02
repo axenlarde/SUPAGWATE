@@ -3,18 +3,16 @@ package com.alex.supagwate.action;
 import java.util.ArrayList;
 
 import com.alex.supagwate.cli.CliInjector;
-import com.alex.supagwate.cli.CliManager;
 import com.alex.supagwate.cli.CliTools;
 import com.alex.supagwate.device.Device;
 import com.alex.supagwate.misc.ErrorTemplate;
 import com.alex.supagwate.misc.ItemToProcess;
 import com.alex.supagwate.utils.Variables;
+import com.alex.supagwate.utils.Variables.actionType;
 import com.alex.supagwate.utils.Variables.statusType;
 
 /**********************************
- * Class used to store a list of todo
- * 
- * It also allowed to launch the task
+ * Abstract class for task
  * 
  * @author RATEL Alexandre
  **********************************/
@@ -25,28 +23,29 @@ public class Task extends Thread
 	 */
 	private ArrayList<ItemToProcess> todoList;
 	private statusType status;
+	private actionType action;
 	private boolean pause, stop, started, end;
-	private CliManager cliManager;
+	private InjectorManager manager;
 	
 	/***************
 	 * Constructor
 	 ***************/
-	public Task(ArrayList<ItemToProcess> todoList)
+	public Task(ArrayList<ItemToProcess> todoList, actionType action)
 		{
 		this.todoList = todoList;
+		this.action = action;
 		this.status = statusType.init;
 		stop = false;
 		pause = true;
 		started = false;
 		end = false;
-		cliManager = new CliManager();
 		}
 	
 	/******
 	 * Used to start the build process
 	 * @throws Exception 
 	 */
-	public void startBuildProcess() throws Exception
+	public void build() throws Exception
 		{
 		//Build
 		Variables.getLogger().info("Beginning of the build process");
@@ -86,7 +85,7 @@ public class Task extends Thread
 					}
 				else
 					{
-					cliManager.getCliIList().add(((Device)myToDo).getCliInjector());
+					manager.getInjectorList().add(myToDo.getInjector());
 					}
 				}
 			
@@ -100,13 +99,13 @@ public class Task extends Thread
 				
 			if(!stop)
 				{
-				cliManager.start();
-				Variables.getLogger().debug("We wait for the cli tasks to end");
-				while(cliManager.isAlive() && (!stop))
+				manager.start();
+				Variables.getLogger().debug("We wait for the injectors to end");
+				while(manager.isAlive() && (!stop))
 					{
 					this.sleep(500);
 					}
-				Variables.getLogger().debug("Cli tasks ends");
+				Variables.getLogger().debug("Injectors tasks ends");
 				}
 			end = true;
 			Variables.getLogger().info("Task ends");
@@ -114,7 +113,10 @@ public class Task extends Thread
 			/**
 			 * In case of 'get' instruction, we now write the result in a csv file
 			 */
-			CliTools.writeCliGetOutputToCSV();
+			if(action.equals(actionType.set) || action.equals(actionType.get))
+				{
+				CliTools.writeCliGetOutputToCSV();
+				}
 			
 			/**
 			 * End
@@ -196,7 +198,7 @@ public class Task extends Thread
 		if(this.isAlive())
 			{
 			Variables.getLogger().debug("The Administrator asked to stop the process");
-			if(cliManager != null)cliManager.setStop(stop);
+			if(manager != null)manager.setStop(stop);
 			this.stop = stop;
 			}
 		else

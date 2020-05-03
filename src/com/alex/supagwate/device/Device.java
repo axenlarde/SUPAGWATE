@@ -49,7 +49,7 @@ public class Device extends ItemToProcess
 		{
 		StringBuffer s = new StringBuffer("");
 		
-		s.append(type.getName()+" ");
+		s.append(deviceType.getName()+" ");
 		s.append(ip+" : ");
 		s.append(name);
 		

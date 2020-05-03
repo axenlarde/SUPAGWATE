@@ -14,17 +14,22 @@ public class UpgradeData
 	/**
 	 * Variables
 	 */
-	private String upgradeFile, destination, checkdiskspace, startupgrade;
-	private ArrayList<OneLine> bootList;
+	private String upgradeFile;
+	private ArrayList<OneLine> checkcurrentversion, checkdiskspace, checkexistingfile, filedelete, startupgrade, checkfile, boot;
 	
-	public UpgradeData(String upgradeFile, String destination, String checkdiskspace, String startupgrade, ArrayList<OneLine> bootList)
+	public UpgradeData(String upgradeFile, ArrayList<OneLine> checkcurrentversion, ArrayList<OneLine> checkdiskspace, ArrayList<OneLine> checkexistingfile,
+			ArrayList<OneLine> filedelete, ArrayList<OneLine> startupgrade, ArrayList<OneLine> checkfile,
+			ArrayList<OneLine> boot)
 		{
 		super();
 		this.upgradeFile = upgradeFile;
-		this.destination = destination;
+		this.checkcurrentversion = checkcurrentversion;
 		this.checkdiskspace = checkdiskspace;
+		this.checkexistingfile = checkexistingfile;
+		this.filedelete = filedelete;
 		this.startupgrade = startupgrade;
-		this.bootList = bootList;
+		this.checkfile = checkfile;
+		this.boot = boot;
 		}
 
 	public String getUpgradeFile()
@@ -32,25 +37,44 @@ public class UpgradeData
 		return upgradeFile;
 		}
 
-	public String getDestination()
+	public ArrayList<OneLine> getCheckdiskspace()
 		{
-		return destination;
+		return checkdiskspace;
 		}
 
-	public String getStartupgrade()
+	public ArrayList<OneLine> getCheckexistingfile()
+		{
+		return checkexistingfile;
+		}
+
+	public ArrayList<OneLine> getFiledelete()
+		{
+		return filedelete;
+		}
+
+	public ArrayList<OneLine> getStartupgrade()
 		{
 		return startupgrade;
 		}
 
-	public ArrayList<OneLine> getBootList()
+	public ArrayList<OneLine> getCheckfile()
 		{
-		return bootList;
+		return checkfile;
 		}
 
-	public String getCheckdiskspace()
+	public ArrayList<OneLine> getBoot()
 		{
-		return checkdiskspace;
+		return boot;
 		}
+
+	public ArrayList<OneLine> getCheckcurrentversion()
+		{
+		return checkcurrentversion;
+		}
+	
+	
+
+	
 
 	
 	/*2020*//*RATEL Alexandre 8)*/

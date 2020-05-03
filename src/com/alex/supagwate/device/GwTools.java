@@ -156,7 +156,7 @@ public class GwTools
 			{
 			for(ItemToProcess item : mi.getAssociatedItems())
 				{
-				Variables.getLogger().info("Adding the "+item.getType().getName()+" "+item.getName()+" to the list as a "+item.getAction().name()+" todo");
+				Variables.getLogger().info("Adding the "+item.getDeviceType().getName()+" "+item.getName()+" to the list as a "+item.getAction().name()+" todo");
 				
 				if(action.equals(actionType.upgrade))item.setInjector(new UpgradeInjector((Device)item));
 				else item.setInjector(new CliInjector((Device)item));

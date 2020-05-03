@@ -23,7 +23,7 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 	protected actionType action;
 	protected statusType status;
 	protected String id,name;
-	protected DeviceType type;
+	protected DeviceType deviceType;
 	protected Injector injector;
 	protected int index;
 	protected ArrayList<ErrorTemplate> errorList;
@@ -32,10 +32,10 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 	/**
 	 * Constructor
 	 */
-	public ItemToProcess(DeviceType type, String name, String patternID, actionType action, int index)
+	public ItemToProcess(DeviceType deviceType, String name, String patternID, actionType action, int index)
 		{
 		super();
-		this.type = type;
+		this.deviceType = deviceType;
 		this.action = action;
 		this.name = name;
 		this.id = DigestUtils.md5Hex(patternID);
@@ -48,7 +48,7 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 	@Override
 	public void build() throws Exception
 		{
-		Variables.getLogger().debug("Starting build for "+type.getName()+" "+name);
+		Variables.getLogger().debug("Starting build for "+deviceType.getName()+" "+name);
 		
 		injector.build();
 		
@@ -59,7 +59,7 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 	@Override
 	public String getDetailedStatus()
 		{
-		Variables.getLogger().debug("Displaying informations for "+type.getName()+" "+name);
+		Variables.getLogger().debug("Displaying informations for "+deviceType.getName()+" "+name);
 		
 		StringBuffer result = new StringBuffer("");
 		
@@ -94,14 +94,14 @@ public abstract class ItemToProcess implements ItemToProcessImpl
 		if(!duplicate)correctionList.add(correction);
 		}
 
-	public DeviceType getType()
+	public DeviceType getDeviceType()
 		{
-		return type;
+		return deviceType;
 		}
 
-	public void setType(DeviceType type)
+	public void setDeviceType(DeviceType deviceType)
 		{
-		this.type = type;
+		this.deviceType = deviceType;
 		}
 
 	public statusType getStatus()

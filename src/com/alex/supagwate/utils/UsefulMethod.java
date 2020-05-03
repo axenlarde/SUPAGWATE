@@ -24,6 +24,7 @@ import org.apache.commons.net.util.SubnetUtils;
 import org.apache.commons.net.util.SubnetUtils.SubnetInfo;
 import org.apache.commons.validator.routines.InetAddressValidator;
 import org.apache.log4j.Level;
+import org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner.noneDSA;
 
 import com.alex.supagwate.cli.CliGetOutput;
 import com.alex.supagwate.cli.CliProfile;
@@ -42,6 +43,7 @@ import com.alex.supagwate.office.Country;
 import com.alex.supagwate.office.CustomSettings;
 import com.alex.supagwate.office.Range;
 import com.alex.supagwate.risport.RisportTools;
+import com.alex.supagwate.upgrade.UpgradeData;
 import com.alex.supagwate.utils.Variables.cucmVersion;
 import com.cisco.schemas.ast.soap.RISService70;
 import com.cisco.schemas.ast.soap.RisPortType;
@@ -336,7 +338,6 @@ public class UsefulMethod
 			try
 				{
 				String[][] tab = result.get(i);
-				ArrayList<String[][]> tabE = extendedList.get(i);
 				
 				/**
 				 * First we check for duplicates
@@ -353,6 +354,88 @@ public class UsefulMethod
 						}
 					}
 				if(found)continue;
+				
+				ArrayList<String[][]> tabE = extendedList.get(i);
+				
+				/**
+				 * We manage the upgrade data
+				 */
+				listParams.add("upgrade");
+				ArrayList<String[][]> resultUpgrade = xMLGear.getResultListTab(UsefulMethod.getFlatFileContent(Variables.getDeviceTypeListFileName()), listParams);
+				ArrayList<ArrayList<String[][]>> extendedListUpgrade = xMLGear.getResultListTabExt(UsefulMethod.getFlatFileContent(Variables.getDeviceTypeListFileName()), listParams);
+				
+				ArrayList<OneLine> checkcurrentversion = new ArrayList<OneLine>();
+				ArrayList<OneLine> checkdiskspace = new ArrayList<OneLine>();
+				ArrayList<OneLine> checkexistingfile = new ArrayList<OneLine>();
+				ArrayList<OneLine> filedelete = new ArrayList<OneLine>();
+				ArrayList<OneLine> startupgrade = new ArrayList<OneLine>();
+				ArrayList<OneLine> checkfile = new ArrayList<OneLine>();
+				ArrayList<OneLine> boot = new ArrayList<OneLine>();
+				
+				String[][] tabUpgrade = resultUpgrade.get(0);
+				ArrayList<String[][]> tabEUpgrade = extendedListUpgrade.get(0);
+				
+				for(int j=0; j<tabUpgrade.length; j++)
+					{
+					if(tabUpgrade[j][0].equals("checkcurrentversion"))
+						{
+						for(String[] s : tabEUpgrade.get(j))
+							{
+							checkcurrentversion.add(new OneLine(s[1],cliType.valueOf(s[0])));
+							}
+						}
+					else if(tabUpgrade[j][0].equals("checkdiskspace"))
+						{
+						for(String[] s : tabEUpgrade.get(j))
+							{
+							checkdiskspace.add(new OneLine(s[1],cliType.valueOf(s[0])));
+							}
+						}
+					else if(tabUpgrade[j][0].equals("checkexistingfile"))
+						{
+						for(String[] s : tabEUpgrade.get(j))
+							{
+							checkexistingfile.add(new OneLine(s[1],cliType.valueOf(s[0])));
+							}
+						}
+					else if(tabUpgrade[j][0].equals("filedelete"))
+						{
+						for(String[] s : tabEUpgrade.get(j))
+							{
+							filedelete.add(new OneLine(s[1],cliType.valueOf(s[0])));
+							}
+						}
+					else if(tabUpgrade[j][0].equals("startupgrade"))
+						{
+						for(String[] s : tabEUpgrade.get(j))
+							{
+							startupgrade.add(new OneLine(s[1],cliType.valueOf(s[0])));
+							}
+						}
+					else if(tabUpgrade[j][0].equals("checkfile"))
+						{
+						for(String[] s : tabEUpgrade.get(j))
+							{
+							checkfile.add(new OneLine(s[1],cliType.valueOf(s[0])));
+							}
+						}
+					else if(tabUpgrade[j][0].equals("boot"))
+						{
+						for(String[] s : tabEUpgrade.get(j))
+							{
+							boot.add(new OneLine(s[1],cliType.valueOf(s[0])));
+							}
+						}
+					}
+				
+				UpgradeData ud = new UpgradeData(UsefulMethod.getItemByName("upgradefile", tabUpgrade),
+						checkcurrentversion,
+						checkdiskspace,
+						checkexistingfile,
+						filedelete,
+						startupgrade,
+						checkfile,
+						boot);
 				
 				ArrayList<OneLine> howToConnect = new ArrayList<OneLine>();
 				ArrayList<OneLine> howToSave = new ArrayList<OneLine>();
@@ -385,6 +468,7 @@ public class UsefulMethod
 				
 				deviceTypeList.add(new DeviceType(UsefulMethod.getItemByName("name", tab),
 						UsefulMethod.getItemByName("vendor", tab),
+						ud,
 						howToConnect,
 						howToSave,
 						howToReboot));

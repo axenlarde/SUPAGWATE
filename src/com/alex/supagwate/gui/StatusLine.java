@@ -64,7 +64,7 @@ public abstract class StatusLine extends JPanel implements StatusLineImpl, Mouse
 			select.setSelected(true);
 			}
 		
-		name = new JLabel(myItem.getName()+" "+myItem.getType().getName()+" : "+myItem.getAction().name());
+		name = new JLabel(myItem.getName()+" "+myItem.getDeviceType().getName()+" : "+myItem.getAction().name());
 		desc = new JLabel("");
 		info = new JLabel(" [..] ");
 		displayResult = new JLabel("waiting");

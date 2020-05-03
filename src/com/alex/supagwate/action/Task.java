@@ -56,7 +56,7 @@ public class Task extends Thread
 			if(myToDo.getErrorList().size() != 0)
 				{
 				//Something happened during the building process so we disable the item
-				Variables.getLogger().info("The following item has been disabled because some errors occurs during its preparation process : "+myToDo.getType().getName()+" "+myToDo.getName());
+				Variables.getLogger().info("The following item has been disabled because some errors occurs during its preparation process : "+myToDo.getDeviceType().getName()+" "+myToDo.getName());
 				for(ErrorTemplate e : myToDo.getErrorList())
 					{
 					Variables.getLogger().debug("- "+e.getTargetName()+" "+e.getIssueName()+" "+e.getErrorDesc()+" "+e.getError().name());

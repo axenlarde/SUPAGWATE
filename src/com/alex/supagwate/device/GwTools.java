@@ -165,10 +165,10 @@ public class GwTools
 				}
 			}
 		
-		Variables.getLogger().info("Office "+type.name()+" preparation process ends");
+		Variables.getLogger().info("Office "+action.name()+" preparation process ends");
 		
 		//The injection task is ready
-		return new Task(myList, type);
+		return new Task(myList, action);
 		}
 	
 	

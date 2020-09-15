@@ -53,8 +53,36 @@ such as the way to authenticate
 			</howtoreboot>
 		</device>
 		<device>
-			<name>VG</name>
+			<name>CUCM</name>
 			<vendor>Cisco</vendor>
+			<upgrade>
+				<upgradefile>file.gwios</upgradefile>
+				<checkcurrentversion>
+					<write>show version | i System image file</write>
+				</checkcurrentversion>
+				<checkdiskspace>
+					<write>show flash: | i bytes available</write>
+				</checkdiskspace>
+				<checkexistingfile>
+					<write>show flash: | i bin</write>
+				</checkexistingfile>
+				<filedelete>
+					<write>delete flash:</write>
+					<write></write>
+				</filedelete>
+				<startupgrade>
+					<write>'copy ftp://'+system.network.1.ip+'/'+file.gwios+'@'+config.ftpuser+':'+ftppassword+' flash:'+file.gwios</write>
+					<write></write>
+				</startupgrade>
+				<checkfile>
+					<write>'verify flash:'+file.gwios</write>
+				</checkfile>
+				<boot>
+					<write>no boot system</write>
+					<write>'boot system flash:'+file.gwios</write>
+					<save></save>
+				</boot>
+			</upgrade>
 			<howtoconnect><!--Used only with telnet connection-->
 				<waitfor>Username:</waitfor>
 				<write>device.user</write>
@@ -66,9 +94,9 @@ such as the way to authenticate
 				<waitfor>[OK]</waitfor>
 			</howtosave>
 			<howtoreboot>
-				<write>reload</write>
-				<write></write>
-				<disconnect></disconnect>
+				<write>utils system restart</write>
+				<write>yes</write>
+				<wait>10000</wait>
 			</howtoreboot>
 		</device>
 	</devices>

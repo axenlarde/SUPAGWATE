@@ -2,9 +2,7 @@ package com.alex.supagwate.action;
 
 import java.util.ArrayList;
 
-import com.alex.supagwate.cli.CliInjector;
 import com.alex.supagwate.cli.CliTools;
-import com.alex.supagwate.device.Device;
 import com.alex.supagwate.misc.ErrorTemplate;
 import com.alex.supagwate.misc.ItemToProcess;
 import com.alex.supagwate.utils.Variables;
@@ -12,7 +10,7 @@ import com.alex.supagwate.utils.Variables.actionType;
 import com.alex.supagwate.utils.Variables.statusType;
 
 /**********************************
- * Abstract class for task
+ * Task
  * 
  * @author RATEL Alexandre
  **********************************/
@@ -39,6 +37,7 @@ public class Task extends Thread
 		pause = true;
 		started = false;
 		end = false;
+		manager = new InjectorManager();
 		}
 	
 	/******

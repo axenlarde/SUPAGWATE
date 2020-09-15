@@ -48,7 +48,6 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 	public JMenu miscMngt;
 	public JMenuItem profileMngt;
 	public JMenuItem officeMngt;
-	public JMenuItem cucmMngt;
 	public JMenu tools;
 	public JMenuItem option;
 	public JMenuItem genProfileFile;
@@ -84,7 +83,6 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 		miscMngt = new JMenu(LanguageManagement.getString("miscmngt"));
 		profileMngt = new JMenuItem(LanguageManagement.getString("profilemngt"));
 		officeMngt = new JMenuItem(LanguageManagement.getString("officemngt"));
-		cucmMngt = new JMenuItem(LanguageManagement.getString("cucmmngt"));
 		exit = new JMenuItem(LanguageManagement.getString("exit"));
 		tools = new JMenu(LanguageManagement.getString("tools"));
 		option = new JMenuItem(LanguageManagement.getString("option"));
@@ -131,7 +129,6 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 		menu.add(gatewayMngt);
 		miscMngt.add(profileMngt);
 		miscMngt.add(officeMngt);
-		miscMngt.add(cucmMngt);
 		menu.add(miscMngt);
 		menu.add(exit);
 		tools.add(option);
@@ -158,7 +155,6 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 		advancedWizard.addActionListener(this);
 		profileMngt.addActionListener(this);
 		officeMngt.addActionListener(this);
-		cucmMngt.addActionListener(this);
 		exit.addActionListener(this);
 		option.addActionListener(this);
 		genProfileFile.addActionListener(this);

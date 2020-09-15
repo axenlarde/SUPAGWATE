@@ -13,9 +13,9 @@ Overal configuration file
 		<pingtimeout>5000</pingtimeout><!--used when trying to reach a device--><!--In millisecond-->
 		<maxpingthread>50</maxpingthread>
 		<maxtaskthread>1</maxtaskthread>
-		<devicepoolprefix>DP_</devicepoolprefix>
 		<maxinfochar>60</maxinfochar>
 		<maxdataprocessed>1000</maxdataprocessed>
+		<allowduplicateip>true</allowduplicateip><!--To allow the same gateway multiple times in the collection file-->
 		<!--Cli parameters-->
 		<maxclithread>10</maxclithread>
 		<cliconnectiontimeout>10000</cliconnectiontimeout>
@@ -46,6 +46,6 @@ Overal configuration file
 		<ftppassword>ftppassword</ftppassword>
 		<ftpdirectory>/FTP</ftpdirectory>
 		<!--Upgrade-->
-		<maxupgradethread>10</maxupgradethread>
+		<maxupgradethread>20</maxupgradethread>
 	</config>
 </xml>

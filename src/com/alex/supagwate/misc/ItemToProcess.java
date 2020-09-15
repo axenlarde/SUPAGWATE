@@ -6,6 +6,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import com.alex.supagwate.action.Injector;
 import com.alex.supagwate.device.DeviceType;
+import com.alex.supagwate.upgrade.UpgradeInjector;
 import com.alex.supagwate.utils.Variables;
 import com.alex.supagwate.utils.Variables.actionType;
 import com.alex.supagwate.utils.Variables.statusType;

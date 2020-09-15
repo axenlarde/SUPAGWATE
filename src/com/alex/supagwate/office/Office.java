@@ -14,6 +14,7 @@ public class Office
 	 * Variables
 	 */
 	private String name,
+	
 	templatename,
 	fullname,
 	internalprefix,

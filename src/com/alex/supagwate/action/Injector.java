@@ -29,7 +29,6 @@ public abstract class Injector extends Thread implements InjectorImpl
 	
 	public void build() throws Exception
 		{
-		
 		doBuild();
 		}
 	

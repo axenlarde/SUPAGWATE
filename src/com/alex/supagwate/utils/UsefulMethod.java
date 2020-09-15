@@ -36,7 +36,6 @@ import com.alex.supagwate.office.Country;
 import com.alex.supagwate.office.CustomSettings;
 import com.alex.supagwate.office.Range;
 import com.alex.supagwate.upgrade.UpgradeData;
-import com.alex.supagwate.utils.Variables.cucmVersion;
 
 
 /**********************************
@@ -319,8 +318,9 @@ public class UsefulMethod
 		
 		listParams.add("devices");
 		listParams.add("device");
-		result = xMLGear.getResultListTab(UsefulMethod.getFlatFileContent(Variables.getDeviceTypeListFileName()), listParams);
-		extendedList = xMLGear.getResultListTabExt(UsefulMethod.getFlatFileContent(Variables.getDeviceTypeListFileName()), listParams);
+		String flatFileContent = UsefulMethod.getFlatFileContent(Variables.getDeviceTypeListFileName());
+		result = xMLGear.getResultListTab(flatFileContent, listParams);
+		extendedList = xMLGear.getResultListTabExt(flatFileContent, listParams);
 		
 		for(int i=0; i<result.size(); i++)
 			{
@@ -350,8 +350,8 @@ public class UsefulMethod
 				 * We manage the upgrade data
 				 */
 				listParams.add("upgrade");
-				ArrayList<String[][]> resultUpgrade = xMLGear.getResultListTab(UsefulMethod.getFlatFileContent(Variables.getDeviceTypeListFileName()), listParams);
-				ArrayList<ArrayList<String[][]>> extendedListUpgrade = xMLGear.getResultListTabExt(UsefulMethod.getFlatFileContent(Variables.getDeviceTypeListFileName()), listParams);
+				ArrayList<String[][]> resultUpgrade = xMLGear.getResultListTab(flatFileContent, listParams);
+				ArrayList<ArrayList<String[][]>> extendedListUpgrade = xMLGear.getResultListTabExt(flatFileContent, listParams);
 				
 				ArrayList<OneLine> checkcurrentversion = new ArrayList<OneLine>();
 				ArrayList<OneLine> checkdiskspace = new ArrayList<OneLine>();
@@ -489,8 +489,9 @@ public class UsefulMethod
 		
 		listParams.add("countries");
 		listParams.add("country");
-		result = xMLGear.getResultListTab(UsefulMethod.getFlatFileContent(Variables.getCountryListFileName()), listParams);
-		extendedList = xMLGear.getResultListTabExt(UsefulMethod.getFlatFileContent(Variables.getCountryListFileName()), listParams);
+		String flatFileContent = UsefulMethod.getFlatFileContent(Variables.getCountryListFileName());
+		result = xMLGear.getResultListTab(flatFileContent, listParams);
+		extendedList = xMLGear.getResultListTabExt(flatFileContent, listParams);
 		
 		for(int i=0; i<result.size(); i++)
 			{
@@ -691,8 +692,9 @@ public class UsefulMethod
 			ArrayList<String> listParams = new ArrayList<String>();
 			listParams.add("profiles");
 			listParams.add("profile");
-			ArrayList<String[][]> result = xMLGear.getResultListTab(UsefulMethod.getFlatFileContent(Variables.getCliProfileListFileName()), listParams);
-			ArrayList<ArrayList<String[][]>> extendedList = xMLGear.getResultListTabExt(UsefulMethod.getFlatFileContent(Variables.getCliProfileListFileName()), listParams);
+			String flatFileContent = UsefulMethod.getFlatFileContent(Variables.getCliProfileListFileName());
+			ArrayList<String[][]> result = xMLGear.getResultListTab(flatFileContent, listParams);
+			ArrayList<ArrayList<String[][]>> extendedList = xMLGear.getResultListTabExt(flatFileContent, listParams);
 			
 			for(int i=0; i<result.size(); i++)
 				{
@@ -719,13 +721,22 @@ public class UsefulMethod
 						}
 					if(found)continue;
 					
+					boolean devicTypeNotFound = true;
+					String deviceTypeS = UsefulMethod.getItemByName("type", tab);
 					for(DeviceType dt : Variables.getDeviceTypeList())
 						{
-						if(dt.getName().equals(UsefulMethod.getItemByName("type", tab)))
+						if(dt.getName().equals(deviceTypeS))
 							{
 							deviceType = dt;
+							devicTypeNotFound = false;
 							break;
 							}
+						}
+					
+					if(devicTypeNotFound)
+						{
+						Variables.getLogger().debug("The following device type was not found, so we do not add the corresponding CliProfile : "+deviceTypeS);
+						continue;
 						}
 					
 					for(int j=0; j<tab.length; j++)
@@ -811,46 +822,6 @@ public class UsefulMethod
 		 */
 		//If needed, just write it here
 		/*************/
-		}
-	
-	/**
-	 * Method which convert a string into cucmAXLVersion
-	 */
-	public static cucmVersion convertStringToCucmVersion(String version)
-		{
-		if(version.contains("80"))
-			{
-			return cucmVersion.version80;
-			}
-		else if(version.contains("85"))
-			{
-			return cucmVersion.version85;
-			}
-		else if(version.contains("105"))
-			{
-			return cucmVersion.version105;
-			}
-		else if(version.contains("110"))
-			{
-			return cucmVersion.version110;
-			}
-		else if(version.contains("115"))
-			{
-			return cucmVersion.version115;
-			}
-		else if(version.contains("120"))
-			{
-			return cucmVersion.version120;
-			}
-		else if(version.contains("125"))
-			{
-			return cucmVersion.version125;
-			}
-		else
-			{
-			//Default : 10.5
-			return cucmVersion.version105;
-			}
 		}
 	
 	
@@ -1017,24 +988,6 @@ public class UsefulMethod
 		{
 		String[] tab =  fullFilePath.split("\\\\");
 		return tab[tab.length-1];
-		}
-	
-	/***
-	 * Method used to get the AXL version from the CUCM
-	 * We contact the CUCM using a very basic request and therefore get the version
-	 * @throws Exception 
-	 */
-	public static cucmVersion getAXLVersionFromTheCUCM() throws Exception
-		{
-		/**
-		 * In this method version we just read the version from the configuration file
-		 * This has to be improved to match the method description
-		 **/
-		cucmVersion AXLVersion;
-		
-		AXLVersion = UsefulMethod.convertStringToCucmVersion("version"+getTargetOption("axlversion"));
-		
-		return AXLVersion;
 		}
 	
 	

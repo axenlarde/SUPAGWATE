@@ -31,25 +31,6 @@ public class Variables
 	/**
 	 * Variables
 	 */
-	//Enum
-	/********************************************
-	 * cucmAXLVersion :
-	 * Is used to set the cucm AXL version used for the injection
-	 ***************************************/
-	public enum cucmVersion
-		{
-		version80,
-		version85,
-		version90,
-		version91,
-		version100,
-		version105,
-		version110,
-		version115,
-		version120,
-		version125
-		};
-	
 	/********************************************
 	 * actionType :
 	 * Is used to set the type of action is going to do a 
@@ -102,7 +83,6 @@ public class Variables
 	private static String configFileName;
 	private static String matcherFileName;
 	private static String officeListFileName;
-	private static String cucmListFileName;
 	private static String countryListFileName;
 	private static String deviceTypeListFileName;
 	private static String cliProfileListFileName;
@@ -136,7 +116,6 @@ public class Variables
 		configFileName = "configFile.xml";
 		matcherFileName = "matchers.xml";
 		officeListFileName = "officeList.xml";
-		cucmListFileName = "cucmList.xml";
 		countryListFileName = "countryList.xml";
 		deviceTypeListFileName = "deviceTypeList.xml";
 		cliProfileListFileName = "cliProfileList.xml";
@@ -276,16 +255,6 @@ public class Variables
 	public static void setOfficeListFileName(String officeListFileName)
 		{
 		Variables.officeListFileName = officeListFileName;
-		}
-
-	public static String getCucmListFileName()
-		{
-		return cucmListFileName;
-		}
-
-	public static void setCucmListFileName(String cucmListFileName)
-		{
-		Variables.cucmListFileName = cucmListFileName;
 		}
 
 	public static String getCountryListFileName()

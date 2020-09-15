@@ -7,6 +7,7 @@ import com.alex.supagwate.cli.CliProfile;
 import com.alex.supagwate.cli.CliProfile.cliProtocol;
 import com.alex.supagwate.misc.ItemToProcess;
 import com.alex.supagwate.office.Office;
+import com.alex.supagwate.upgrade.UpgradeInjector;
 import com.alex.supagwate.utils.UsefulMethod;
 import com.alex.supagwate.utils.Variables;
 import com.alex.supagwate.utils.Variables.actionType;
@@ -41,7 +42,11 @@ public class Device extends ItemToProcess
 		this.password = password;
 		this.office = office;
 		this.connexionProtocol = connexionProtocol;
+		this.cliProfile = cliProfile;
 		this.reachable = reachableStatus.unknown;
+		
+		if(this.action.equals(actionType.upgrade))this.injector = new UpgradeInjector(this);
+		else this.injector = new CliInjector(this);
 		}
 
 	@Override

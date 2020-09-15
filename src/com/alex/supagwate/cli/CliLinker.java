@@ -111,11 +111,12 @@ public class CliLinker
 		if((connection != null) && (connection.isConnected()))connection.close();
 		}
 	
-	public String waitFor(String s) throws ConnectionException, Exception
+	public String waitFor(String s, int timeout) throws ConnectionException, Exception
 		{
 		int timer = 0;
 		
-		Variables.getLogger().debug(device.getInfo()+" : CLI : Waiting for the word :"+s);
+		if(timeout == 0)Variables.getLogger().debug(device.getInfo()+" : CLI : Waiting for the word '"+s+"' forever");
+		else Variables.getLogger().debug(device.getInfo()+" : CLI : Waiting for the word '"+s+"' during '"+timeout+"s'");
 		
 		boolean onlyOnce = true;
 		
@@ -143,12 +144,19 @@ public class CliLinker
 				}
 			
 			clii.sleep(100);
-			if(timer>100)
+			if(timeout == 0)
 				{
-				Variables.getLogger().debug(device.getInfo()+" : CLI : We have been waiting too longfor '"+s+"' so we keep going");
+				//0 is for infinite wait
+				}
+			else if(timer>(timeout*10))
+				{
+				Variables.getLogger().debug(device.getInfo()+" : CLI : We have been waiting too long for '"+s+"' so we keep going");
 				break;
 				}
-			timer++;
+			else
+				{
+				timer++;
+				}
 			}
 		return null;
 		}
@@ -312,7 +320,12 @@ public class CliLinker
 				}
 			case waitfor:
 				{
-				waitFor(l.getCommand());
+				waitFor(l.getCommand(),10);
+				break;
+				}
+			case waitforever:
+				{
+				waitFor(l.getCommand(),0);
 				break;
 				}
 			case write:

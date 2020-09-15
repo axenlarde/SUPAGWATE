@@ -20,6 +20,7 @@ public class OneLine
 		write,
 		wait,
 		waitfor,
+		waitforever,
 		get,
 		writeif,
 		save,

@@ -40,7 +40,6 @@ Language configuration file
 			<miscmngt>Misc</miscmngt>
 			<profilemngt>Profile</profilemngt>
 			<officemngt>Import Office List</officemngt>
-			<cucmmngt>CUCM</cucmmngt>
 			<exit>Exit</exit>
 			<tools>Tools</tools>
 			<option>Options</option>

@@ -10,7 +10,6 @@ office list
 			<templatename>template1</templatename>
 			<internalprefix>331</internalprefix>
 			<receptionnumber>8888</receptionnumber>
-			<cucm>CUCMLab</cucm>
 			<voiceipranges>
 				<range>20.79.16.0/21</range>
 			</voiceipranges>
@@ -33,7 +32,6 @@ office list
 			<templatename>template1</templatename>
 			<internalprefix>332</internalprefix>
 			<receptionnumber>3327500</receptionnumber>
-			<cucm>CUCMLab</cucm>
 			<voiceipranges>
 				<range>20.79.16.0/21</range>
 			</voiceipranges>
@@ -56,7 +54,6 @@ office list
 			<templatename>Template1</templatename>
 			<internalprefix>333</internalprefix>
 			<receptionnumber>123458</receptionnumber>
-			<cucm>CUCMLab</cucm>
 			<voiceipranges>
 				<range>20.79.16.0/24</range>
 				<range>20.79.17.0/24</range>
@@ -81,7 +78,6 @@ office list
 			<templatename>Template1</templatename>
 			<internalprefix>334</internalprefix>
 			<receptionnumber>123459</receptionnumber>
-			<cucm>CUCMLab</cucm>
 			<voiceipranges>
 				<range>20.79.16.0/24</range>
 				<range>20.79.17.0/24</range>
@@ -106,7 +102,6 @@ office list
 			<templatename>Template1</templatename>
 			<internalprefix>335</internalprefix>
 			<receptionnumber>123460</receptionnumber>
-			<cucm>CUCMLab</cucm>
 			<voiceipranges>
 				<range>20.79.16.0/24</range>
 				<range>20.79.17.0/24</range>
@@ -131,7 +126,6 @@ office list
 			<templatename>Template1</templatename>
 			<internalprefix>336</internalprefix>
 			<receptionnumber>123461</receptionnumber>
-			<cucm>CUCMLab</cucm>
 			<voiceipranges>
 				<range>20.79.16.0/24</range>
 				<range>20.79.17.0/24</range>
@@ -156,7 +150,6 @@ office list
 			<templatename>Template1</templatename>
 			<internalprefix>337</internalprefix>
 			<receptionnumber>123462</receptionnumber>
-			<cucm>CUCMLab</cucm>
 			<voiceipranges>
 				<range>20.79.16.0/24</range>
 				<range>20.79.17.0/24</range>
@@ -181,7 +174,6 @@ office list
 			<templatename>Template1</templatename>
 			<internalprefix>338</internalprefix>
 			<receptionnumber>123463</receptionnumber>
-			<cucm>CUCMLab</cucm>
 			<voiceipranges>
 				<range>20.79.16.0/24</range>
 				<range>20.79.17.0/24</range>
@@ -206,7 +198,6 @@ office list
 			<templatename>Template1</templatename>
 			<internalprefix>339</internalprefix>
 			<receptionnumber>123464</receptionnumber>
-			<cucm>CUCMLab</cucm>
 			<voiceipranges>
 				<range>20.79.16.0/24</range>
 				<range>20.79.17.0/24</range>
@@ -231,7 +222,6 @@ office list
 			<templatename>Template1</templatename>
 			<internalprefix>340</internalprefix>
 			<receptionnumber>123465</receptionnumber>
-			<cucm>CUCMLab</cucm>
 			<voiceipranges>
 				<range>20.79.16.0/24</range>
 				<range>20.79.17.0/24</range>

@@ -46,6 +46,8 @@ public class GwTools
 		
 		int lastIndex = CollectionTools.getTheLastIndexOfAColumn(hostNameTemplate);
 		
+		boolean allowDuplicateIP = Boolean.parseBoolean(UsefulMethod.getTargetOption("allowduplicateip"));
+		
 		/**
 		 * We process the gateway list
 		 */
@@ -67,22 +69,26 @@ public class GwTools
 				 */
 				String deviceName = CollectionTools.getValueFromCollectionFile(i, hostNameTemplate, null, true);
 				String IP = CollectionTools.getValueFromCollectionFile(i, gwIPTemplate, null, true);
-				boolean found = false;
-				for(MainItem mi : gwList)
-					{
-					for(ItemToProcess itp : mi.getAssociatedItems())
+				
+				if(!allowDuplicateIP)
+					{	
+					boolean found = false;
+					for(MainItem mi : gwList)
 						{
-						Device d = (Device)itp;
-						if((d.getName()+d.getIp()).equals(deviceName+IP))
+						for(ItemToProcess itp : mi.getAssociatedItems())
 							{
-							Variables.getLogger().debug("line : "+(i+1)+" : Duplicate found, do not adding the device : "+d.getInfo());
-							found = true;
-							break;
+							Device d = (Device)itp;
+							if((d.getName()+d.getIp()).equals(deviceName+IP))
+								{
+								Variables.getLogger().debug("line : "+(i+1)+" : Duplicate found, do not adding the device : "+d.getInfo());
+								found = true;
+								break;
+								}
+							
 							}
-						
 						}
+					if(found)continue;
 					}
-				if(found)continue;
 				/****************/
 				
 				String officeName = CollectionTools.getValueFromCollectionFile(i, officeNameTemplate, null, false);
@@ -108,7 +114,7 @@ public class GwTools
 						}
 					}
 				
-				Variables.getLogger().debug("Processing office : "+myIO.getDescription());
+				Variables.getLogger().debug("Processing device '"+deviceName+"' office '"+myO.getFullname()+"'");
 				
 				myIO.getAssociatedItems().add(new Device(dt,
 						deviceName,

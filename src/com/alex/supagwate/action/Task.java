@@ -76,18 +76,6 @@ public class Task extends Thread
 			 */
 			Variables.getLogger().info("Task begins");
 			
-			for(ItemToProcess myToDo : todoList)
-				{
-				if(myToDo.getStatus().equals(statusType.disabled))
-					{
-					Variables.getLogger().debug("The item \""+myToDo.getName()+"\" has been disabled so we do not process it");
-					}
-				else
-					{
-					manager.getInjectorList().add(myToDo.getInjector());
-					}
-				}
-			
 			/**
 			 * Execution
 			 */
@@ -98,6 +86,17 @@ public class Task extends Thread
 				
 			if(!stop)
 				{
+				for(ItemToProcess myToDo : todoList)
+					{
+					if(myToDo.getStatus().equals(statusType.disabled))
+						{
+						Variables.getLogger().debug("The item \""+myToDo.getName()+"\" has been disabled so we do not process it");
+						}
+					else
+						{
+						manager.getInjectorList().add(myToDo.getInjector());
+						}
+					}
 				manager.start();
 				Variables.getLogger().debug("We wait for the injectors to end");
 				while(manager.isAlive() && (!stop))

@@ -11,7 +11,7 @@ such as the way to authenticate
 			<upgrade>
 				<upgradefile>file.gwios</upgradefile>
 				<checkcurrentversion>
-					<write>show version | i System image file</write>
+					<write>show version | i file</write>
 				</checkcurrentversion>
 				<checkdiskspace>
 					<write>show flash: | i bytes available</write>
@@ -36,7 +36,7 @@ such as the way to authenticate
 					<save></save>
 				</boot>
 			</upgrade>
-			<howtoconnect><!--Used only with telnet connection-->
+			<howtoconnect>
 				<waitfor>Username:</waitfor>
 				<write>device.user</write>
 				<write>device.password</write>

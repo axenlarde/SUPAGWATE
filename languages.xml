@@ -66,6 +66,7 @@ Language configuration file
 			<append>Append</append>
 			<replace>Replace</replace>
 			<newofficeimported>New offices have been imported with success</newofficeimported>
+			<nodevicetoprocess>No device found to process</nodevicetoprocess>
 			<!--Status-->
 			<processing>Processing</processing>
 			<waiting>Waiting</waiting>

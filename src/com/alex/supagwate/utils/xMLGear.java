@@ -103,32 +103,35 @@ public class xMLGear
 			}
 		else
 			{
-			Iterator i = layer.getChildren(node.get(index)).iterator();
-			
-			while(i.hasNext())
+			if(index < node.size())
 				{
-				Element courant = (Element)i.next();
-				Iterator j = courant.getChildren().iterator();
-				ArrayList<String[][]> arr = new ArrayList<String[][]>();
+				Iterator i = layer.getChildren(node.get(index)).iterator();
 				
-				while(j.hasNext())
+				while(i.hasNext())
 					{
-					Element courant2 = (Element)j.next();
-					List list2 = courant2.getChildren();
-					Iterator k = list2.iterator();
-					int a = 0;
-					String[][] tabArgs = new String[list2.size()][2];
+					Element courant = (Element)i.next();
+					Iterator j = courant.getChildren().iterator();
+					ArrayList<String[][]> arr = new ArrayList<String[][]>();
 					
-					while(k.hasNext())
+					while(j.hasNext())
 						{
-						Element courant3 = (Element)k.next();
-						tabArgs[a][0] = (courant3.getName());
-						tabArgs[a][1] = (courant3.getText());
-						a++;
+						Element courant2 = (Element)j.next();
+						List list2 = courant2.getChildren();
+						Iterator k = list2.iterator();
+						int a = 0;
+						String[][] tabArgs = new String[list2.size()][2];
+						
+						while(k.hasNext())
+							{
+							Element courant3 = (Element)k.next();
+							tabArgs[a][0] = (courant3.getName());
+							tabArgs[a][1] = (courant3.getText());
+							a++;
+							}
+						arr.add(tabArgs);
 						}
-					arr.add(tabArgs);
+					listTabResultExt.add(arr);
 					}
-				listTabResultExt.add(arr);
 				}
 			}
 		}

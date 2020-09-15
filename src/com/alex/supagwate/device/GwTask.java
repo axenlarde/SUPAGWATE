@@ -67,57 +67,64 @@ public class GwTask extends Thread
 			 */
 			itemToProcessList = GwTools.setGwList(action, myWW);
 			
-			/**
-			 * Pinging the devices
-			 */
-			Variables.getLogger().info("Pinging devices");
-			PingManager myPM = new PingManager();
-			
-			for(MainItem mi : itemToProcessList)
+			if(itemToProcessList.size() == 0)
 				{
-				for(ItemToProcess itp : mi.getAssociatedItems())
+				JOptionPane.showMessageDialog(null,LanguageManagement.getString("nodevicetoprocess"),"Error",JOptionPane.ERROR_MESSAGE);
+				}
+			else
+				{
+				/**
+				 * Pinging the devices
+				 */
+				Variables.getLogger().info("Pinging devices");
+				PingManager myPM = new PingManager();
+				
+				for(MainItem mi : itemToProcessList)
 					{
-					myPM.getPingList().add(new PingProcess((Device)itp));
+					for(ItemToProcess itp : mi.getAssociatedItems())
+						{
+						myPM.getPingList().add(new PingProcess((Device)itp));
+						}
 					}
+				
+				myWW.getAvancement().setText(" "+LanguageManagement.getString("pingingdevices"));
+				myPM.start();
+				
+				/**
+				 * We need to wait for the ping manager to end before continue
+				 */
+				Variables.getLogger().debug("We wait for the ping manager to end");
+				while(myPM.isAlive())
+					{
+					this.sleep(500);
+					}
+				Variables.getLogger().debug("Ping manager ends");
+				/**
+				 * End Init 
+				 ***************/
+				
+				/********************
+				 * Process
+				 */
+				myWW.getAvancement().setText(" "+LanguageManagement.getString("taskbuilding"));
+				Task myTask = GwTools.prepareGWProcess(itemToProcessList, action);		
+				myTask.build();
+				myTask.start();
+				
+				Variables.getLogger().info("User task of type "+action.name()+" starts");
+				
+				//We launch the user interface panel
+				StatusWindow sw = new StatusWindow(itemToProcessList, myTask, action);
+				Variables.getMyWindow().getContentPane().removeAll();
+				Variables.getMyWindow().getContentPane().add(sw);
+				Variables.getMyWindow().repaint();
+				Variables.getMyWindow().validate();
+				
+				//We launch the class in charge of monitoring and updating the gui
+				new ProgressUpdater(sw, myTask);
+				Variables.getLogger().debug("monitoring thread launched");
+				/*********************/
 				}
-			
-			myWW.getAvancement().setText(" "+LanguageManagement.getString("pingingdevices"));
-			myPM.start();
-			
-			/**
-			 * We need to wait for the ping manager to end before continue
-			 */
-			Variables.getLogger().debug("We wait for the ping manager to end");
-			while(myPM.isAlive())
-				{
-				this.sleep(500);
-				}
-			Variables.getLogger().debug("Ping manager ends");
-			/**
-			 * End Init 
-			 ***************/
-			
-			/********************
-			 * Process
-			 */
-			myWW.getAvancement().setText(" "+LanguageManagement.getString("taskbuilding"));
-			Task myTask = GwTools.prepareGWProcess(itemToProcessList, action);		
-			myTask.build();
-			myTask.start();
-			
-			Variables.getLogger().info("User task of type "+action.name()+" starts");
-			
-			//We launch the user interface panel
-			StatusWindow sw = new StatusWindow(itemToProcessList, myTask, action);
-			Variables.getMyWindow().getContentPane().removeAll();
-			Variables.getMyWindow().getContentPane().add(sw);
-			Variables.getMyWindow().repaint();
-			Variables.getMyWindow().validate();
-			
-			//We launch the class in charge of monitoring and updating the gui
-			new ProgressUpdater(sw, myTask);
-			Variables.getLogger().debug("monitoring thread launched");
-			/*********************/
 			}
 		catch (Exception e)
 			{

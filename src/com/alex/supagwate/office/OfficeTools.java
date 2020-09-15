@@ -119,7 +119,6 @@ public class OfficeTools
 								values[getIndexColumn(cells, "internalprefix")],
 								values[getIndexColumn(cells, "receptionnumber")],
 								UsefulMethod.getCountry(values[getIndexColumn(cells, "country")]),
-								UsefulMethod.getCUCM(values[getIndexColumn(cells, "cucm")]),
 								voiceIpRange,
 								dataIpRange,
 								didRanges,
@@ -174,7 +173,6 @@ public class OfficeTools
 				xmlBuffer.write("			<templatename>"+o.getTemplatename()+"</templatename>"+cr);
 				xmlBuffer.write("			<internalprefix>"+o.getInternalprefix()+"</internalprefix>"+cr);
 				xmlBuffer.write("			<receptionnumber>"+o.getReceptionnumber()+"</receptionnumber>"+cr);
-				xmlBuffer.write("			<cucm>"+o.getCucm().getName()+"</cucm>"+cr);
 				
 				//Voice IP Ranges
 				xmlBuffer.write("			<voiceipranges>"+cr);

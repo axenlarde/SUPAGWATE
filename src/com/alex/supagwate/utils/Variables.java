@@ -18,7 +18,6 @@ import com.alex.supagwate.cli.CliProfile;
 import com.alex.supagwate.device.DeviceType;
 import com.alex.supagwate.ftp.FTPTransfer;
 import com.alex.supagwate.gui.MainWindow;
-import com.alex.supagwate.office.CUCM;
 import com.alex.supagwate.office.Country;
 import com.alex.supagwate.office.Office;
 
@@ -96,7 +95,6 @@ public class Variables
 	private static Logger logger;
 	private static ArrayList<String[][]> tabConfig;
 	private static ArrayList<Office> officeList;
-	private static ArrayList<CUCM> cucmList;
 	private static ArrayList<Country> countryList;
 	private static ArrayList<DeviceType> deviceTypeList;
 	private static eMailSender eMSender;
@@ -208,16 +206,6 @@ public class Variables
 	public static void setOfficeList(ArrayList<Office> officeList)
 		{
 		Variables.officeList = officeList;
-		}
-
-	public synchronized static ArrayList<CUCM> getCucmList()
-		{
-		return cucmList;
-		}
-
-	public static void setCucmList(ArrayList<CUCM> cucmList)
-		{
-		Variables.cucmList = cucmList;
 		}
 
 	public synchronized static ArrayList<Country> getCountryList()

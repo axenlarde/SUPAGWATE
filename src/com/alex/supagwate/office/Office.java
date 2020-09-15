@@ -20,7 +20,6 @@ public class Office
 	receptionnumber;
 	
 	private Country country;
-	private CUCM cucm;
 	
 	//Lists
 	private ArrayList<IPRange> voiceIpRange;
@@ -34,7 +33,7 @@ public class Office
 	 * @throws Exception 
 	 ***************/
 	public Office(String name, String templatename, String fullname, String internalprefix, String receptionnumber,
-			Country country, CUCM cucm, ArrayList<IPRange> voiceIpRange, ArrayList<IPRange> dataIpRange,
+			Country country, ArrayList<IPRange> voiceIpRange, ArrayList<IPRange> dataIpRange,
 			ArrayList<DidRange> didRanges, ArrayList<CustomSettings> settings) throws Exception
 		{
 		super();
@@ -44,7 +43,6 @@ public class Office
 		this.internalprefix = internalprefix;
 		this.receptionnumber = receptionnumber;
 		this.country = country;
-		this.cucm = cucm;
 		this.voiceIpRange = voiceIpRange;
 		this.dataIpRange = dataIpRange;
 		this.didRanges = didRanges;
@@ -129,11 +127,6 @@ public class Office
 	public Country getCountry()
 		{
 		return country;
-		}
-
-	public CUCM getCucm()
-		{
-		return cucm;
 		}
 
 	public ArrayList<IPRange> getVoiceIpRange()

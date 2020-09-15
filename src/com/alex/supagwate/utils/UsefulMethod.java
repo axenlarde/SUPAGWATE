@@ -2,12 +2,9 @@ package com.alex.supagwate.utils;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.net.InetAddress;
 import java.net.NetworkInterface;
-import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Enumeration;
 import java.util.LinkedList;
 
 import javax.net.ssl.HostnameVerifier;
@@ -18,13 +15,11 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 import javax.swing.JFileChooser;
-import javax.xml.ws.BindingProvider;
 
 import org.apache.commons.net.util.SubnetUtils;
 import org.apache.commons.net.util.SubnetUtils.SubnetInfo;
 import org.apache.commons.validator.routines.InetAddressValidator;
 import org.apache.log4j.Level;
-import org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner.noneDSA;
 
 import com.alex.supagwate.cli.CliGetOutput;
 import com.alex.supagwate.cli.CliProfile;
@@ -34,19 +29,14 @@ import com.alex.supagwate.cli.OneLine;
 import com.alex.supagwate.device.Device;
 import com.alex.supagwate.device.DeviceType;
 import com.alex.supagwate.ftp.FTPTransfer;
-import com.alex.supagwate.misc.SimpleRequest;
 import com.alex.supagwate.office.DidRange;
 import com.alex.supagwate.office.IPRange;
 import com.alex.supagwate.office.Office;
-import com.alex.supagwate.office.CUCM;
 import com.alex.supagwate.office.Country;
 import com.alex.supagwate.office.CustomSettings;
 import com.alex.supagwate.office.Range;
-import com.alex.supagwate.risport.RisportTools;
 import com.alex.supagwate.upgrade.UpgradeData;
 import com.alex.supagwate.utils.Variables.cucmVersion;
-import com.cisco.schemas.ast.soap.RISService70;
-import com.cisco.schemas.ast.soap.RisPortType;
 
 
 /**********************************
@@ -310,7 +300,6 @@ public class UsefulMethod
 		{
 		Variables.setDeviceTypeList(initDeviceTypeList());
 		Variables.setCliProfileList(initCliProfileList());
-		Variables.setCucmList(initCUCMList());
 		Variables.setCountryList(initCountryList());
 		Variables.setOfficeList(initOfficeList());
 		}
@@ -484,63 +473,6 @@ public class UsefulMethod
 		return deviceTypeList;
 		}
 	
-	/************
-	 * Method used to initialize the CUCM list from
-	 * the xml file
-	 */
-	public static ArrayList<CUCM> initCUCMList() throws Exception
-		{
-		ArrayList<String> listParams = new ArrayList<String>();
-		ArrayList<String[][]> result;
-		ArrayList<CUCM> cucmList = new ArrayList<CUCM>();
-		
-		Variables.getLogger().info("Initializing the CUCM list from collection file");
-		
-		listParams.add("servers");
-		listParams.add("cucm");
-		result = xMLGear.getResultListTab(UsefulMethod.getFlatFileContent(Variables.getCucmListFileName()), listParams);
-		
-		for(String[][] tab : result)
-			{
-			try
-				{
-				/**
-				 * First we check for duplicates
-				 */
-				String cucmName = UsefulMethod.getItemByName("name", tab);
-				boolean found = false;
-				for(CUCM c : cucmList)
-					{
-					if(c.getName().equals(cucmName))
-						{
-						Variables.getLogger().debug("Duplicate found, do not adding the following CUCM : "+cucmName);
-						found = true;
-						break;
-						}
-					}
-				if(found)continue;
-				
-				cucmList.add(new CUCM(UsefulMethod.getItemByName("name", tab),
-						convertStringToCucmVersion(UsefulMethod.getItemByName("version", tab)),
-						UsefulMethod.getItemByName("ip", tab),
-						UsefulMethod.getItemByName("axlport", tab),
-						UsefulMethod.getItemByName("axlusername", tab),
-						UsefulMethod.getItemByName("axlpassword", tab),
-						UsefulMethod.getItemByName("risport", tab),
-						UsefulMethod.getItemByName("risusername", tab),
-						UsefulMethod.getItemByName("rispassword", tab),
-						UsefulMethod.getItemByName("rismaxphonerequest", tab)));
-				}
-			catch (Exception e)
-				{
-				Variables.getLogger().error("Failed to load a new CUCM : "+e.getMessage(), e);
-				}
-			}
-		
-		Variables.getLogger().debug(cucmList.size()+" cucm found");
-		Variables.getLogger().debug("CUCM list initialization done");
-		return cucmList;
-		}
 	
 	/************
 	 * Method used to initialize the country list from
@@ -583,18 +515,8 @@ public class UsefulMethod
 					}
 				if(found)continue;
 				
-				CUCM cucm = null;
 				ArrayList<CustomSettings> settings = new ArrayList<CustomSettings>();
 				
-				for(CUCM c : Variables.getCucmList())
-					{
-					if(c.getName().equals(UsefulMethod.getItemByName("cucm", tab)))
-						{
-						cucm = c;
-						break;
-						}
-					}
-					
 				for(int j=0; j<tab.length; j++)
 					{
 					if(tab[j][0].equals("customsettings"))
@@ -609,7 +531,6 @@ public class UsefulMethod
 				countryList.add(new Country(UsefulMethod.getItemByName("name", tab),
 						UsefulMethod.getItemByName("e164", tab),
 						Variables.language.valueOf(UsefulMethod.getItemByName("language", tab)),
-						cucm,
 						settings));
 				}
 			catch (Exception e)
@@ -654,7 +575,6 @@ public class UsefulMethod
 					String[][] tab = result.get(i);
 					ArrayList<String[][]> tabE = extendedList.get(i);
 					
-					CUCM cucm = null;
 					Country country = null;
 					ArrayList<IPRange> voiceIpRange = new ArrayList<IPRange>();
 					ArrayList<IPRange> dataIpRange = new ArrayList<IPRange>();
@@ -679,11 +599,7 @@ public class UsefulMethod
 					
 					for(int j=0; j<tab.length; j++)
 						{
-						if(tab[j][0].equals("cucm"))
-							{
-							cucm = getCUCM(tab[j][1]);
-							}
-						else if(tab[j][0].equals("country"))
+						if(tab[j][0].equals("country"))
 							{
 							country = getCountry(tab[j][1]);
 							}
@@ -740,7 +656,6 @@ public class UsefulMethod
 							UsefulMethod.getItemByName("internalprefix", tab),
 							UsefulMethod.getItemByName("receptionnumber", tab),
 							country,
-							cucm,
 							voiceIpRange,
 							dataIpRange,
 							didRanges,
@@ -848,81 +763,6 @@ public class UsefulMethod
 		}
 	
 	
-	/******
-	 * Method used to initialize the AXL Connection to the CUCM
-	 */
-	public static synchronized com.cisco.axlapiservice10.AXLPort initAXLConnectionToCUCM(CUCM host) throws Exception
-		{
-		try
-			{
-			UsefulMethod.disableSecurity();//We first turned off security
-			
-			if(host.getVersion().equals(cucmVersion.version105))
-				{
-				com.cisco.axlapiservice10.AXLAPIService axlService = new com.cisco.axlapiservice10.AXLAPIService();
-				com.cisco.axlapiservice10.AXLPort axlPort = axlService.getAXLPort();
-				
-				// Set the URL, user, and password on the JAX-WS client
-				String validatorUrl = "https://"+host.getIp()+":"+host.getAxlport()+"/axl/";
-				
-				((BindingProvider) axlPort).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, validatorUrl);
-				((BindingProvider) axlPort).getRequestContext().put(BindingProvider.USERNAME_PROPERTY, host.getAxlusername());
-				((BindingProvider) axlPort).getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, host.getAxlpassword());
-				
-				Variables.getLogger().debug(host.getName()+" AXL WSDL Initialization done !");
-				
-				return axlPort;
-				}
-			else
-				{
-				throw new Exception("AXL unsupported version");
-				}
-			}
-		catch (Exception e)
-			{
-			Variables.getLogger().error("Error while initializing AXL CUCM connection : "+e.getMessage(),e);
-			host.setReachable(false);
-			throw e;
-			}
-		}
-	
-	/******
-	 * Method used to initialize the AXL Connection to the CUCM
-	 */
-	public static synchronized RisPortType initRISConnectionToCUCM(CUCM host) throws Exception
-		{
-		try
-			{
-			UsefulMethod.disableSecurity();//We first turned off security
-			
-			if(host.getVersion().equals(cucmVersion.version105))
-				{
-				RISService70 ris = new RISService70();
-				RisPortType risPort = ris.getRisPort70();
-				
-				// Set the URL, user, and password on the JAX-WS client
-				String validatorUrl = "https://"+host.getIp()+":"+host.getRisport()+"/realtimeservice2/services/RISService70";
-				
-				((BindingProvider) risPort).getRequestContext().put(BindingProvider.ENDPOINT_ADDRESS_PROPERTY, validatorUrl);
-				((BindingProvider) risPort).getRequestContext().put(BindingProvider.USERNAME_PROPERTY, host.getRisusername());
-				((BindingProvider) risPort).getRequestContext().put(BindingProvider.PASSWORD_PROPERTY, host.getRispassword());
-				
-				Variables.getLogger().debug(host.getName()+" RIS connection Initialization done !");
-				
-				return risPort;
-				}
-			else
-				{
-				throw new Exception("RIS unsupported version");
-				}
-			}
-		catch (Exception e)
-			{
-			Variables.getLogger().error("Error while initializing RIS CUCM connection : "+e.getMessage(),e);
-			host.setReachable(false);
-			throw e;
-			}
-		}
 	
 	/**
 	 * Method used when the application failed to 
@@ -1265,31 +1105,7 @@ public class UsefulMethod
 			}
 		return false;
 		}
-	
-	/**
-	 * To make a user authenticate by the CUCM 
-	 */
-	public static boolean doAuthenticate(CUCM cucm, String userID, String password)
-		{
-		try
-			{
-			com.cisco.axl.api._10.DoAuthenticateUserReq req = new com.cisco.axl.api._10.DoAuthenticateUserReq();
-			
-			req.setUserid(userID);
-			req.setPassword(password);
-			
-			com.cisco.axl.api._10.DoAuthenticateUserRes resp = cucm.getAXLConnectionToCUCMV105().doAuthenticateUser(req);
-			
-			return Boolean.parseBoolean(resp.getReturn().getUserAuthenticated());
-			}
-		catch (Exception e)
-			{
-			Variables.getLogger().error("ERROR while authenticating user "+userID+" : "+e.getMessage(),e);
-			}
 		
-		return false;
-		}
-	
 	public static cliProtocol getProtocolType(String protocol) throws Exception
 		{
 		for(cliProtocol p : cliProtocol.values())
@@ -1437,20 +1253,6 @@ public class UsefulMethod
 			}
 		
 		throw new Exception("The given cliprofile was not found : "+cliProfileName);
-		}
-	
-	/**
-	 * Used to get a CUCM from the list
-	 * @throws Exception 
-	 */
-	public static CUCM getCUCM(String CUCMName) throws Exception
-		{
-		for(CUCM cucm : Variables.getCucmList())
-			{
-			if(cucm.getName().equals(CUCMName))return cucm;
-			}
-		
-		throw new Exception("The given CUCM was not found : "+CUCMName);
 		}
 	
 	/**

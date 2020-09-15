@@ -18,16 +18,14 @@ public class Country
 	e164;
 	
 	private language lang;
-	private CUCM cucm;
 	private ArrayList<CustomSettings> settings;
 	
-	public Country(String name, String e164, language lang, CUCM cucm, ArrayList<CustomSettings> settings)
+	public Country(String name, String e164, language lang, ArrayList<CustomSettings> settings)
 		{
 		super();
 		this.name = name;
 		this.e164 = e164;
 		this.lang = lang;
-		this.cucm = cucm;
 		this.settings = settings;
 		}
 
@@ -44,11 +42,6 @@ public class Country
 	public language getLang()
 		{
 		return lang;
-		}
-
-	public CUCM getCucm()
-		{
-		return cucm;
 		}
 
 	public ArrayList<CustomSettings> getSettings()

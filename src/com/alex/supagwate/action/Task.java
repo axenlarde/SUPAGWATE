@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import com.alex.supagwate.cli.CliTools;
 import com.alex.supagwate.misc.ErrorTemplate;
 import com.alex.supagwate.misc.ItemToProcess;
+import com.alex.supagwate.misc.MiscTools;
 import com.alex.supagwate.utils.Variables;
 import com.alex.supagwate.utils.Variables.actionType;
 import com.alex.supagwate.utils.Variables.statusType;
@@ -98,6 +99,8 @@ public class Task extends Thread
 						}
 					}
 				manager.start();
+				
+				
 				Variables.getLogger().debug("We wait for the injectors to end");
 				while(manager.isAlive() && (!stop))
 					{
@@ -109,12 +112,23 @@ public class Task extends Thread
 			Variables.getLogger().info("Task ends");
 			
 			/**
+			 * If the FTP server is started we shut it down
+			 */
+			if(Variables.isFtpServerStarted())
+				{
+				Variables.getFtpServer().stop();
+				Variables.setFtpServer(null);
+				}
+			
+			/**
 			 * In case of 'get' instruction, we now write the result in a csv file
 			 */
 			if(action.equals(actionType.set) || action.equals(actionType.get))
 				{
 				CliTools.writeCliGetOutputToCSV();
 				}
+			
+			MiscTools.writeOverallResultToCSV(todoList);
 			
 			/**
 			 * End

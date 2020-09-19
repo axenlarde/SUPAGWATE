@@ -1,11 +1,18 @@
 package com.alex.supagwate.main;
 
+
+import java.io.File;
+
 import org.apache.log4j.Level;
 
+import com.alex.supagwate.device.Device;
+import com.alex.supagwate.device.DeviceType;
+import com.alex.supagwate.ftp.FTPTransfer;
 import com.alex.supagwate.gui.MainWindow;
 import com.alex.supagwate.utils.InitLogging;
 import com.alex.supagwate.utils.UsefulMethod;
 import com.alex.supagwate.utils.Variables;
+import com.alex.supagwate.utils.Variables.actionType;
 
 /**
  * Perceler main class

@@ -1,21 +1,25 @@
 package com.alex.supagwate.ftp;
 
-import org.apache.ftpserver.FtpServer;
+
+import java.util.ArrayList;
+
 import org.apache.ftpserver.FtpServerFactory;
+import org.apache.ftpserver.ftplet.Authority;
 import org.apache.ftpserver.ftplet.UserManager;
+import org.apache.ftpserver.impl.DefaultFtpServer;
 import org.apache.ftpserver.listener.Listener;
 import org.apache.ftpserver.listener.ListenerFactory;
 import org.apache.ftpserver.usermanager.PropertiesUserManagerFactory;
 import org.apache.ftpserver.usermanager.impl.BaseUser;
+import org.apache.ftpserver.usermanager.impl.WritePermission;
 
 import com.alex.supagwate.utils.UsefulMethod;
-import com.alex.supagwate.utils.Variables;
 
 public class FtpTools
 	{
 	
 	
-	public static void startFTPServer()
+	public static DefaultFtpServer startFTPServer() throws Exception
 		{
 		try
 			{
@@ -34,17 +38,22 @@ public class FtpTools
 		    user.setName(UsefulMethod.getTargetOption("ftpuser"));
 		    user.setPassword(UsefulMethod.getTargetOption("ftppassword"));
 		    user.setHomeDirectory(UsefulMethod.getTargetOption("ftpdirectory"));
+		    
+		    ArrayList<Authority> authorities = new ArrayList<Authority>();
+		    authorities.add(new WritePermission());
+		    user.setAuthorities(authorities);
+		   
 		    userManager.save(user);
 			serverFactory.setUserManager(userManager);
 		    
 			//start the server
-			FtpServer server = serverFactory.createServer();
+			DefaultFtpServer server = (DefaultFtpServer) serverFactory.createServer();
 			server.start();
-			Variables.setFtpServer(server);
+			return server;
 			}
 		catch (Exception e)
 			{
-			Variables.getLogger().error("ERROR while starting the FTP server : "+e.getMessage(),e);
+			throw new Exception("ERROR while starting the FTP server : "+e.getMessage(),e);
 			}
 		}
 	

@@ -5,7 +5,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.swing.JOptionPane;
 
@@ -236,7 +238,6 @@ public class OfficeTools
 		
 		throw new Exception("Column name not found");
 		}
-	
 	
 	
 	/*2020*//*RATEL Alexandre 8)*/

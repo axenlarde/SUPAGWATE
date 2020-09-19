@@ -2,6 +2,8 @@ package com.alex.supagwate.ftp;
 
 import java.io.File;
 
+import org.apache.ftpserver.impl.DefaultFtpServer;
+
 import com.alex.supagwate.device.Device;
 import com.alex.supagwate.utils.Variables;
 
@@ -20,8 +22,9 @@ public class FTPTransfer
 	private boolean finish;
 	private float progress;//Transfer progress in percent
 	private Device device;
+	private DefaultFtpServer server;
 	
-	public FTPTransfer(Device device, File transferredFile)
+	public FTPTransfer(Device device, File transferredFile, DefaultFtpServer server)
 		{
 		super();
 		this.device = device;
@@ -29,14 +32,15 @@ public class FTPTransfer
 		this.finish = false;
 		this.progress = 0;
 		this.transferredSize = 0;
+		this.server = server;
 		}
 	
 	private void updateProgress()
 		{
 		if(progress == 0)Variables.getLogger().debug(device.getInfo()+" : Starting FTP transfer for file : "+transferredFile.getName());
 		
-		progress = ((float)transferredFile.length()/(float)transferredSize)*100F;
-		if(transferredFile.length() >= transferredSize)
+		progress = (((float)transferredSize)/((float)transferredFile.length()))*100F;
+		if(transferredSize >= transferredFile.length())
 			{
 			Variables.getLogger().debug(device.getInfo()+" : FTP transfer finished for file : "+transferredFile.getName());
 			finish = true;

@@ -210,7 +210,7 @@ public class MainWindow extends JFrame implements ActionListener, WindowListener
 				}
 			
 			this.getContentPane().removeAll();
-			this.getContentPane().add(new OptionPanel(this, LanguageManagement.getString("upgrade"), myOptionList, actionType.set));
+			this.getContentPane().add(new OptionPanel(this, LanguageManagement.getString("upgrade"), myOptionList, actionType.upgrade));
 			this.repaint();
 			this.validate();
 			}

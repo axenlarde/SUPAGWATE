@@ -24,15 +24,18 @@ such as the way to authenticate
 					<write></write>
 				</filedelete>
 				<startupgrade>
-					<write>'copy ftp://'+system.network.1.ip+'/'+file.gwios+'@'+config.ftpuser+':'+ftppassword+' flash:'+file.gwios</write>
+					<write>'copy ftp://'+system.network.1.ip+'/'+file.gwios+'@'+config.ftpuser+':'+config.ftppassword+' flash:'+file.gwios</write>
 					<write></write>
+					<waitforever>[OK]</waitforever>
 				</startupgrade>
 				<checkfile>
 					<write>'verify flash:'+file.gwios</write>
 				</checkfile>
 				<boot>
+					<write>configure terminal</write>
 					<write>no boot system</write>
 					<write>'boot system flash:'+file.gwios</write>
+					<write>exit</write>
 					<save></save>
 				</boot>
 			</upgrade>

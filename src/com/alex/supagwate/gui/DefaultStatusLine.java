@@ -1,25 +1,12 @@
 package com.alex.supagwate.gui;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JCheckBox;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 
-import com.alex.supagwate.misc.Correction;
-import com.alex.supagwate.misc.ErrorTemplate;
 import com.alex.supagwate.misc.ItemToProcess;
-import com.alex.supagwate.utils.LanguageManagement;
-import com.alex.supagwate.utils.Variables.statusType;
 
 /*************************************
  * Class used to display one line in

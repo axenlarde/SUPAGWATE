@@ -1,28 +1,16 @@
 package com.alex.supagwate.gui;
 
 import java.awt.Color;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.util.ArrayList;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.JCheckBox;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JProgressBar;
 
 import com.alex.supagwate.device.Device;
-import com.alex.supagwate.misc.Correction;
-import com.alex.supagwate.misc.ErrorTemplate;
+import com.alex.supagwate.ftp.FTPTransfer;
 import com.alex.supagwate.misc.ItemToProcess;
-import com.alex.supagwate.utils.LanguageManagement;
 import com.alex.supagwate.utils.UsefulMethod;
-import com.alex.supagwate.utils.Variables.statusType;
 
 /*************************************
  * Class used to display one line in
@@ -60,9 +48,13 @@ public class UpgradeStatusLine extends StatusLine
 	 */
 	public void doUpdateStatus()
 		{
-		int percent = UsefulMethod.getFTPTransfer(((Device)myItem).getIp()).getProgress();
-		progressLabel.setText(percent+"%");
-		progress.setValue(percent);
+		FTPTransfer ftpt = UsefulMethod.getFTPTransfer(((Device)myItem).getIp());
+		if(ftpt != null)
+			{
+			int percent = UsefulMethod.getFTPTransfer(((Device)myItem).getIp()).getProgress();
+			progressLabel.setText(percent+"%");
+			progress.setValue(percent);
+			}
 		}
 	
 	

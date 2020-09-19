@@ -9,6 +9,8 @@ import com.alex.supagwate.cli.ConnectionException;
 import com.alex.supagwate.cli.OneLine;
 import com.alex.supagwate.cli.OneLine.cliType;
 import com.alex.supagwate.device.Device;
+import com.alex.supagwate.ftp.FTPTransfer;
+import com.alex.supagwate.ftp.FtpTools;
 import com.alex.supagwate.misc.CollectionTools;
 import com.alex.supagwate.misc.ErrorTemplate;
 import com.alex.supagwate.utils.UsefulMethod;
@@ -43,9 +45,10 @@ public class UpgradeInjector extends Injector
 		String upgradeFileName = CollectionTools.getRawValue(device.getCliProfile().getDeviceType().getUpgradeData().getUpgradeFile(), device, true);
 		upgradeFile = new File(Variables.getMainDirectory()+"/"+UsefulMethod.getTargetOption("ftpdirectory")+"/"+upgradeFileName);
 		
+		
 		for(Field f : device.getDeviceType().getUpgradeData().getClass().getDeclaredFields())
 			{
-			if(f.getType().getName().equals(checkdiskspace.getClass().getTypeName()))
+			if(f.getType().getName().equals(ArrayList.class.getTypeName()))
 				{
 				ArrayList<OneLine> olList = (ArrayList<OneLine>) f.get(device.getDeviceType().getUpgradeData());
 				ArrayList<OneLine> thisOlList = null;
@@ -56,12 +59,21 @@ public class UpgradeInjector extends Injector
 				
 				for(OneLine ol : olList)
 					{
+					System.out.println("#"+ol.getCommand());
 					OneLine l = new OneLine(ol.getCommand(), ol.getType());
 					l.resolve(device);
 					thisOlList.add(l);
 					}
 				}
 			}
+		//Temp
+		
+		for(OneLine ol : checkexistingfile)
+			{
+			System.out.println("#"+ol.getCommand());
+			}
+		
+		//Temp
 		}
 	
 	public void exec() throws Exception
@@ -102,7 +114,10 @@ public class UpgradeInjector extends Injector
 			boolean skipTransfer = false;
 			Variables.getLogger().debug(device.getInfo()+" : Checking if the file is not already on the flash");
 			for(OneLine ol : checkexistingfile)clil.execute(ol);
+			
+			clil.waitForAReturn();
 			sleep(100);//Just to be sure we got a full response
+			
 			for(String s : clil.getReceiver().getExchange())
 				{
 				if(s.toLowerCase().contains(upgradeFileName.toLowerCase()))
@@ -144,7 +159,18 @@ public class UpgradeInjector extends Injector
 				/**
 				 * Then transfer the file
 				 */
+				FTPTransfer fileTransfer = new FTPTransfer(device, upgradeFile, Variables.getFtpServer());
+				Variables.getLogger().debug(device.getInfo()+" : Starting file download");
+				for(OneLine ol : startupgrade)clil.execute(ol);
 				
+				Variables.getLogger().debug(device.getInfo()+" : Waiting for the file transfer to end");
+				while(!fileTransfer.isFinish())
+					{
+					sleep(1000);
+					Variables.getLogger().debug(device.getInfo()+" : Transfer progress : "+fileTransfer.getProgress()+"%");
+					}
+				
+				Variables.getLogger().debug(device.getInfo()+" : File download ends");
 				}
 			
 			
@@ -155,7 +181,11 @@ public class UpgradeInjector extends Injector
 			 * the whole procedure. We will not retry the transfer because it might be necessary to figure out
 			 * why the first attempt failed
 			 */
+			Variables.getLogger().debug(device.getInfo()+" : Checking file integrity");
+			for(OneLine ol : checkfile)clil.execute(ol);
 			
+			
+			Variables.getLogger().debug(device.getInfo()+" : File download ends");
 			
 			/**
 			 * Finally we configure the boot and save

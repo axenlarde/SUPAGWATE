@@ -165,7 +165,7 @@ public class CliLinker
 	 * Simply wait for a return from the gateway
 	 * @throws ConnectionException, Exception 
 	 */
-	private String waitForAReturn() throws ConnectionException, Exception
+	public String waitForAReturn() throws ConnectionException, Exception
 		{
 		int timer = 0;
 		

@@ -98,37 +98,77 @@ Gateway config file
 			<defaultintercommandtimer>50</defaultintercommandtimer>
 			<config>
 				<write>utils system upgrade initiate</write>
-				<waitforever>Please select</waitforever>
+				<waitforever>Source:</waitforever>
 				<write>3</write>
 				<write></write>
 				<write></write>
 				<write></write>
-				<waitforever>Please select</waitforever>
+				<waitforever>directory:</waitforever>
+				<write>4</write>
+				<waitforever>Successfully installed</waitforever>
+				<wait>1000</wait>
+				<write></write>
+				<write>utils system upgrade initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<write></write>
+				<write></write>
+				<waitforever>directory:</waitforever>
 				<write>5</write>
 				<waitforever>Successfully installed</waitforever>
 				<wait>1000</wait>
 				<write></write>
 				<write>utils system upgrade initiate</write>
-				<waitforever>Please select</waitforever>
+				<waitforever>Source:</waitforever>
 				<write>3</write>
 				<write></write>
 				<write></write>
 				<write></write>
-				<waitforever>Please select</waitforever>
+				<waitforever>directory:</waitforever>
 				<write>6</write>
 				<waitforever>Successfully installed</waitforever>
 				<wait>1000</wait>
 				<write></write>
+			</config>
+		</profile>
+		<profile>
+			<name>CUCMLocalInstall105</name>
+			<type>CUCM</type>
+			<defaultintercommandtimer>50</defaultintercommandtimer>
+			<config>
 				<write>utils system upgrade initiate</write>
-				<waitforever>Please select</waitforever>
+				<waitforever>Source:</waitforever>
 				<write>3</write>
 				<write></write>
-				<write></write>
-				<write></write>
-				<waitforever>Please select</waitforever>
-				<write>7</write>
+				<waitforever>directory:</waitforever>
+				<write>2</write>
+				<waitforever>Downloaded:</waitforever>
+				<write>yes</write>
 				<waitforever>Successfully installed</waitforever>
-				<wait>1000</wait>
+				<wait>5000</wait>
+				<write></write>
+				<write>utils system upgrade initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>3</write>
+				<waitforever>Downloaded:</waitforever>
+				<write>yes</write>
+				<waitforever>Successfully installed</waitforever>
+				<wait>5000</wait>
+				<write></write>
+				<write>utils system upgrade initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>4</write>
+				<waitforever>Downloaded:</waitforever>
+				<write>yes</write>
+				<waitforever>Successfully installed</waitforever>
+				<wait>5000</wait>
 				<write></write>
 			</config>
 		</profile>

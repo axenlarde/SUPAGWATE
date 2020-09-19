@@ -44,7 +44,7 @@ Overal configuration file
 		<ftpport>21</ftpport>
 		<ftpuser>ftpuser</ftpuser>
 		<ftppassword>ftppassword</ftppassword>
-		<ftpdirectory>/FTP</ftpdirectory>
+		<ftpdirectory>./FTP</ftpdirectory>
 		<!--Upgrade-->
 		<maxupgradethread>20</maxupgradethread>
 	</config>

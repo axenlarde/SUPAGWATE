@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import org.apache.ftpserver.FtpServer;
+import org.apache.ftpserver.impl.DefaultFtpServer;
 import org.apache.log4j.Logger;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -17,6 +18,7 @@ import com.alex.supagwate.cli.CliGetOutput;
 import com.alex.supagwate.cli.CliProfile;
 import com.alex.supagwate.device.DeviceType;
 import com.alex.supagwate.ftp.FTPTransfer;
+import com.alex.supagwate.ftp.FtpTools;
 import com.alex.supagwate.gui.MainWindow;
 import com.alex.supagwate.office.Country;
 import com.alex.supagwate.office.Office;
@@ -86,6 +88,7 @@ public class Variables
 	private static String countryListFileName;
 	private static String deviceTypeListFileName;
 	private static String cliProfileListFileName;
+	private static String overallResultFileName;
 	private static ArrayList<String> matcherList;
 	private static String collectionFileName;
 	private static Workbook myWorkbook;
@@ -104,8 +107,9 @@ public class Variables
     private static ArrayList<CliGetOutput> cliGetOutputList;
     
     //FTP
-    private static FtpServer ftpServer;
+    private static DefaultFtpServer ftpServer;
     private static ArrayList<FTPTransfer> ftpTransferList;
+    private static boolean ftpServerStarted;
     
     /**************
      * Constructor
@@ -120,7 +124,8 @@ public class Variables
 		deviceTypeListFileName = "deviceTypeList.xml";
 		cliProfileListFileName = "cliProfileList.xml";
 		languageFileName = "languages.xml";
-		cliGetOutputFileName = "CliGetOutput";
+		cliGetOutputFileName = "cliGetOutput";
+		overallResultFileName = "overallResult";
 		}
 
 	/**
@@ -445,14 +450,39 @@ public class Variables
 		Variables.ftpTransferList = ftpTransferList;
 		}
 
-	public static FtpServer getFtpServer()
+	public static DefaultFtpServer getFtpServer() throws Exception
 		{
+		if(ftpServer == null)
+			{
+			ftpServer = FtpTools.startFTPServer();
+			ftpServerStarted = true;
+			}
 		return ftpServer;
 		}
 
-	public static void setFtpServer(FtpServer ftpServer)
+	public static void setFtpServer(DefaultFtpServer ftpServer)
 		{
 		Variables.ftpServer = ftpServer;
+		}
+
+	public static String getOverallResultFileName()
+		{
+		return overallResultFileName;
+		}
+
+	public static void setOverallResultFileName(String overallResultFileName)
+		{
+		Variables.overallResultFileName = overallResultFileName;
+		}
+
+	public static boolean isFtpServerStarted()
+		{
+		return ftpServerStarted;
+		}
+
+	public static void setFtpServerStarted(boolean ftpServerStarted)
+		{
+		Variables.ftpServerStarted = ftpServerStarted;
 		}
 
 	

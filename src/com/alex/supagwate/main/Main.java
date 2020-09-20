@@ -9,6 +9,7 @@ import com.alex.supagwate.device.Device;
 import com.alex.supagwate.device.DeviceType;
 import com.alex.supagwate.ftp.FTPTransfer;
 import com.alex.supagwate.gui.MainWindow;
+import com.alex.supagwate.misc.CollectionTools;
 import com.alex.supagwate.utils.InitLogging;
 import com.alex.supagwate.utils.UsefulMethod;
 import com.alex.supagwate.utils.Variables;

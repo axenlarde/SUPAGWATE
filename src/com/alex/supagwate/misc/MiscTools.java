@@ -38,7 +38,7 @@ public class MiscTools
 			
 			for(ItemToProcess item : itemList)
 				{
-				csvBuffer.write(item.getName()+splitter+item.getDeviceType()+splitter+item.getStatus()+cr);
+				csvBuffer.write(item.getName()+splitter+item.getDeviceType().getName()+splitter+item.getStatus()+cr);
 				}
 			
 			csvBuffer.flush();

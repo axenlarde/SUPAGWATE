@@ -840,15 +840,25 @@ public class CollectionTools
 	/**
 	 * Used to return what match the given regex
 	 * here we use common java regex instead of my simplified version
+	 * 
+	 * Remember how regex works : if using () to capture a group, you can then use
+	 * group() or group(0) to ignore the group and return everything and then group(1) to return the first match
+	 * 
+	 * Example :
+	 * String is : System image file is "bootflash:packages.conf"
+	 * Regex is : \".*:(.*)\"
+	 * Group(0) return "bootflash:packages.conf"
+	 * Group(1) return packages.conf
 	 */
 	public synchronized static String resolveRegex(String content, String regex)
 		{
-		Pattern begin = Pattern.compile(regex);
-		Matcher mBegin = begin.matcher(content);
+		Pattern pat = Pattern.compile(regex);
+		Matcher m = pat.matcher(content);
 		
-		if(mBegin.find())
+		if(m.find())
 			{
-			return mBegin.group();
+			if(m.groupCount()==0)return m.group();
+			else return m.group(1);
 			}
 		
 		//No match found

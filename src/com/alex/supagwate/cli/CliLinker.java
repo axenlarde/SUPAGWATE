@@ -173,7 +173,7 @@ public class CliLinker
 		
 		while(true)
 			{
-			if(receiver.getExchange().size() > 0)return receiver.getExchange().get(0);
+			if(receiver.getExchange().size() > 0)return receiver.getExchange().get(1);//Should be 1 no ? 0 is what have just sent
 			
 			clii.sleep(100);
 			if(timer>100)
@@ -221,6 +221,20 @@ public class CliLinker
 			{
 			if(cmdTab.length == 4)write(cmdTab[3]);
 			}
+		}
+	
+	public String writeThenRegex(String s) throws ConnectionException, Exception
+		{
+		String[] cmdTab = s.split(":::");
+		String regex = null;
+		if(cmdTab.length==2)regex = cmdTab[1];
+		
+		receiver.getExchange().clear();
+		out.write(cmdTab[0]+carrierReturn);
+		out.flush();
+		String reply = waitForAReturn();
+		if(regex == null)return reply;
+		else return CollectionTools.resolveRegex(reply, regex);
 		}
 	
 	/**
@@ -336,6 +350,11 @@ public class CliLinker
 			case writeif:
 				{
 				writeIf(l.getCommand());
+				break;
+				}
+			case writethenregex:
+				{
+				writeThenRegex(l.getCommand());
 				break;
 				}
 			case get:

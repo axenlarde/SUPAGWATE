@@ -35,6 +35,13 @@ public class UpgradeInjector extends Injector
 	public UpgradeInjector(Device device)
 		{
 		super(device);
+		checkcurrentversion = new ArrayList<OneLine>();
+		checkdiskspace = new ArrayList<OneLine>();
+		checkexistingfile = new ArrayList<OneLine>();
+		filedelete = new ArrayList<OneLine>();
+		startupgrade = new ArrayList<OneLine>();
+		checkfile = new ArrayList<OneLine>();
+		boot = new ArrayList<OneLine>();
 		}
 	
 	public void doBuild() throws Exception
@@ -45,35 +52,50 @@ public class UpgradeInjector extends Injector
 		String upgradeFileName = CollectionTools.getRawValue(device.getCliProfile().getDeviceType().getUpgradeData().getUpgradeFile(), device, true);
 		upgradeFile = new File(Variables.getMainDirectory()+"/"+UsefulMethod.getTargetOption("ftpdirectory")+"/"+upgradeFileName);
 		
+		UpgradeData ud = device.getDeviceType().getUpgradeData();
 		
-		for(Field f : device.getDeviceType().getUpgradeData().getClass().getDeclaredFields())
+		for(OneLine ol : ud.getCheckcurrentversion())
 			{
-			if(f.getType().getName().equals(ArrayList.class.getTypeName()))
-				{
-				ArrayList<OneLine> olList = (ArrayList<OneLine>) f.get(device.getDeviceType().getUpgradeData());
-				ArrayList<OneLine> thisOlList = null;
-				for(Field ff : this.getClass().getDeclaredFields())
-					{
-					if(f.getName().equals(ff.getName()))thisOlList = ((ArrayList<OneLine>) ff.get(this));
-					}
-				
-				for(OneLine ol : olList)
-					{
-					System.out.println("#"+ol.getCommand());
-					OneLine l = new OneLine(ol.getCommand(), ol.getType());
-					l.resolve(device);
-					thisOlList.add(l);
-					}
-				}
+			OneLine l = new OneLine(ol.getCommand(), ol.getType());
+			l.resolve(device);
+			checkcurrentversion.add(l);
 			}
-		//Temp
-		
-		for(OneLine ol : checkexistingfile)
+		for(OneLine ol : ud.getCheckdiskspace())
 			{
-			System.out.println("#"+ol.getCommand());
+			OneLine l = new OneLine(ol.getCommand(), ol.getType());
+			l.resolve(device);
+			checkdiskspace.add(l);
 			}
-		
-		//Temp
+		for(OneLine ol : ud.getCheckexistingfile())
+			{
+			OneLine l = new OneLine(ol.getCommand(), ol.getType());
+			l.resolve(device);
+			checkexistingfile.add(l);
+			}
+		for(OneLine ol : ud.getFiledelete())
+			{
+			OneLine l = new OneLine(ol.getCommand(), ol.getType());
+			l.resolve(device);
+			filedelete.add(l);
+			}
+		for(OneLine ol : ud.getStartupgrade())
+			{
+			OneLine l = new OneLine(ol.getCommand(), ol.getType());
+			l.resolve(device);
+			startupgrade.add(l);
+			}
+		for(OneLine ol : ud.getCheckfile())
+			{
+			OneLine l = new OneLine(ol.getCommand(), ol.getType());
+			l.resolve(device);
+			checkfile.add(l);
+			}
+		for(OneLine ol : ud.getBoot())
+			{
+			OneLine l = new OneLine(ol.getCommand(), ol.getType());
+			l.resolve(device);
+			boot.add(l);
+			}
 		}
 	
 	public void exec() throws Exception
@@ -97,26 +119,28 @@ public class UpgradeInjector extends Injector
 			 */
 			Variables.getLogger().debug(device.getInfo()+" : Checking current version");
 			for(OneLine ol : checkcurrentversion)clil.execute(ol);
+			clil.waitForAReturn();
 			String reply = clil.getReceiver().getExchange().get(1);//We get line 1 because line 0 is what we have just sent
 			String versionFound = reply.split(":")[1].replaceAll("\"", "");
 			Variables.getLogger().debug(device.getInfo()+" : Version found : "+versionFound);
-			if(versionFound.equals(upgradeFileName))
+			if(versionFound.toLowerCase().equals(upgradeFileName.toLowerCase()))
 				{
 				Variables.getLogger().debug(device.getInfo()+" : is already up to date, skipping upgrade");
 				return;
 				}
+			else
+				{
+				Variables.getLogger().debug(device.getInfo()+" : The version is not the one asked so we continue");
+				}
 			
 			/**
 			 * We check that the file is not already on the flash
-			 * 
-			 * If yes we will skip the transfer step
 			 */
 			boolean skipTransfer = false;
 			Variables.getLogger().debug(device.getInfo()+" : Checking if the file is not already on the flash");
 			for(OneLine ol : checkexistingfile)clil.execute(ol);
-			
-			clil.waitForAReturn();
-			sleep(100);//Just to be sure we got a full response
+			clil.waitForAReturn();			
+			reply = clil.getReceiver().getExchange().get(1);//We get line 1 because line 0 is what we have just sent
 			
 			for(String s : clil.getReceiver().getExchange())
 				{

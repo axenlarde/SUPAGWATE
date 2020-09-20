@@ -23,6 +23,7 @@ public class OneLine
 		waitforever,
 		get,
 		writeif,
+		writethenregex,
 		save,
 		reboot
 		};

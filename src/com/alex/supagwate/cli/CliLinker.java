@@ -173,7 +173,7 @@ public class CliLinker
 		
 		while(true)
 			{
-			if(receiver.getExchange().size() > 0)return receiver.getExchange().get(1);//Should be 1 no ? 0 is what have just sent
+			if(receiver.getExchange().size() > 0)return receiver.getExchange().get(1);//Should be 1 no ? 0 is what we have just sent
 			
 			clii.sleep(100);
 			if(timer>100)

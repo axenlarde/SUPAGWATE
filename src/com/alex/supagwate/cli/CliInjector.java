@@ -55,7 +55,7 @@ public class CliInjector extends Injector
 				}
 			catch (Exception e)
 				{
-				Variables.getLogger().error(device.getInfo()+" : CLI : ERROR whith command : "+l.getInfo());
+				Variables.getLogger().error(device.getInfo()+" : CLI : ERROR whith command : "+l.getInfo(), e);
 				device.addError(new ErrorTemplate(device.getInfo()+" : CLI : ERROR whith command : "+l.getInfo()));
 				}
 			}

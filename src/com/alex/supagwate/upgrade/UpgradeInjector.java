@@ -119,8 +119,7 @@ public class UpgradeInjector extends Injector
 			 */
 			Variables.getLogger().debug(device.getInfo()+" : Checking current version");
 			for(OneLine ol : checkcurrentversion)clil.execute(ol);
-			clil.waitForAReturn();
-			String reply = clil.getReceiver().getExchange().get(1);//We get line 1 because line 0 is what we have just sent
+			String reply = clil.waitForAReturn(1).get(0);
 			String versionFound = reply.split(":")[1].replaceAll("\"", "");
 			Variables.getLogger().debug(device.getInfo()+" : Version found : "+versionFound);
 			if(versionFound.toLowerCase().equals(upgradeFileName.toLowerCase()))
@@ -139,8 +138,7 @@ public class UpgradeInjector extends Injector
 			boolean skipTransfer = false;
 			Variables.getLogger().debug(device.getInfo()+" : Checking if the file is not already on the flash");
 			for(OneLine ol : checkexistingfile)clil.execute(ol);
-			clil.waitForAReturn();			
-			reply = clil.getReceiver().getExchange().get(1);//We get line 1 because line 0 is what we have just sent
+			reply = clil.waitForAReturn(1).get(0);			
 			
 			for(String s : clil.getReceiver().getExchange())
 				{

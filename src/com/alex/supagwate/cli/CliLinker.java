@@ -2,6 +2,7 @@ package com.alex.supagwate.cli;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 import com.alex.supagwate.action.Injector;
@@ -90,6 +91,8 @@ public class CliLinker
 					telnetAuth();
 					}
 				}
+			
+			waitForAReturn();//We just wait for the prompt, This way we are sure we are ready to send command
 			}
 		catch (Exception e)
 			{
@@ -165,7 +168,7 @@ public class CliLinker
 	 * Simply wait for a return from the gateway
 	 * @throws ConnectionException, Exception 
 	 */
-	public String waitForAReturn() throws ConnectionException, Exception
+	public ArrayList<String> waitForAReturn(int howManyReturnedValue) throws ConnectionException, Exception
 		{
 		int timer = 0;
 		
@@ -173,7 +176,15 @@ public class CliLinker
 		
 		while(true)
 			{
-			if(receiver.getExchange().size() > 0)return receiver.getExchange().get(1);//Should be 1 no ? 0 is what we have just sent
+			if(receiver.getExchange().size() > howManyReturnedValue)
+				{
+				ArrayList<String> list = new ArrayList<String>();
+				for(int i=0; i<howManyReturnedValue; i++)
+					{
+					list.add(receiver.getExchange().get(i+1));//We start from 1 because 0 is what we have just sent
+					}
+				return list;
+				}
 			
 			clii.sleep(100);
 			if(timer>100)
@@ -184,6 +195,11 @@ public class CliLinker
 			timer++;
 			}
 		return null;
+		}
+	
+	public void waitForAReturn() throws ConnectionException, Exception
+		{
+		waitForAReturn(0);
 		}
 	
 	
@@ -213,7 +229,15 @@ public class CliLinker
 		out.write(cmdTab[0]+carrierReturn);
 		out.flush();
 		
-		if(waitForAReturn().toLowerCase().equals(cmdTab[1].toLowerCase()))
+		waitForAReturn(1);
+		
+		boolean found = false;
+		for(String str : receiver.getExchange())
+			{
+			if(str.toLowerCase().contains(cmdTab[1].toLowerCase()))found = true;
+			}
+		
+		if(found)
 			{
 			write(cmdTab[2]);
 			}
@@ -232,7 +256,7 @@ public class CliLinker
 		receiver.getExchange().clear();
 		out.write(cmdTab[0]+carrierReturn);
 		out.flush();
-		String reply = waitForAReturn();
+		String reply = waitForAReturn(1).get(0);
 		if(regex == null)return reply;
 		else return CollectionTools.resolveRegex(reply, regex);
 		}
@@ -251,25 +275,29 @@ public class CliLinker
 	public void get(String s) throws IOException, Exception
 		{
 		String[] cmdTab = s.split(":::");
-		int howManyToReturn = 2;
+		int howManyToReturn = 1;
 		String regex = null;
 		
-		clii.sleep(100);//Just to be sure we don't get something from the previous command
 		receiver.getExchange().clear();
 		out.write(cmdTab[1]+carrierReturn);
 		out.flush();
 		
-		if(cmdTab.length>2 && Integer.parseInt(cmdTab[2])>2)howManyToReturn = Integer.parseInt(cmdTab[2])+1;
+		if(cmdTab.length>2 && Integer.parseInt(cmdTab[2])>1)howManyToReturn = Integer.parseInt(cmdTab[2]);
 		if(cmdTab.length>3)regex = cmdTab[3];
-		waitForAReturn();
-		clii.sleep(100);//We've seen some latency, so better to wait a bit to get the data
 		
 		//We get just what we need
 		StringBuffer replyWanted = new StringBuffer("");
+		
+		for(String str : waitForAReturn(howManyToReturn))
+			{
+			replyWanted.append(str);
+			}
+		
+		/*
 		for(int i=1;(i<receiver.getExchange().size()) && (i<howManyToReturn); i++)//We start from 1 because the line 0 is just what we've just sent
 			{
 			replyWanted.append(receiver.getExchange().get(i));
-			}
+			}*/
 		
 		//Once we get a return we add it in a CliGetOutput
 		CliGetOutput cgo = UsefulMethod.getCliGetOutput(device);

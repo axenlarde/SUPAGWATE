@@ -10,35 +10,29 @@ such as the way to authenticate
 			<vendor>Cisco</vendor>
 			<upgrade>
 				<upgradefile>file.gwios</upgradefile>
-				<checkhardware>
-					<write>show inventory | i hassis</write><!--"hassis" for Chassis without the C is on purpose-->
-				</checkhardware>
 				<checkcurrentversion>
-					<writethenregex>show version | i image file:::".*:(.*)"</writethenregex>
+					<write>show version | i file</write>
 				</checkcurrentversion>
 				<checkdiskspace>
-					<write>show flash: | i bytes</write>
+					<write>show flash: | i bytes available</write>
 				</checkdiskspace>
 				<checkexistingfile>
-					<write>show flash: | i file.gwios</write>
+					<write>show flash: | i bin</write>
 				</checkexistingfile>
 				<filedelete>
 					<write>delete flash:</write>
 					<write></write>
 				</filedelete>
 				<startupgrade>
-					<write>'copy ftp://'+system.network.0.ip+'/'+file.gwios+'@'+config.ftpuser+':'+config.ftppassword+' flash:'+file.gwios</write>
+					<write>'copy ftp://'+system.network.1.ip+'/'+file.gwios+'@'+config.ftpuser+':'+ftppassword+' flash:'+file.gwios</write>
 					<write></write>
-					<waitforever>[OK]</waitforever>
 				</startupgrade>
 				<checkfile>
 					<write>'verify flash:'+file.gwios</write>
 				</checkfile>
 				<boot>
-					<write>configure terminal</write>
 					<write>no boot system</write>
 					<write>'boot system flash:'+file.gwios</write>
-					<write>exit</write>
 					<save></save>
 				</boot>
 			</upgrade>
@@ -77,7 +71,7 @@ such as the way to authenticate
 					<write></write>
 				</filedelete>
 				<startupgrade>
-					<write>'copy ftp://'+system.network.0.ip+'/'+file.gwios+'@'+config.ftpuser+':'+ftppassword+' flash:'+file.gwios</write>
+					<write>'copy ftp://'+system.network.1.ip+'/'+file.gwios+'@'+config.ftpuser+':'+ftppassword+' flash:'+file.gwios</write>
 					<write></write>
 				</startupgrade>
 				<checkfile>
@@ -101,7 +95,9 @@ such as the way to authenticate
 			</howtosave>
 			<howtoreboot>
 				<write>utils system restart</write>
+				<wait>10000</wait>
 				<write>yes</write>
+				<write></write>
 				<wait>10000</wait>
 			</howtoreboot>
 		</device>

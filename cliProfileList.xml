@@ -93,22 +93,12 @@ Gateway config file
 			</config>
 		</profile>
 		<profile>
-			<name>CUCMLocalInstall</name>
+			<name>CUCMClusterLocalInstall125</name>
 			<type>CUCM</type>
 			<defaultintercommandtimer>50</defaultintercommandtimer>
 			<config>
-				<write>utils system upgrade initiate</write>
-				<waitforever>Source:</waitforever>
-				<write>3</write>
-				<write></write>
-				<write></write>
-				<write></write>
-				<waitforever>directory:</waitforever>
-				<write>4</write>
-				<waitforever>Successfully installed</waitforever>
-				<wait>1000</wait>
-				<write></write>
-				<write>utils system upgrade initiate</write>
+				<wait>10000</wait>
+				<write>utils system upgrade cluster initiate</write>
 				<waitforever>Source:</waitforever>
 				<write>3</write>
 				<write></write>
@@ -116,10 +106,10 @@ Gateway config file
 				<write></write>
 				<waitforever>directory:</waitforever>
 				<write>5</write>
-				<waitforever>Successfully installed</waitforever>
-				<wait>1000</wait>
+				<waitforever>Cluster wide upgrade complete</waitforever>
+				<wait>5000</wait>
 				<write></write>
-				<write>utils system upgrade initiate</write>
+				<write>utils system upgrade cluster initiate</write>
 				<waitforever>Source:</waitforever>
 				<write>3</write>
 				<write></write>
@@ -127,9 +117,148 @@ Gateway config file
 				<write></write>
 				<waitforever>directory:</waitforever>
 				<write>6</write>
-				<waitforever>Successfully installed</waitforever>
-				<wait>1000</wait>
+				<waitforever>Cluster wide upgrade complete</waitforever>
+				<wait>5000</wait>
 				<write></write>
+				<write>utils system upgrade cluster initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<write></write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>7</write>
+				<waitforever>Cluster wide upgrade complete</waitforever>
+				<wait>5000</wait>
+				<write></write>
+				<write>utils system upgrade cluster initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<write></write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>8</write>
+				<waitforever>Cluster wide upgrade complete</waitforever>
+				<wait>5000</wait>
+				<write></write>
+				<write>utils system upgrade cluster initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<write></write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>9</write>
+				<waitforever>Cluster wide upgrade complete</waitforever>
+				<wait>5000</wait>
+				<write></write>
+				<write>utils system upgrade cluster initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<write></write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>10</write>
+				<waitforever>Cluster wide upgrade complete</waitforever>
+				<wait>5000</wait>
+				<write></write>
+				<write>utils system upgrade cluster initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<write></write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>11</write>
+				<waitforever>Cluster wide upgrade complete</waitforever>
+				<wait>5000</wait>
+				<write></write>
+				<write>utils system upgrade cluster initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<write></write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>12</write>
+				<waitforever>Cluster wide upgrade complete</waitforever>
+				<wait>5000</wait>
+				<write></write>
+				<reboot></reboot>
+			</config>
+		</profile>
+		<profile>
+			<name>CUCLocalInstall125</name>
+			<type>CUCM</type>
+			<defaultintercommandtimer>50</defaultintercommandtimer>
+			<config>
+				<wait>10000</wait>
+				<write>utils system upgrade initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>3</write>
+				<waitforever>Successfully installed</waitforever>
+				<wait>5000</wait>
+				<write></write>
+				<write>utils system upgrade initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>4</write>
+				<waitforever>Successfully installed</waitforever>
+				<wait>5000</wait>
+				<write></write>
+				<write>utils system upgrade initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>5</write>
+				<waitforever>Successfully installed</waitforever>
+				<wait>5000</wait>
+				<write></write>
+				<write>utils system upgrade initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>6</write>
+				<waitforever>Successfully installed</waitforever>
+				<wait>5000</wait>
+				<write></write>
+				<write>utils system upgrade initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>7</write>
+				<waitforever>Successfully installed</waitforever>
+				<wait>5000</wait>
+				<write></write>
+				<write>utils system upgrade initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>8</write>
+				<waitforever>Successfully installed</waitforever>
+				<wait>5000</wait>
+				<write></write>
+				<write>utils system upgrade initiate</write>
+				<waitforever>Source:</waitforever>
+				<write>3</write>
+				<write></write>
+				<waitforever>directory:</waitforever>
+				<write>9</write>
+				<waitforever>Successfully installed</waitforever>
+				<wait>5000</wait>
+				<write></write>
+				<reboot></reboot>
 			</config>
 		</profile>
 		<profile>
@@ -199,6 +328,14 @@ Gateway config file
 				<write>show clock</write>
 				<get>Inventory:::show inventory:::1</get>
 				<get>Interface Status:::'show interface '+file.gwinterface1+:::20:::\d{1,3}\\.\d{1,3}\\.\d{1,3}\\.\d{1,3}</get>
+			</config>
+		</profile>
+		<profile>
+			<name>getserial</name>
+			<type>ISR</type>
+			<defaultintercommandtimer>50</defaultintercommandtimer>
+			<config>
+				<get>Serial number:::sh ver | i Processor board ID:::1:::Processor board ID (.*)</get>
 			</config>
 		</profile>
 	</profiles>

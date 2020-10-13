@@ -425,6 +425,7 @@ public class UsefulMethod
 						filedelete,
 						startupgrade,
 						checkfile,
+						UsefulMethod.getItemByName("getmd5regex", tabUpgrade),
 						boot);
 				
 				ArrayList<OneLine> howToConnect = new ArrayList<OneLine>();

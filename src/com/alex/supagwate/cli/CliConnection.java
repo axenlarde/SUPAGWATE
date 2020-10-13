@@ -115,21 +115,21 @@ public class CliConnection implements TelnetNotificationHandler
 		{
 		try
 			{
-			initSSHD();
-			cTech = connectedTech.sshd;
+			initSSH();
+			cTech = connectedTech.jsch;
 			}
 		catch(Exception e)
 			{
-			Variables.getLogger().error("CLI : Failed to connect using apache sshd : "+e.getMessage());
+			Variables.getLogger().error("CLI : Failed to connect using jsch : "+e.getMessage());
 			try
 				{
-				Variables.getLogger().debug("CLI : Trying with jsch");
-				initSSH();
-				cTech = connectedTech.jsch;
+				Variables.getLogger().debug("CLI : Trying with apache sshd");
+				initSSHD();
+				cTech = connectedTech.sshd;
 				}
 			catch (Exception ex)
 				{
-				Variables.getLogger().error("CLI : Failed to connect using apache jsch : "+ex.getMessage());
+				Variables.getLogger().error("CLI : Failed to connect using apache sshd : "+ex.getMessage());
 				throw new ConnectionException("Failed to connect : "+ex.getMessage());
 				}
 			}

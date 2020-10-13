@@ -14,11 +14,11 @@ public class UpgradeData
 	/**
 	 * Variables
 	 */
-	private String upgradeFile;
+	private String upgradeFile, md5Regex;
 	private ArrayList<OneLine> checkcurrentversion, checkdiskspace, checkexistingfile, filedelete, startupgrade, checkfile, boot;
 	
 	public UpgradeData(String upgradeFile, ArrayList<OneLine> checkcurrentversion, ArrayList<OneLine> checkdiskspace, ArrayList<OneLine> checkexistingfile,
-			ArrayList<OneLine> filedelete, ArrayList<OneLine> startupgrade, ArrayList<OneLine> checkfile,
+			ArrayList<OneLine> filedelete, ArrayList<OneLine> startupgrade, ArrayList<OneLine> checkfile, String md5Regex,
 			ArrayList<OneLine> boot)
 		{
 		super();
@@ -29,6 +29,7 @@ public class UpgradeData
 		this.filedelete = filedelete;
 		this.startupgrade = startupgrade;
 		this.checkfile = checkfile;
+		this.md5Regex = md5Regex;
 		this.boot = boot;
 		}
 
@@ -70,6 +71,11 @@ public class UpgradeData
 	public ArrayList<OneLine> getCheckcurrentversion()
 		{
 		return checkcurrentversion;
+		}
+
+	public String getMd5Regex()
+		{
+		return md5Regex;
 		}
 	
 	

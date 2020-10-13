@@ -131,7 +131,7 @@ public class CliLinker
 				if(Pattern.matches("(?i).*"+s+".*",receiver.getExchange().get(i)))
 					{
 					String SToReturn = receiver.getExchange().get(i);
-					receiver.getExchange().clear();
+					//receiver.getExchange().clear();
 					return SToReturn;
 					}
 				else if(onlyOnce)
@@ -272,7 +272,7 @@ public class CliLinker
 	 * Regex will come in a later release
 	 * @throws IOException 
 	 */
-	public void get(String s) throws IOException, Exception
+	public String get(String s) throws IOException, Exception
 		{
 		String[] cmdTab = s.split(":::");
 		int howManyToReturn = 1;
@@ -293,12 +293,6 @@ public class CliLinker
 			replyWanted.append(str);
 			}
 		
-		/*
-		for(int i=1;(i<receiver.getExchange().size()) && (i<howManyToReturn); i++)//We start from 1 because the line 0 is just what we've just sent
-			{
-			replyWanted.append(receiver.getExchange().get(i));
-			}*/
-		
 		//Once we get a return we add it in a CliGetOutput
 		CliGetOutput cgo = UsefulMethod.getCliGetOutput(device);
 		if(cgo == null)
@@ -313,6 +307,7 @@ public class CliLinker
 		cgo.add(new CliGetOutputEntry(cmdTab[0], result));
 		
 		Variables.getLogger().debug(device.getInfo()+" : Data retreived using a 'get' instruction : "+result);
+		return result;
 		}
 	
 	
@@ -339,7 +334,7 @@ public class CliLinker
 			}
 		}
 	
-	public void execute(OneLine l) throws ConnectionException, Exception
+	public String execute(OneLine l) throws ConnectionException, Exception
 		{
 		//Variables.getLogger().debug(device.getInfo()+" : CLI : Sending : "+l.getCommand());
 		switch(l.getType())
@@ -362,13 +357,11 @@ public class CliLinker
 				}
 			case waitfor:
 				{
-				waitFor(l.getCommand(),10);
-				break;
+				return waitFor(l.getCommand(),10);
 				}
 			case waitforever:
 				{
-				waitFor(l.getCommand(),0);
-				break;
+				return waitFor(l.getCommand(),0);
 				}
 			case write:
 				{
@@ -382,13 +375,11 @@ public class CliLinker
 				}
 			case writethenregex:
 				{
-				writeThenRegex(l.getCommand());
-				break;
+				return writeThenRegex(l.getCommand());
 				}
 			case get:
 				{
-				get(l.getCommand());
-				break;
+				return get(l.getCommand());
 				}
 			case save:
 				{
@@ -412,6 +403,7 @@ public class CliLinker
 				break;
 				}
 			}
+		return null;
 		}
 
 	public AnswerReceiver getReceiver()

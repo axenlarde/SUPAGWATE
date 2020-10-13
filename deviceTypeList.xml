@@ -11,28 +11,31 @@ such as the way to authenticate
 			<upgrade>
 				<upgradefile>file.gwios</upgradefile>
 				<checkcurrentversion>
-					<write>show version | i file</write>
+					<writethenregex>show version | i file::::(.*)"</writethenregex>
 				</checkcurrentversion>
 				<checkdiskspace>
-					<write>show flash: | i bytes available</write>
+					<writethenregex>show flash: | i bytes:::(.*) bytes available</writethenregex>
 				</checkdiskspace>
 				<checkexistingfile>
-					<write>show flash: | i bin</write>
+					<write>show flash: | i universal</write>
 				</checkexistingfile>
 				<filedelete>
 					<write>delete flash:</write>
 					<write></write>
 				</filedelete>
 				<startupgrade>
-					<write>'copy ftp://'+system.network.1.ip+'/'+file.gwios+'@'+config.ftpuser+':'+ftppassword+' flash:'+file.gwios</write>
+					<write>'copy ftp://'+system.network.0.ip+'/'+file.gwios+'@'+config.ftpuser+':'+config.ftppassword+' flash:'+file.gwios</write>
 					<write></write>
 				</startupgrade>
 				<checkfile>
-					<write>'verify flash:'+file.gwios</write>
+					<write>'verify /md5 flash:'+file.gwios</write>
+					<waitforever>Done!</waitforever>
 				</checkfile>
+				<getmd5regex>= (.*)</getmd5regex>
 				<boot>
 					<write>no boot system</write>
 					<write>'boot system flash:'+file.gwios</write>
+					<write>exit</write>
 					<save></save>
 				</boot>
 			</upgrade>
@@ -48,6 +51,7 @@ such as the way to authenticate
 			</howtosave>
 			<howtoreboot>
 				<write>reload</write>
+				<write></write>
 				<write></write>
 				<disconnect></disconnect>
 			</howtoreboot>

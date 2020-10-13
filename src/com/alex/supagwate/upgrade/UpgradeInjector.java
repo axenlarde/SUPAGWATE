@@ -2,7 +2,13 @@ package com.alex.supagwate.upgrade;
 
 import java.io.File;
 import java.lang.reflect.Field;
+import java.nio.file.Files;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
+
+import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.io.FileSystemUtils;
+import org.apache.commons.io.FileUtils;
 
 import com.alex.supagwate.action.Injector;
 import com.alex.supagwate.cli.ConnectionException;
@@ -29,8 +35,9 @@ public class UpgradeInjector extends Injector
 	 * Variables
 	 */
 	private File upgradeFile;
-	private String upgradeFileName;
+	private String upgradeFileName, md5Regex;
 	private ArrayList<OneLine> checkcurrentversion, checkdiskspace, checkexistingfile, filedelete, startupgrade, checkfile, boot;
+	private boolean checkFileIntegrity;
 	
 	public UpgradeInjector(Device device)
 		{
@@ -42,6 +49,7 @@ public class UpgradeInjector extends Injector
 		startupgrade = new ArrayList<OneLine>();
 		checkfile = new ArrayList<OneLine>();
 		boot = new ArrayList<OneLine>();
+		checkFileIntegrity = false;
 		}
 	
 	public void doBuild() throws Exception
@@ -49,8 +57,10 @@ public class UpgradeInjector extends Injector
 		/**
 		 * We need to resolve all the needed value 
 		 */
-		String upgradeFileName = CollectionTools.getRawValue(device.getCliProfile().getDeviceType().getUpgradeData().getUpgradeFile(), device, true);
+		upgradeFileName = CollectionTools.getRawValue(device.getCliProfile().getDeviceType().getUpgradeData().getUpgradeFile(), device, true);
 		upgradeFile = new File(Variables.getMainDirectory()+"/"+UsefulMethod.getTargetOption("ftpdirectory")+"/"+upgradeFileName);
+		md5Regex = device.getCliProfile().getDeviceType().getUpgradeData().getMd5Regex();
+		checkFileIntegrity = Boolean.parseBoolean(UsefulMethod.getTargetOption("checkfileintegrity"));
 		
 		UpgradeData ud = device.getDeviceType().getUpgradeData();
 		
@@ -107,8 +117,6 @@ public class UpgradeInjector extends Injector
 			 * 
 			 * here we try to manage every single aspect of the upgrade process to tackle
 			 * every possible error case
-			 * 
-			 * We choose to not add "inter command" timer because we already wait for the gateway to reply
 			 *******************************************/
 			
 			Variables.getLogger().debug(device.getInfo()+" : ########## Starting the upgrade process");
@@ -118,14 +126,12 @@ public class UpgradeInjector extends Injector
 			 * In case the gateway would already been up to date
 			 */
 			Variables.getLogger().debug(device.getInfo()+" : Checking current version");
-			for(OneLine ol : checkcurrentversion)clil.execute(ol);
-			String reply = clil.waitForAReturn(1).get(0);
-			String versionFound = reply.split(":")[1].replaceAll("\"", "");
+			String versionFound = clil.execute(checkcurrentversion.get(0));
 			Variables.getLogger().debug(device.getInfo()+" : Version found : "+versionFound);
 			if(versionFound.toLowerCase().equals(upgradeFileName.toLowerCase()))
 				{
 				Variables.getLogger().debug(device.getInfo()+" : is already up to date, skipping upgrade");
-				return;
+				//return;
 				}
 			else
 				{
@@ -138,7 +144,8 @@ public class UpgradeInjector extends Injector
 			boolean skipTransfer = false;
 			Variables.getLogger().debug(device.getInfo()+" : Checking if the file is not already on the flash");
 			for(OneLine ol : checkexistingfile)clil.execute(ol);
-			reply = clil.waitForAReturn(1).get(0);			
+			
+			this.sleep(100);//Just to be sure
 			
 			for(String s : clil.getReceiver().getExchange())
 				{
@@ -157,8 +164,7 @@ public class UpgradeInjector extends Injector
 				 * We check the disk space
 				 */
 				Variables.getLogger().debug(device.getInfo()+" : Checking the available disk space");
-				for(OneLine ol : checkdiskspace)clil.execute(ol);
-				long availableSpace = Long.parseLong(clil.getReceiver().getExchange().get(1).split(" ")[0]);
+				long availableSpace = Long.parseLong(clil.execute(checkcurrentversion.get(0)));
 				
 				Variables.getLogger().debug(device.getInfo()+" : Available disk space : "+availableSpace);
 				
@@ -203,17 +209,52 @@ public class UpgradeInjector extends Injector
 			 * the whole procedure. We will not retry the transfer because it might be necessary to figure out
 			 * why the first attempt failed
 			 */
-			Variables.getLogger().debug(device.getInfo()+" : Checking file integrity");
-			for(OneLine ol : checkfile)clil.execute(ol);
-			
-			
-			Variables.getLogger().debug(device.getInfo()+" : File download ends");
+			if(checkFileIntegrity)
+				{
+				Variables.getLogger().debug(device.getInfo()+" : Checking file integrity");
+				for(OneLine ol : checkfile)clil.execute(ol);
+				
+				this.sleep(100);//Just to be sure
+				String md5 = null;
+				
+				for(String s : clil.getReceiver().getExchange())
+					{
+					if(Pattern.matches(md5Regex, s))
+						{
+						md5 = CollectionTools.resolveRegex(s, md5Regex);//To extract only the md5 hash
+						break;
+						}
+					}
+				
+				if(md5 == null)
+					{
+					Variables.getLogger().debug(device.getInfo()+" : md5 file hash not found, aborting");
+					throw new Exception("File md5 hash not found, aborting process");
+					}
+				
+				Variables.getLogger().debug(device.getInfo()+" : md5 file hash returned is = "+md5);
+				
+				Variables.getLogger().debug(device.getInfo()+" : Computing file hash for file : "+upgradeFileName);
+				String fileMD5Hash = DigestUtils.md5Hex(FileUtils.readFileToByteArray(upgradeFile));
+				Variables.getLogger().debug(device.getInfo()+" : File hash computed is = "+fileMD5Hash);
+				
+				if(md5.equals(fileMD5Hash))
+					{
+					Variables.getLogger().debug(device.getInfo()+" : File hash matched");
+					}
+				else
+					{
+					Variables.getLogger().debug(device.getInfo()+" : File hash mismatch, file seams to be corrupted, aborting upgrade process");
+					throw new Exception("File md5 hash mismatch, aborting process");
+					}
+				}
 			
 			/**
 			 * Finally we configure the boot and save
 			 */
+			for(OneLine ol : boot)clil.execute(ol);
 			
-			
+			Variables.getLogger().debug(device.getInfo()+" : Upgrade process ends with success");
 			}
 		catch (ConnectionException ce)
 			{

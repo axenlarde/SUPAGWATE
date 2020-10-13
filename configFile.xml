@@ -47,5 +47,6 @@ Overal configuration file
 		<ftpdirectory>/FTP</ftpdirectory>
 		<!--Upgrade-->
 		<maxupgradethread>20</maxupgradethread>
+		<checkfileintegrity>true</checkfileintegrity>
 	</config>
 </xml>

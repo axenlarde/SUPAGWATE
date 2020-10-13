@@ -338,5 +338,21 @@ Gateway config file
 				<get>Serial number:::sh ver | i Processor board ID:::1:::Processor board ID (.*)</get>
 			</config>
 		</profile>
+		<profile>
+			<name>getModel</name>
+			<type>ISR</type>
+			<defaultintercommandtimer>50</defaultintercommandtimer>
+			<config>
+				<get>Model:::show inventory | i hassis:::1:::"(.*)/.*",</get>
+			</config>
+		</profile>
+		<profile>
+			<name>getModel4000</name>
+			<type>ISR</type>
+			<defaultintercommandtimer>50</defaultintercommandtimer>
+			<config>
+				<get>Model:::sh ver | i cisco ISR:::1:::cisco (.*)/K9</get>
+			</config>
+		</profile>
 	</profiles>
 </xml>

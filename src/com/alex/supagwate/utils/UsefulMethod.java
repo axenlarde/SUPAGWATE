@@ -37,6 +37,7 @@ import com.alex.supagwate.office.Country;
 import com.alex.supagwate.office.CustomSettings;
 import com.alex.supagwate.office.Range;
 import com.alex.supagwate.upgrade.UpgradeData;
+import com.alex.supagwate.upgrade.UpgradeFile;
 
 
 /**********************************
@@ -79,11 +80,10 @@ public class UsefulMethod
 	
 	/***************************************
 	 * Method used to get a specific value
-	 * in the user preference XML File
+	 * in the XML configuration file
 	 ***************************************/
 	public synchronized static String getTargetOption(String node) throws Exception
 		{
-		//We first seek in the configFile.xml
 		for(String[] s : Variables.getTabConfig().get(0))
 			{
 			if(s[0].equals(node))return s[1];
@@ -1262,6 +1262,16 @@ public class UsefulMethod
 			Variables.getLogger().error("ERROR while looking for my IP : "+e.getMessage(),e);
 			}
 		return "";//Not found
+		}
+	
+	public static UpgradeFile getUpgradeFile(String fileName)
+		{
+		for(UpgradeFile uf : Variables.getUpgradeFileList())
+			{
+			if(uf.getName().equals(fileName))return uf;
+			}
+		
+		return null;//Not found
 		}
 	
 	/*2020*//*RATEL Alexandre 8)*/

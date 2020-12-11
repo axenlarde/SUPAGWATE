@@ -22,6 +22,7 @@ import com.alex.supagwate.ftp.FtpTools;
 import com.alex.supagwate.gui.MainWindow;
 import com.alex.supagwate.office.Country;
 import com.alex.supagwate.office.Office;
+import com.alex.supagwate.upgrade.UpgradeFile;
 
 /**********************************
  * Used to store static variables
@@ -95,6 +96,7 @@ public class Variables
 	private static MainWindow mainWindow;
 	private static JFrame myWindow;
 	private static ArrayList<String> allowedItemsToProcess;
+	private static ArrayList<UpgradeFile> upgradeFileList;
 	
 	//Langage management
 	public enum language{english,french};
@@ -126,6 +128,7 @@ public class Variables
 		languageFileName = "languages.xml";
 		cliGetOutputFileName = "cliGetOutput";
 		overallResultFileName = "overallResult";
+		upgradeFileList = new ArrayList<UpgradeFile>();
 		}
 
 	/**
@@ -483,6 +486,16 @@ public class Variables
 	public static void setFtpServerStarted(boolean ftpServerStarted)
 		{
 		Variables.ftpServerStarted = ftpServerStarted;
+		}
+
+	public static ArrayList<UpgradeFile> getUpgradeFileList()
+		{
+		return upgradeFileList;
+		}
+
+	public static void setUpgradeFileList(ArrayList<UpgradeFile> upgradeFileList)
+		{
+		Variables.upgradeFileList = upgradeFileList;
 		}
 
 	

@@ -106,6 +106,19 @@ public class UpgradeInjector extends Injector
 			l.resolve(device);
 			boot.add(l);
 			}
+		
+		/**
+		 * Here we compute the upgrade file MD5 Hash and store
+		 * it to avoid computing it twice 
+		 */
+		if(checkFileIntegrity)
+			{
+			//First we check that the file is not already in the list
+			if(UsefulMethod.getUpgradeFile(upgradeFileName) == null)
+				{
+				
+				}
+			}
 		}
 	
 	public void exec() throws Exception
@@ -236,6 +249,10 @@ public class UpgradeInjector extends Injector
 				
 				Variables.getLogger().debug(device.getInfo()+" : Computing file hash for file : "+upgradeFileName);
 				String fileMD5Hash = DigestUtils.md5Hex(FileUtils.readFileToByteArray(upgradeFile));
+				/**
+				 * Enhanced by computing the hash only once
+				 */
+				
 				Variables.getLogger().debug(device.getInfo()+" : File hash computed is = "+fileMD5Hash);
 				
 				if(md5.equals(fileMD5Hash))
